@@ -28,7 +28,7 @@ public class Connect {
 	
 	/** mysql  **/
 	String drive = "com.mysql.jdbc.Driver";
-	String url = "jdbc:mysql://localhost:9806/test?characterEncoding=utf8";
+	String url = "jdbc:mysql://localhost:9806/test";
 	String name = "root";
 	String password = "123456";
 	

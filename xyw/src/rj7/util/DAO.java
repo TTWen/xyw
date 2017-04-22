@@ -15,7 +15,7 @@ public class DAO {
 	 * @return
 	 */
 	public Object findById(String tblname, String id, Class<?> cls) {
-		String sql = "select * from "+ tblname +"where id = "+ id;
+		String sql = "select * from "+ tblname +" where id = ?";
 		List<Object> param = new ArrayList<Object>();
 		param.add(id);
 		List<Object> rs = conn.queryForArrObject(sql, param, cls);
