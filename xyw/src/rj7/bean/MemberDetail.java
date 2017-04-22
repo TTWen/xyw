@@ -3,13 +3,13 @@ package rj7.bean;
 public class MemberDetail {
 
 	private String id;
-	private String icon; // 头像
-	private String attcnt; // 关注数
-	private String fanscnt; // 粉丝数
-	private String coincnt; // 金币数
-	private String experience; // 经验值
-	private String ip; // 登录ip
-	private String lastlogtime; // 最近一次登录时间
+	private String icon; 
+	private String attcnt; 
+	private String fanscnt; 
+	private String coincnt; 
+	private String experience; //  缁忛獙值
+	private String ip; // 鐧诲綍ip
+	private String lastlogtime; // 涓婃鐧诲綍鏃堕棿
 	
 	public String getId() {
 		return id;

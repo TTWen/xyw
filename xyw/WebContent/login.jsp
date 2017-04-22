@@ -19,7 +19,6 @@
 			<a class="switch_btn" id="switch_login" href="javascript:void(0);" tabindex="8">快速注册</a><div class="switch_bottom" id="switch_bottom" style="position: absolute; width: 64px; left: 0px;"></div>
         </div>
     </div>    
-  
     
     <div class="web_qr_login" id="web_qr_login" style="display: block; height: 235px;">    
 
@@ -27,25 +26,24 @@
             <div class="web_login" id="web_login">
             <div class="login-box">
 				<div class="login_form">
-					<form action="UserServlet" name="loginform" accept-charset="utf-8" id="login_form" class="loginForm" method="post">
+					<form action="LogRegServ" name="loginform" accept-charset="utf-8" id="login_form" class="loginForm" method="post">
 						<input type="hidden" name="did" value="0"/>
-	              		<input type="hidden" name="to" value="log"/>
 	                	<div class="uinArea" id="uinArea">
 	                		<label class="input-tips" for="u">帐号：</label>
 	                		<div class="inputOuter" id="uArea">
-	                    		<input type="text" id="u" name="memid" class="inputstyle"/>
+	                    		<input type="text" id="username" name="username" class="inputstyle"/>
 	               			</div>
 	                	</div>
 	               		<div class="pwdArea" id="pwdArea">
 	               			<label class="input-tips" for="p">密码：</label> 
 	               			<div class="inputOuter" id="pArea">
-	                    		<input type="password" id="p" name="pswd" class="inputstyle"/>
+	                    		<input type="password" id="pswd" name="pswd" class="inputstyle"/>
 	                		</div>
 	                	</div>
 	                	<div style="padding-left:50px;margin-top:20px;">
 	                		<input type="submit" value="登 录" style="width:150px;" class="button_blue"/>
 	                	</div>
-	                	<input type="hidden" name="doWhat" value="login">
+	                	<input type="hidden" name="dowhat" value="log">
 	              	</form>
 	           </div>
            </div>
@@ -57,27 +55,24 @@
   <!--注册-->
     <div class="qlogin" id="qlogin" style="display: none; ">
    
-    <div class="web_login"><form name="form2" id="regUser" accept-charset="utf-8"  action="UserServlet" method="post">
-	      <input type="hidden" name="to" value="reg"/>
-		      		       <input type="hidden" name="did" value="0"/>
+    <div class="web_login">
+    	<form name="form2" id="regUser" accept-charset="utf-8"  action="LogRegServ" method="post">
+		<input type="hidden" name="did" value="0"/>
         <ul class="reg_form" id="reg-ul">
-        		<!-- <div id="userCue" class="cue">快速注册请注意格式</div> -->
                 <li>
-                	
                     <label for="user"  class="input-tips2">用户名：</label>
                     <div class="inputOuter2">
-                        <input type="text" id="user" name="memid" maxlength="16" class="inputstyle2"/>
+                        <input type="text" id="username" name="username" maxlength="16" class="inputstyle2"/>
                     </div>
-                    
                 </li>
                 
                 <li>
                 <label for="passwd" class="input-tips2">密码：</label>
                     <div class="inputOuter2">
-                        <input type="password" id="passwd"  name="pswd" maxlength="16" class="inputstyle2"/>
+                        <input type="password" id="pswd"  name="pswd" maxlength="16" class="inputstyle2"/>
                     </div>
-                    
                 </li>
+                
                 <!-- 
                 <li>
                 <label for="passwd2" class="input-tips2">确认密码：</label>
@@ -104,7 +99,7 @@
                     
                 </li><div class="cl"></div>
             </ul>
-            <input type="hidden" name="doWhat" value="login">
+            <input type="hidden" name="dowhat" value="reg">
             </form>
            
     
