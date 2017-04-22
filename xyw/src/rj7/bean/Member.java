@@ -1,17 +1,38 @@
 package rj7.bean;
 
-public class Member extends User {
+public class Member {
 
+	private String id;
+	private String username;
+	private String pswd;
 	private String phone;
 	private String email;
 	private String age;
 	private String sex;
 	private String birth;
 	private String school;
-	private String city; // 现居城市
-	private String registtime; // 注册日期 获取系统日期
-	private String isrealname; // 是否实名认证  默认值：0
+	private String city; 
+	private String registtime; 
+	private String isrealname; 
 	
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
+	public String getUsername() {
+		return username;
+	}
+	public void setUsername(String username) {
+		this.username = username;
+	}
+	public String getPswd() {
+		return pswd;
+	}
+	public void setPswd(String pswd) {
+		this.pswd = pswd;
+	}
 	public String getPhone() {
 		return phone;
 	}
