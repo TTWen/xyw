@@ -1,17 +1,17 @@
 package rj7.bean;
-//ÍÆËÍjavabean
-public class Tuisong {				//ÍÆËÍ
-	private String tid;				//ÍÆËÍid
-	private String admid;       	//·¢²¼ÍÆËÍµÄ¹ÜÀíÔ±id
-	private String ttype;      		//ÍÆËÍÀàĞÍ
-	private String thead;      	 	//ÍÆËÍ±êÌâ     
-	private String tcontent;    	//ÍÆËÍÄÚÈİ    
-	private String ttime;       	//ÍÆËÍ·¢²¼Ê±¼ä     
-	private String tstatus;     	//ÍÆËÍ×´Ì¬ ,ÊÇ·ñ¿ÉÒÔ²é¿´   
-	private String browsecnt; 	//ÍÆËÍä¯ÀÀÁ¿    
-	private String dianzancnt;	//ÍÆËÍµãÔŞÁ¿
-	private String zhuanfacnt;	//ÍÆËÍ×ª·¢Á¿
-	private String pingluncnt;	//ÍÆËÍÆÀÂÛÁ¿
+//æ¨é€javabean
+public class Tuisong {				//æ¨é€
+	private String tid;				//æ¨é€id
+	private String admid;       	//å‘å¸ƒæ¨é€çš„ç®¡ç†å‘˜id
+	private String type;      		//æ¨é€ç±»å‹
+	private String head;      	 	//æ¨é€æ ‡é¢˜     
+	private String content;    	//æ¨é€å†…å®¹    
+	private String time;       	//æ¨é€å‘å¸ƒæ—¶é—´     
+	private String status;     	//æ¨é€çŠ¶æ€ ,æ˜¯å¦å¯ä»¥æŸ¥çœ‹   
+	private String browsecnt; 	//æ¨é€æµè§ˆé‡    
+	private String dianzancnt;	//æ¨é€ç‚¹èµé‡
+	private String zhuanfacnt;	//æ¨é€è½¬å‘é‡
+	private String pingluncnt;	//æ¨é€è¯„è®ºé‡
 	public String getTid() {
 		return tid;
 	}
@@ -24,35 +24,35 @@ public class Tuisong {				//ÍÆËÍ
 	public void setAdmid(String admid) {
 		this.admid = admid;
 	}
-	public String getTtype() {
-		return ttype;
+	public String getType() {
+		return type;
 	}
-	public void setTtype(String ttype) {
-		this.ttype = ttype;
+	public void setType(String type) {
+		this.type = type;
 	}
-	public String getThead() {
-		return thead;
+	public String getHead() {
+		return head;
 	}
-	public void setThead(String thead) {
-		this.thead = thead;
+	public void setHead(String head) {
+		this.head = head;
 	}
-	public String getTcontent() {
-		return tcontent;
+	public String getContent() {
+		return content;
 	}
-	public void setTcontent(String tcontent) {
-		this.tcontent = tcontent;
+	public void setContent(String content) {
+		this.content = content;
 	}
-	public String getTtime() {
-		return ttime;
+	public String getTime() {
+		return time;
 	}
-	public void setTtime(String ttime) {
-		this.ttime = ttime;
+	public void setTime(String time) {
+		this.time = time;
 	}
-	public String getTstatus() {
-		return tstatus;
+	public String getStatus() {
+		return status;
 	}
-	public void setTstatus(String tstatus) {
-		this.tstatus = tstatus;
+	public void setStatus(String status) {
+		this.status = status;
 	}
 	public String getBrowsecnt() {
 		return browsecnt;

@@ -1,82 +1,138 @@
 package rj7.dao.tuisong;
-
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-
+import java.util.*;
 import rj7.bean.Tuisong;
 import rj7.util.Connect;
-//ÍÆËÍ½Ó¿ÚÊµÏÖ
+//æ¨é€æ¥å£å®ç°
 
-public class TuisongDAOImpl implements TuisongDAO {
+public class TuisongDAOImpl implements ITuisongDAO {
 	@Override
-	//Ìí¼ÓÍÆËÍ
+	//æ·»åŠ æ¨é€
 	public boolean doCreate(Tuisong t) throws Exception {
 		// TODO Auto-generated method stub
 		boolean flag = false;
-		Connect conn=Connect.getInstance();
-		//»ñÈ¡Á¬½ÓÊµÀı
+		Connect conn=Connect.getInstance(); //è·å–è¿æ¥å®ä¾‹
+		Date date=new Date();				//è·å–ç³»ç»Ÿæ—¶é—´å¹¶è¿›è¡Œæ ¼å¼åŒ–
+		DateFormat format=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		String time=format.format(date);
+	    t.setTime(time);
 		String sql = "insert into tbltuisong"
-				+ "(tid,admid,ttype,thead,tcontent,ttime,tstatus,browsecnt,dianzancnt,zhuanfacnt,pingluncnt)"
-				+"values(?,?,?,?,?,?,?,?,?,?,?)";			//sqlÓï¾ä
-			ArrayList<Object> param=new ArrayList();		//paramÎª²ÎÊıÁĞ±í
-			param.add(t.getTid());							//ÏòparamÖĞÌí¼Ó²ÎÊı
+				+ "(tid,admid,type,head,content,time,status,browsecnt,dianzancnt,zhuanfacnt,pingluncnt)"
+				+"values(?,?,?,?,?,?,?,?,?,?,?)";			//sqlè¯­å¥
+			ArrayList<Object> param=new ArrayList();		//paramä¸ºå‚æ•°åˆ—è¡¨
+			param.add(t.getTid());							//å‘paramä¸­æ·»åŠ å‚æ•°
 			param.add(t.getAdmid());
-			param.add(t.getTtype());
-			param.add(t.getThead());
-			param.add(t.getTcontent());
-			param.add(t.getTtime());
-			param.add(t.getTstatus());
+			param.add(t.getType());
+			param.add(t.getHead());
+			param.add(t.getContent());
+			param.add(t.getTime());
+			param.add(t.getStatus());
 			param.add(t.getBrowsecnt());
 			param.add(t.getDianzancnt());
 			param.add(t.getZhuanfacnt());
 			param.add(t.getPingluncnt());
-		    if(conn.update(sql, param)!=0){					//Ö´ĞĞsqlÓï¾ä·µ»ØÖ´ĞĞ½á¹ûÊı
+		    if(conn.update(sql, param)!=0){					//æ‰§è¡Œsqlè¯­å¥è¿”å›æ‰§è¡Œç»“æœæ•°
 			flag = true;
 		    }
-		    return flag;									//Ìí¼Ó³É¹¦flag=true,·ñÔòflag=false
+		    return flag;									//æ·»åŠ æˆåŠŸflag=true,å¦åˆ™flag=false
 	}
 
 	@Override
-	//É¾³ıÍÆËÍ
+	//åˆ é™¤æ¨é€
 	public boolean doDelete(String tid) throws Exception {
 		// TODO Auto-generated method stub
 		boolean flag = false;
-		Connect conn=Connect.getInstance();					//»ñÈ¡Á¬½ÓÊµÀı
-		String sql = "delete from tbltuisong where tid = ?";	//sqlÓï¾ä
-			ArrayList<Object> param=new ArrayList();		//paramÎª²ÎÊıÁĞ±í
-			param.add(tid);							//ÏòparamÖĞÌí¼Ó²ÎÊıid
-		    if(conn.update(sql, param)!=0){					//Ö´ĞĞsqlÓï¾ä·µ»ØÖ´ĞĞ½á¹ûÊı
+		Connect conn=Connect.getInstance();					//è·å–è¿æ¥å®ä¾‹
+		String sql = "delete from tbltuisong where tid = ?";	//sqlè¯­å¥
+			ArrayList<Object> param=new ArrayList();		//paramä¸ºå‚æ•°åˆ—è¡¨
+			param.add(tid);							//å‘paramä¸­æ·»åŠ å‚æ•°id
+		    if(conn.update(sql, param)!=0){					//æ‰§è¡Œsqlè¯­å¥è¿”å›æ‰§è¡Œç»“æœæ•°
 			flag = true;
 		    }
-		    return flag;									//É¾³ı³É¹¦flag=true,·ñÔòflag=false
+		    return flag;									//åˆ é™¤æˆåŠŸflag=true,å¦åˆ™flag=false
 	}
 
 	@Override
-	//ĞŞ¸ÄÍÆËÍ
+	//ä¿®æ”¹æ¨é€
 	public boolean doUpdate(Tuisong t) throws Exception {
 		// TODO Auto-generated method stub
 		boolean flag = false;
-		Connect conn=Connect.getInstance();					//»ñÈ¡Á¬½ÓÊµÀı
-		String sql = "update tbltuisong set admid=?,ttype=?,thead=?,tcontent=?,ttime=?,"
-				+ "tstatus=?,browsecnt=?,dianzancnt=?,zhuanfacnt=?,pingluncnt=?"+
-				"where tid = ?";							//sqlÓï¾ä
-			ArrayList<Object> param=new ArrayList();		//paramÎª²ÎÊıÁĞ±í
-			param.add(t.getAdmid());						//ÏòparamÖĞÌí¼Ó²ÎÊı
-			param.add(t.getTtype());
-			param.add(t.getThead());
-			param.add(t.getTcontent());
-			param.add(t.getTtime());
-			param.add(t.getTstatus());
+		Connect conn=Connect.getInstance();					//è·å–è¿æ¥å®ä¾‹
+		String sql = "update tbltuisong set admid=?,type=?,head=?,content=?,time=?,"
+				+ "status=?,browsecnt=?,dianzancnt=?,zhuanfacnt=?,pingluncnt=?"+
+				"where tid = ?";							//sqlè¯­å¥
+			ArrayList<Object> param=new ArrayList();		//paramä¸ºå‚æ•°åˆ—è¡¨
+			param.add(t.getAdmid());						//å‘paramä¸­æ·»åŠ å‚æ•°
+			param.add(t.getType());
+			param.add(t.getHead());
+			param.add(t.getContent());
+			param.add(t.getTime());
+			param.add(t.getStatus());
 			param.add(t.getBrowsecnt());
 			param.add(t.getDianzancnt());
 			param.add(t.getZhuanfacnt());
 			param.add(t.getPingluncnt());
 			param.add(t.getTid());	
-		    if(conn.update(sql, param)!=0){					//Ö´ĞĞsqlÓï¾ä·µ»ØÖ´ĞĞ½á¹ûÊı
+		    if(conn.update(sql, param)!=0){					//æ‰§è¡Œsqlè¯­å¥è¿”å›æ‰§è¡Œç»“æœæ•°
 			flag = true;
 		    }
-		    return flag;									//Ìí¼Ó³É¹¦flag=true,·ñÔòflag=false
+		    return flag;									//æ·»åŠ æˆåŠŸflag=true,å¦åˆ™flag=false
 	}
+	
+	@Override
+	//æŸ¥è¯¢æ‰€æœ‰æ¨é€,è°ƒç”¨æ—¶æ³¨æ„åˆ¤ç©ºï¼
+	public List<Object> findAll() throws Exception {
+		// TODO Auto-generated method stub
+		Connect conn=Connect.getInstance();					//è·å–è¿æ¥å®ä¾‹
+		String sql = "select tid,admid,type,head,content,time,status,"
+				+ "browsecnt,dianzancnt,zhuanfacnt,pingluncnt "
+				+ "from tbltuisong order by tid";
+		return conn.queryForArrObject(sql, null,Tuisong.class);//æ— å‚æ•°æ—¶ï¼Œparamä¸ºnull
+	}
+
+	@Override
+	//æŒ‰ç…§idæŸ¥æ‰¾,è°ƒç”¨æ—¶æ³¨æ„åˆ¤ç©ºï¼
+	public Object findByid(String tid) throws Exception {
+		// TODO Auto-generated method stub
+		Connect conn=Connect.getInstance();					//è·å–è¿æ¥å®ä¾‹
+		String sql = "select tid,admid,type,head,content,time,status,"
+				+ "browsecnt,dianzancnt,zhuanfacnt,pingluncnt"
+				+ " from tbltuisong where tid = ?";
+		ArrayList<Object> param=new ArrayList();		//paramä¸ºå‚æ•°åˆ—è¡¨
+		param.add(tid);
+		List<Object> rs = conn.queryForArrObject(sql, param,Tuisong.class);
+		if(rs.size()!=0){
+			return rs.get(0);
+		}
+		else{
+			return null;
+		}
+	}
+
+	@Override
+	//æŒ‰ç…§ç±»å‹æŸ¥æ‰¾,è°ƒç”¨æ—¶æ³¨æ„åˆ¤ç©ºï¼
+	public List<Object> findBytype(String type) throws Exception {
+		// TODO Auto-generated method stub
+		Connect conn=Connect.getInstance();					//è·å–è¿æ¥å®ä¾‹
+		String sql = "select tid,admid,type,head,content,time,status,"
+				+ "browsecnt,dianzancnt,zhuanfacnt,pingluncnt "
+				+ "from tbltuisong where type = ?";
+		ArrayList<Object> param=new ArrayList();		//paramä¸ºå‚æ•°åˆ—è¡¨
+		param.add(type);
+		return  conn.queryForArrObject(sql, param,Tuisong.class);//ä»¥List<Object>å½¢å¼è¿”å›
+	}
+
+	@Override
+	//æŒ‰ç…§çƒ­åº¦æŸ¥æ‰¾,è°ƒç”¨æ—¶æ³¨æ„åˆ¤ç©ºï¼
+	public List<Object> findByhot() throws Exception {
+		// TODO Auto-generated method stub
+		Connect conn=Connect.getInstance();					//è·å–è¿æ¥å®ä¾‹
+		String sql = "select tid,admid,type,head,content,time,status,"
+				+ "browsecnt,dianzancnt,zhuanfacnt,pingluncnt "
+				+ "from tbltuisong where (dianzancnt+zhuanfacnt+pingluncnt)>1000";//æ ¹æ®ç‚¹èµã€è½¬å‘ã€è¯„è®ºé‡åˆ¤æ–­çƒ­åº¦
+		return conn.queryForArrObject(sql, null, Tuisong.class);//ä»¥List<Object>å½¢å¼è¿”å›
+	}
+
+	
 }
