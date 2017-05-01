@@ -5,6 +5,8 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+
+import rj7.bean.Coin;
 import rj7.bean.Fans;
 import rj7.dao.fans.IFansDAO;
 import rj7.util.Connect;
@@ -46,4 +48,16 @@ public class FansDAOImpl implements IFansDAO{
 	 		}
 	 		return flag;
 	 }
+	 
+	//查询所有粉丝
+     public Fans findById(String userid) throws Exception{
+ 		String sql = "select username,userage,iconurl from tblMemberDetail"
+ 				+ "where id = (select fansid from tblcoin where userid = ?)";
+ 		Connect conn = Connect.getInstance();
+ 		List<Object> param = new ArrayList<Object>();
+ 		param.add(userid);
+ 		//将查询结果封装到javabean中
+ 		ArrayList<Fans> fans = (ArrayList)conn.queryForArrObject(sql, param, Fans.class);
+ 		return fans.get(0);
+ 	}
 }
