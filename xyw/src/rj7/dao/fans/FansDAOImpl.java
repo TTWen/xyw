@@ -50,7 +50,7 @@ public class FansDAOImpl implements IFansDAO{
 	 }
 	 
 	//查询所有粉丝
-     public Fans findById(String userid) throws Exception{
+     public ArrayList <Fans> findById(String userid) throws Exception{
  		String sql = "select username,userage,iconurl from tblMemberDetail"
  				+ "where id = (select fansid from tblcoin where userid = ?)";
  		Connect conn = Connect.getInstance();
@@ -58,6 +58,6 @@ public class FansDAOImpl implements IFansDAO{
  		param.add(userid);
  		//将查询结果封装到javabean中
  		ArrayList<Fans> fans = (ArrayList)conn.queryForArrObject(sql, param, Fans.class);
- 		return fans.get(0);
+ 		return fans;
  	}
 }

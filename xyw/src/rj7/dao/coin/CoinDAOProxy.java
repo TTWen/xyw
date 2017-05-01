@@ -1,5 +1,7 @@
 package rj7.dao.coin;
 
+import java.util.ArrayList;
+
 import dbc.DatabaseConnection;
 
 import rj7.bean.Coin;
@@ -34,8 +36,8 @@ public class CoinDAOProxy implements ICoinDAO{
 	 }
 	 
 	 //查询所有已关注的好友
-	 public Coin findById(String userid) throws Exception{
-		 Coin coin = new Coin();
+	 public ArrayList <Coin> findById(String userid) throws Exception{
+		 ArrayList<Coin> coin = new ArrayList<Coin>();
 		 try
 		 { 
 			coin = dao.findById(userid); 

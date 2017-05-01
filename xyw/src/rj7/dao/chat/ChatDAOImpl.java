@@ -61,7 +61,7 @@ public class ChatDAOImpl implements IChatDAO{
      }
      
      //所有的聊天记录
-     public Chat find(Chat chat) throws Exception{
+     public ArrayList<Chat> find(Chat chat) throws Exception{
     	 String sql = "select messages,sendtime,fromuserid from tblchat"
     	 		+ "where fromuserid = ? and touserid = ? ";
     	 List<Object> param = new ArrayList<Object>();
@@ -69,11 +69,11 @@ public class ChatDAOImpl implements IChatDAO{
     	 param.add(chat.getTouserid());
     	 ArrayList<Chat> message=(ArrayList)conn.
 					queryForArrObject(sql, param, Chat.class);
-    	 return message.get(0);
+    	 return message;
      }
      
      //按天查消息记录
-     public Chat findByDay(Chat chat) throws Exception{
+     public ArrayList<Chat> findByDay(Chat chat) throws Exception{
     	 String sql = "select messages,sendtime,fromuserid from tblchat"
     	 		+ "where fromuserid = ? and touserid = ? and sendtime = ?";
     	 List<Object> param = new ArrayList<Object>();
@@ -82,11 +82,11 @@ public class ChatDAOImpl implements IChatDAO{
     	 param.add(chat.getSendtime());
     	 ArrayList<Chat> message=(ArrayList)conn.
 					queryForArrObject(sql, param, Chat.class);
-    	 return message.get(0);
+    	 return message;
      }
      
      //按关键字查消息记录
-     public Chat findByWord(Chat chat) throws Exception
+     public ArrayList<Chat> findByWord(Chat chat) throws Exception
      {
     	 String sql = "select messages,sendtime,fromuserid from tblchat"
      	 		+ "where fromuserid = ? and touserid = ? and messages like '%?%'";
@@ -96,6 +96,6 @@ public class ChatDAOImpl implements IChatDAO{
      	 param.add(chat.getMessages());
      	 ArrayList<Chat> message=(ArrayList)conn.
  					queryForArrObject(sql, param, Chat.class);
-     	 return message.get(0);
+     	 return message;
      }
 }

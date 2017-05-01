@@ -1,5 +1,7 @@
 package rj7.dao.chat;
 
+import java.util.ArrayList;
+
 import rj7.bean.Chat;
 import rj7.util.Connect;
 
@@ -43,8 +45,8 @@ public class ChatDAOProxy implements IChatDAO{
 	}
 	
 	//所有的聊天记录
-    public Chat find(Chat chat) throws Exception{
-    	Chat chat1 = new Chat();
+    public ArrayList<Chat> find(Chat chat) throws Exception{
+    	ArrayList<Chat> chat1 = new ArrayList<Chat>();
 		 Chat chat2 = new Chat();
 		 try{
 			 chat1 = dao.find(chat2);
@@ -57,8 +59,8 @@ public class ChatDAOProxy implements IChatDAO{
     }
 	
 	//按天查询聊天记录
-	 public Chat findByDay(Chat chat) throws Exception{
-		 Chat chat1 = new Chat();
+	 public ArrayList<Chat> findByDay(Chat chat) throws Exception{
+		 ArrayList<Chat> chat1 = new ArrayList<Chat>();
 		 Chat chat2 = new Chat();
 		 try{
 			 chat1 = dao.findByDay(chat2);
@@ -71,8 +73,8 @@ public class ChatDAOProxy implements IChatDAO{
 	 }
 	 
 	//按关键字查询聊天记录
-		 public Chat findByWord(Chat chat) throws Exception{
-			 Chat chat1 = new Chat();
+		 public ArrayList<Chat> findByWord(Chat chat) throws Exception{
+			 ArrayList<Chat> chat1 = new ArrayList<Chat>();
 			 Chat chat2 = new Chat();
 			 try{
 				 chat1 = dao.findByWord(chat2);

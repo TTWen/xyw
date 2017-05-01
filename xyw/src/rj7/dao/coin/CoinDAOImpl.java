@@ -7,7 +7,7 @@ import java.util.Date;
 import java.util.List;
 
 import rj7.bean.Coin;
-
+import rj7.bean.MemberDetail;
 import rj7.util.Connect;
 
 public class CoinDAOImpl implements ICoinDAO{
@@ -49,7 +49,7 @@ public class CoinDAOImpl implements ICoinDAO{
      }
      
      //查询所有已关注的好友
-     public Coin findById(String userid) throws Exception{
+     public ArrayList <Coin> findById(String userid) throws Exception{
  		String sql = "select username,userage,iconurl from tblMemberDetail"
  				+ "where id = (select coinid from tblcoin where userid = ?)";
  		Connect conn = Connect.getInstance();
@@ -57,6 +57,6 @@ public class CoinDAOImpl implements ICoinDAO{
  		param.add(userid);
  		//将查询结果封装到javabean中
  		ArrayList<Coin> coin = (ArrayList)conn.queryForArrObject(sql, param, Coin.class);
- 		return coin.get(0);
+ 		return coin;
  	}
 }

@@ -1,4 +1,6 @@
 package rj7.dao.fans;
+import java.util.ArrayList;
+
 import rj7.bean.Fans;
 import rj7.dao.fans.FansDAOImpl;
 import rj7.util.Connect;
@@ -33,8 +35,8 @@ public class FansDAOProxy implements IFansDAO{
 	 }
 	
 	//²éÑ¯ËùÓÐ·ÛË¿
-	public Fans findById(String userid) throws Exception{
-		Fans fans = new Fans();
+	public ArrayList <Fans> findById(String userid) throws Exception{
+		ArrayList <Fans> fans = new ArrayList <Fans>();
 		 try
 		 { 
 			 fans = dao.findById(userid); 
