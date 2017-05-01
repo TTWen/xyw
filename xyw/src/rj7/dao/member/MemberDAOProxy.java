@@ -16,10 +16,5 @@ public class MemberDAOProxy implements IMemberDAO {
 		this.dao = new MemberDAOImpl();
 	}
 	
-	public Member findById(String id, String tblname) {
-		
-		return this.dao.findById(id, tblname);
-	}
-
 	
 }
