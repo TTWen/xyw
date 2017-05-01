@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import rj7.util.DAO;
 import rj7.util.DAOFactory;
 
 @WebServlet("/LogRegServ")
@@ -35,15 +36,27 @@ public class LogRegServ extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		response.setCharacterEncoding("utf-8");
 		
+		// 获取DAO实例
+		DAO dao = DAOFactory.getDaoInstance();
+		
+		// 获取账号密码
+		String username = request.getParameter("username");
+		String pswd = request.getParameter("pswd");
+		
 		// 登录
 		if("log".equals(dowhat)){
-			// 获取账号密码
-			String username = request.getParameter("username");
-			String pswd = request.getParameter("pswd");
 			
 			// 登录成功后跳转
-			if(DAOFactory.getDaoInstance().login(username, pswd, "tblUser")!= 0) {
+			if(dao.login(username, pswd, "tblUser")!= 0) {
 				request.getRequestDispatcher("index.jsp").forward(request, response);
+			} 
+			
+		// 注册
+		} else if("reg".endsWith(dowhat)){
+			
+			// 登录成功后跳转
+			if(dao.regist(username, pswd, "tblUser") != 0) {
+				request.getRequestDispatcher("login.jsp").forward(request, response);
 			} 
 		}
 	}
