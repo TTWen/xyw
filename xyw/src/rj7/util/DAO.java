@@ -15,8 +15,8 @@ public class DAO {
 	 * @return 返回对应的javabean对象
 	 * @author 梁爽爽  2017.4.22
 	 */
-	public Object findById(String tblname, String id, Class<?> cls) {
-		String sql = "select * from "+ tblname +" where id = ?";
+	public Object findById(String tblname, String id, Class<?> cls, String idname) {
+		String sql = "select * from "+ tblname +" where "+ idname +" = ?";
 		List<Object> param = new ArrayList<Object>();
 		param.add(id);
 		List<Object> rs = conn.queryForArrObject(sql, param, cls);
@@ -39,4 +39,20 @@ public class DAO {
 		return conn.count(sql, param);
 	}
 	
+	/**
+	 * 用户、管理员注册
+	 * @param username
+	 * @param pswd
+	 * @param tblname
+	 * @return 注册成功返回1，失败返回0
+	 * @author 梁爽爽 2017.4.30
+	 */
+	public int regist(String username, String pswd, String tblname) {
+		
+		String sql = "insert into "+ tblname +" (id, username, pswd) values (null,?,?)";
+		List<Object> param = new ArrayList<Object>();
+		param.add(username);
+		param.add(pswd);
+		return conn.update(sql, param);
+	}
 }
