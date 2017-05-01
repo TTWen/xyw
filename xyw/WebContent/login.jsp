@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>登录注册</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <script type="text/javascript" src="js/jquery-1.9.0.min.js"></script>
 <script type="text/javascript" src="images/login.js"></script>
@@ -26,7 +26,7 @@
             <div class="web_login" id="web_login">
             <div class="login-box">
 				<div class="login_form">
-					<form action="LogRegServ" name="loginform" accept-charset="utf-8" id="login_form" class="loginForm" method="post">
+					<form action="LogRegServ" name="form1" accept-charset="utf-8" id="from1" class="loginForm" method="post">
 						<input type="hidden" name="did" value="0"/>
 	                	<div class="uinArea" id="uinArea">
 	                		<label class="input-tips" for="u">帐号：</label>
@@ -48,17 +48,17 @@
 	           </div>
            </div>
                
-            </div>
-            <!--登录end-->
+           </div>
+           <!--登录end-->
   </div>
 
   <!--注册-->
     <div class="qlogin" id="qlogin" style="display: none; ">
    
     <div class="web_login">
-    	<form name="form2" id="regUser" accept-charset="utf-8"  action="LogRegServ" method="post">
-		<input type="hidden" name="did" value="0"/>
-        <ul class="reg_form" id="reg-ul">
+    
+    	<form name="form2" id="from2" accept-charset="utf-8"  action="LogRegServ" method="post">
+       		<ul class="reg_form" id="reg-ul">
                 <li>
                     <label for="user"  class="input-tips2">用户名：</label>
                     <div class="inputOuter2">
@@ -73,35 +73,31 @@
                     </div>
                 </li>
                 
-                <!-- 
                 <li>
-                <label for="passwd2" class="input-tips2">确认密码：</label>
+                	<label for="passwd2" class="input-tips2">确认密码：</label>
                     <div class="inputOuter2">
-                        <input type="password" id="passwd2" name="" maxlength="16" class="inputstyle2" />
+                        <input type="password" id="pswd2" name="pswd2" maxlength="16" class="inputstyle2" />
                     </div>
                     
                 </li>
-                 -->
                 
                 <li>
-                 <label for="qq" class="input-tips2">电话：</label>
+                	<label for="qq" class="input-tips2">邮箱：</label>
                     <div class="inputOuter2">
-                       
-                        <input type="text" id="qq" name="tel" maxlength="10" class="inputstyle2"/>
+                        <input type="text" id="email" name="email" maxlength="10" class="inputstyle2"/>
                     </div>
-                   
                 </li>
                 
                 <li>
                     <div class="inputArea">
-                        <input type="button" id="reg"  style="margin-top:10px;margin-left:85px;" class="button_blue" value="同意协议并注册"/> <a href="#" class="zcxy" target="_blank">注册协议</a>
+                        <input type="submit" id="reg"  style="margin-top:10px;margin-left:85px;" class="button_blue" value="同意协议并注册"/> <a href="#" class="zcxy" target="_blank">注册协议</a>
                     </div>
-                    
-                </li><div class="cl"></div>
-            </ul>
+                </li>
+                
+                <div class="cl"></div>
+           	</ul>
             <input type="hidden" name="dowhat" value="reg">
-            </form>
-           
+        </form>
     
     </div>
     </div>
