@@ -15,9 +15,9 @@ private IRealDAO dao = null;
 	}
 	
     //通过ID获得数据	
-	public Real findById(String id, String tblname,String idtype) {
+	public Real findById(String id, String tblname,String idname) {
 		
-		return this.dao.findById(id, tblname,idtype);
+		return this.dao.findById(id, tblname,idname);
 	}
 
 	@Override

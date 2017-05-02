@@ -13,9 +13,9 @@ import rj7.util.DAOFactory;
 
 public class RealDAOImpl implements IRealDAO {
     //通过ID获得数据	
-	public Real findById(String id, String tblname,String idtype)
+	public Real findById(String id, String tblname,String idname)
 	{
-		return (Real)DAOFactory.getDaoInstance().findById(tblname, id, idtype, Real.class);
+		return (Real)DAOFactory.getDaoInstance().findById(tblname, id,  Real.class,idname);
 	}
 
 	@Override

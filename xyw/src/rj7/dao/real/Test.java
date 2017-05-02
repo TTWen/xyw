@@ -13,8 +13,8 @@ public class Test {
 	public static void main(String[] args) {
 		RealDAOProxy proxy= new RealDAOProxy();
 		String id ="2";
-		String idtype="rid";
-		Real real = (Real)DAOFactory.getDaoInstance().findById("tblreal", id, idtype, Real.class);
+		String idname="rid";
+		Real real = (Real)DAOFactory.getDaoInstance().findById("tblreal", id, Real.class,idname);
 		
 		System.out.println(real.getAdress());
 		System.out.println(real.getFilesurl());
