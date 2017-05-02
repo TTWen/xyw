@@ -1,0 +1,100 @@
+body {
+	font-family:"Microsoft Yahei";
+	font-size:15px;
+	margin:0;
+}
+h1,h2,h3,h4,h5,h6{font-size:100%;}
+em{font-style:normal;}
+a{color:#0066cc;}
+
+.btn_l3 span,.btn_l3 em,.btn_l3_disable span,.btn_l3_disable em,.btn_l4 span,.btn_l4 em,.btn3_l1,.btn3_l1 span,.btn3_l1_disable
+{display:inline-block;background-image:url(http://pic.c-ctrip.com/myctripv2/btn_myctrip.png?121126.png);background-position:0 -9999em;background-repeat:no-repeat;}
+/* input style */
+.m_input{height:25px;padding-left:3px;margin-right:10px;line-height:25px;border:1px solid #b4b4b4;box-shadow:1px 1px 3px #ddd inset;vertical-align:middle;font-family:Arial;}
+.m_input:focus{background-color:#F1F9FF;border-color:#5D9DE5 #67A1E2 #67A1E2 #5D9DE5;box-shadow:1px 1px 3px #D0DEE6 inset;}
+/* box */
+.box01{padding:1px;margin-bottom:10px;border:1px solid #ccc;}
+.box01_c{padding:0;border:0 none;}
+.box_hd{position:relative;padding-left:10px;background-repeat:repeat-x;height:33px;line-height:33px;cursor:pointer;}
+.hd01 h3,.hd02 h3,.hd04 h3{font-size:14px;}
+.hd01 h3 span,.hd02 h3 span,.hd04 span{font-size:12px;font-weight:normal;}
+.hd02{background-image:none;background-color:#eaf5ff;border:0;border-top:2px solid #155ebd;border-top-left-radius:2px;border-top-right-radius:2px;border-bottom:1px solid #c5ddf4;line-height:35px;}
+.box_bd{display:none;padding:20px 10px;border:1px solid #ccc;border-top:0;zoom:1;}
+.box_bd2{position:relative;display:none;border:1px solid #ccc;border-top:0;zoom:1;z-index:1;}
+/* button */
+input[type="button"],
+input[type="submit"],
+button{-webkit-appearance:none;appearance:none;}
+button::-moz-focus-inner{border:none;padding:0;}
+.btn_l3,.btn_l3_disable,.btn_l4,.btn4_l1,.btn2_l1,.btn2_l1_disable{display:inline-block;border:0;background:none;vertical-align:middle;overflow:visible;cursor:pointer;_padding-right:2px;}
+.btn_l3,.btn_l3_disable,.btn_l4,.btn4_l1{height:27px;font-size:14px;}
+.btn_l3 span,.btn_l3_disable span,.btn4_l1 span,.l_btn05{height:27px;padding-left:18px;background-position:0 -183px;}
+.btn_l3 em,.btn_l3_disable em,.btn4_l1 em,.l_btn05 span{height:27px;padding-right:18px;line-height:27px;background-position:right -183px;white-space:nowrap;}
+.btn_l3:hover span,.l_btn05:hover{background-position:0 -211px;}
+.btn_l3:hover em,.l_btn05:hover span{background-position:right -211px;}
+.btn_l3:active span,.l_btn05:active{background-position:0 -239px;}
+.btn_l3:active em,.l_btn05:active span{background-position:right -239px;}
+.btn_l3_disable{color:#fff;cursor:default;}
+/* box */
+.box01{padding:1px;margin-bottom:10px;border:1px solid #ccc;}
+.box01_c{padding:0;border:0 none;}
+.box_hd{position:relative;padding-left:10px;background-repeat:repeat-x;height:33px;line-height:33px;cursor:pointer;}
+.hd02{background-image:none;background-color:#eaf5ff;border:0;border-top:2px solid #155ebd;border-top-left-radius:2px;border-top-right-radius:2px;border-bottom:1px solid #c5ddf4;line-height:35px;}
+.box_bd{display:none;padding:20px 10px;border:1px solid #ccc;border-top:0;zoom:1;}
+/* form */
+.account_form li{padding-left:10%;margin-bottom:5px;_padding-left:60px;}
+.account_form li.focus{background-color:#f5f5f5;}
+.account_form .tit{display:inline-block;position:relative;width:80px;padding-right:20px;vertical-align:middle;line-height:32px;text-align:right;}
+.account_form .tit em{position:absolute;top:0;right:10px;color:#d81921;}
+.account_form input.sex{margin-right:2px;}
+.account_form .base_label{margin-right:10px;}
+.account_form button{margin-right:10px;}
+.account_form .val{display:inline-block;line-height:32px;vertical-align:middle;}
+.tip_status{display:inline-block;height:32px;line-height:32px;vertical-align:middle;font-size:12px;color:#666;}
+.tip_status img{vertical-align:middle;}
+/*---- new button ----*/
+.btn01, .base_pop .btn_l3, .base_pop .btn_l3_disabled,.btn01_disabled{display:inline-block;padding:0 15px;height:24px;line-height:24px;background:#2277cc;border:1px solid #1256aa;border-radius:3px;box-shadow:0 1px 0 #c9c9c9;font-family:'simsun';color:#fff;font-size:12px;cursor:pointer;}
+.btn01:hover, .base_pop .btn_l3:hover{border-color:#0077DD;background:#2299FF;text-decoration:none;}
+input.btn01{padding:0 12px 2px 12px;height:26px;overflow:visible;_padding-top:4px;_height:15px;_line-height:15px;}
+.l_cancel{margin-left:20px;}
+.base_pop .btn_l3, .base_pop .btn_l3_disabled{height:26px;}
+.base_pop .btn_l3 span, .base_pop .btn_l3 em, .base_pop .btn_l4 span, .base_pop .btn_l4 em{background:none;padding:0;height:auto;line-height:24px;}
+.base_pop .btn_l4{margin-left:10px;height:26px;color:#0066CC;font-size:12px;}
+.base_pop .btn_l3_disabled{border-color:#ccc;background-color:#efefef;color:#999;vertical-align:middle;cursor:default;}
+.base_pop .btn01,.base_pop .btn01_disabled{margin-right:20px;vertical-align:middle;}
+.base_pop .btn_cancle{vertical-align:middle;}
+
+.btn02, .btn02_disabled,
+.btn03{display:inline-block;border-radius:4px;vertical-align:middle;overflow:visible;cursor:pointer;}
+.btn02:hover, .btn02_disabled:hover{text-decoration:none;}
+.btn02, .btn02_disabled,
+.btn03{height:28px;line-height:28px;padding:0 12px;background:#fff;border:1px solid #c1c1c1;box-shadow:0 1px 0 #ddd;color:#333;font-size:12px;}
+input.btn02{padding-bottom:2px;height:30px;_padding-top:3px;_height:20px;_line-height:20px;}
+.btn02:hover,
+.btn03:hover{background:#0066cb;border-color:#d0d0d0;color:#fff;}
+.btn02_disabled {background:#e0e0e0;color:#999;cursor:default;}
+.btn01_disabled,.btn01_disabled:hover {background:#e0e0e0;color:#999;cursor:default;border:1px solid #c1c1c1;text-decoration: none;}
+
+.btn03{padding:0 15px;height:24px;line-height:24px;font-weight:bold;}
+input.btn03{padding:0 12px 3px 12px;height:26px;_padding:4px 12px 2px 12px;_height:15px;_line-height:15px;}
+/* -------- get password --------- */
+.pwd_box{margin:20px 0 40px 0;}
+.pwd_box .box_hd{cursor:default;}
+.pwd_box .box_bd{display:block;}
+.pwd_box h3 span{font-family:"Arial";}
+.pwd_form{padding:40px 10px;}
+.pwd_form li{margin-bottom:15px;}
+.pwd_form .tit{width:100px;}
+.pwd_form img{margin-right:10px;vertical-align:middle;}
+.pwd_setp2{padding:0 90px;margin-bottom:10px;}
+.pwd_alert{padding:60px 0;text-align:center;font-size:14px;}
+/* ------------ traders password ------------ */
+.set_pwd_title{padding:10px 0;margin-top:5px;line-height:30px;font-size:14px;}
+.newsafe_ways{height:55px;padding-left:86px;border:1px solid #ececec;background-color:#f8f8f8;}
+.newsafe_ways b{display:inline-block;height:100%;width:0;vertical-align:middle;}
+.newsafe_ways span{display:inline-block;vertical-align:middle;}
+.newsafe_ways button{float:right;margin:13px 132px 0 0;_margin-right:90px;}
+.newsafe_ways button em{width:112px;}
+.phoneway{background-position:26px -1099px;}
+.telway{background-position:26px -1145px;}
+.mailway{background-position:26px -1051px;}
