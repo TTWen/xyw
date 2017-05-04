@@ -2,6 +2,7 @@ package rj7.bean;
 
 public class GLFenX {
 	private String glid;//攻略id
+	private String fxyhid;
 	private String beifxyhid;//被分享用户id
 	private String fxtime;
 	private String fxcontent;//分享理由
