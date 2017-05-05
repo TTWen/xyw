@@ -1,10 +1,10 @@
 package rj7.bean;
 
-public class Coin {
+public class Attention {
    String countid;
    String userid;
-   String coinid;
-   String cointime;
+   String attenid;
+   String attentime;
 public String getCountid() {
 	return countid;
 }
@@ -18,16 +18,16 @@ public void setUserid(String userid) {
 	this.userid = userid;
 }
 public String getCoinid() {
-	return coinid;
+	return attenid;
 }
 public void setCoinid(String coinid) {
-	this.coinid = coinid;
+	this.attenid = coinid;
 }
 public String getCointime() {
-	return cointime;
+	return attentime;
 }
 public void setCointime(String cointime) {
-	this.cointime = cointime;
+	this.attentime = cointime;
 }
    
 }
