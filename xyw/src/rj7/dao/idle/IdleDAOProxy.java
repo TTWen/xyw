@@ -17,7 +17,7 @@ public class IdleDAOProxy implements IIdleDAO {
 	
 	public IdleDAOProxy() throws Exception
 	{
-		this.dbc  = new Connect();
+		this.dbc  = Connect.getInstance();
 		this.dao = new IdleDAOImpl(this.dbc.getConnection());
 	}
 	
