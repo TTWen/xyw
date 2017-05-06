@@ -77,5 +77,4 @@ public class TuisongDAOProxy implements ITuisongDAO {
 		list = this.dao.findByhot();
 		return list; 
 	}
-	
 }

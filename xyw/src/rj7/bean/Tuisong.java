@@ -1,10 +1,10 @@
 package rj7.bean;
 //推送javabean
-public class Tuisong {				//推送
-	private String tid;				//推送id
-	private String admid;       	//发布推送的管理员id
-	private String type;      		//推送类型
-	private String head;      	 	//推送标题     
+public class Tuisong {			//推送
+	private String tid;			//推送id
+	private String admid;       //发布推送的管理员id
+	private String type;      	//推送类型
+	private String head;      	//推送标题     
 	private String content;    	//推送内容    
 	private String time;       	//推送发布时间     
 	private String status;     	//推送状态 ,是否可以查看   
