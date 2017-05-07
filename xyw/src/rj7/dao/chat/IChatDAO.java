@@ -3,12 +3,17 @@ package rj7.dao.chat;
 import java.util.ArrayList;
 
 import rj7.bean.Chat;
-
+/**
+ * åœ¨çº¿èŠå¤©æ¥å£
+ * 
+ * @author å¨„æ¢¦æ…§
+ * 
+ */
 public interface IChatDAO {
-	public boolean ChatUser(Chat chat) throws Exception;// ÓëºÃÓÑÁÄÌì
-	public boolean DsdeChatUser(Chat chat) throws Exception; //¶¨Ê±É¾³ıÏûÏ¢
-	public boolean SddeChatUser(Chat chat) throws Exception;// É¾³ıÌØ¶¨µÄÏûÏ¢
-	public ArrayList<Chat> find(Chat chat) throws Exception;//ËùÓĞµÄÁÄÌì¼ÇÂ¼
-	public ArrayList<Chat> findByDay(Chat chat) throws Exception;//°´Ìì²éÑ¯ÁÄÌì¼ÇÂ¼
-	public ArrayList<Chat> findByWord(Chat chat) throws Exception;//°´¹Ø¼ü×Ö²éÑ¯ÁÄÌì¼ÇÂ¼
+	public boolean ChatUser(Chat chat) throws Exception;// ä¸å¥½å‹èŠå¤©
+	public boolean DsdeChatUser(Chat chat) ; //å®šæ—¶åˆ é™¤æ¶ˆæ¯
+	public boolean SddeChatUser(Chat chat) ;// åˆ é™¤ç‰¹å®šçš„æ¶ˆæ¯
+	public ArrayList<Chat> find(Chat chat) ;//æ‰€æœ‰çš„èŠå¤©è®°å½•
+	public ArrayList<Chat> findByDay(Chat chat) ;//æŒ‰å¤©æŸ¥è¯¢èŠå¤©è®°å½•
+	public ArrayList<Chat> findByWord(Chat chat) ;//æŒ‰å…³é”®å­—æŸ¥è¯¢èŠå¤©è®°å½•
 }

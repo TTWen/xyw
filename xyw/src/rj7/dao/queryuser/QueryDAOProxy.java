@@ -1,13 +1,23 @@
 package rj7.dao.queryuser;
 import java.util.ArrayList;
-import rj7.bean.MemberDetail;
-import rj7.util.Connect;
-
+import rj7.bean.Member;
+/**
+ * 查询好友代理类
+ * 
+ * @author 娄梦慧
+ * 
+ */
 public class QueryDAOProxy implements IQueryDAO{
-	Connect conn = Connect.getInstance();
 	QueryDAOImpl dao = new QueryDAOImpl();
-	public ArrayList <MemberDetail> QueryUser(MemberDetail member) throws Exception{
-		ArrayList<MemberDetail> user=new ArrayList<MemberDetail>();
+	/**
+	 * 查询好友
+	 * 
+	 * @author 娄梦慧
+	 * @param Member
+	 * @return 符合要求好友列表
+	 */
+	public ArrayList <Member> QueryUser(Member member){
+		ArrayList<Member> user=new ArrayList<Member>();
 		user = null;
 		try{
 			user = dao.QueryUser(member);

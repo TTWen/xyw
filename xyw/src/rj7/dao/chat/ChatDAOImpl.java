@@ -7,13 +7,24 @@ import java.util.Date;
 import java.util.List;
 import rj7.bean.Chat;
 import rj7.util.Connect;
-
+/**
+ * 与好友聊天实现类
+ * 
+ * @author 娄梦慧
+ * 
+ */
 public class ChatDAOImpl implements IChatDAO{
 	Connect conn=Connect.getInstance();
-	//���������
+	/**
+	 * 与好友聊天
+	 * 
+	 * @author 娄梦慧
+	 * @param Chat
+	 * @return 与好友聊天结果（成功：true，失败:false）
+	 */
 	public boolean ChatUser(Chat chat) throws Exception{
         boolean flag=false;
- 		String sql = "insert into tblchat (messageid,messages,sendtime,fromuserid,touserid,mastype)"
+ 		String sql = "insert into tblchat (messageid,messages,sendtime,fromuserid,touserid,msgtype)"
  				+ "values (?,?,STR_TO_DATE(?,'%Y-%m-%d %H:%i:%s'),?,?,?)";
  		ArrayList param=new ArrayList();
  		param.add(chat.getMessageid());
@@ -25,7 +36,7 @@ public class ChatDAOImpl implements IChatDAO{
 		param.add(time);
 		param.add(chat.getFromuserid());
 		param.add(chat.getTouserid());
-		param.add(chat.getMastype());
+		param.add(chat.getMsgtype());
  		int result = conn.update(sql, param);
  		if(result>0){
  			flag = true;
@@ -33,7 +44,14 @@ public class ChatDAOImpl implements IChatDAO{
  		return flag;
      }
      
-     public boolean DsdeChatUser(Chat chat) throws Exception{//��ʱɾ����Ϣ
+	/**
+	 * 定时删除消息
+	 * 
+	 * @author 娄梦慧
+	 * @param Chat
+	 * @return 定时删除消息结果（成功：true，失败:false）
+	 */
+     public boolean DsdeChatUser(Chat chat){
     	 boolean flag=false;
      	Date date=new Date();
 		DateFormat format=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -48,7 +66,14 @@ public class ChatDAOImpl implements IChatDAO{
  		return flag;
      }
      
-     public boolean SddeChatUser(Chat chat) throws Exception{//�ֶ�ɾ����Ϣ
+ 	/**
+ 	 * 手动删除消息
+ 	 * 
+ 	 * @author 娄梦慧
+ 	 * @param Chat
+ 	 * @return 手动删除消息结果（成功：true，失败:false）
+ 	 */
+     public boolean SddeChatUser(Chat chat) {
     	 boolean flag=false;
      	String sql = "delete from tblchat where messageid = ?";
      	List<Object> param = new ArrayList<Object>();
@@ -60,8 +85,14 @@ public class ChatDAOImpl implements IChatDAO{
  		return flag;
      }
      
-     //���е������¼
-     public ArrayList<Chat> find(Chat chat) throws Exception{
+ 	/**
+ 	 * 所有聊天记录
+ 	 * 
+ 	 * @author 娄梦慧
+ 	 * @param Chat
+ 	 * @return 聊天记录列表
+ 	 */
+     public ArrayList<Chat> find(Chat chat){
     	 String sql = "select messages,sendtime,fromuserid from tblchat"
     	 		+ "where fromuserid = ? and touserid = ? ";
     	 List<Object> param = new ArrayList<Object>();
@@ -72,8 +103,14 @@ public class ChatDAOImpl implements IChatDAO{
     	 return message;
      }
      
-     //�������Ϣ��¼
-     public ArrayList<Chat> findByDay(Chat chat) throws Exception{
+     /**
+  	 * 按天查消息记录
+  	 * 
+  	 * @author 娄梦慧
+  	 * @param Chat
+  	 * @return 聊天记录列表
+  	 */
+     public ArrayList<Chat> findByDay(Chat chat) {
     	 String sql = "select messages,sendtime,fromuserid from tblchat"
     	 		+ "where fromuserid = ? and touserid = ? and sendtime = ?";
     	 List<Object> param = new ArrayList<Object>();
@@ -85,8 +122,14 @@ public class ChatDAOImpl implements IChatDAO{
     	 return message;
      }
      
-     //���ؼ��ֲ���Ϣ��¼
-     public ArrayList<Chat> findByWord(Chat chat) throws Exception
+     /**
+   	 * 按关键字查消息记录
+   	 * 
+   	 * @author 娄梦慧
+   	 * @param Chat
+   	 * @return 聊天记录列表
+   	 */
+     public ArrayList<Chat> findByWord(Chat chat) 
      {
     	 String sql = "select messages,sendtime,fromuserid from tblchat"
      	 		+ "where fromuserid = ? and touserid = ? and messages like '%?%'";

@@ -3,13 +3,22 @@ package rj7.dao.chat;
 import java.util.ArrayList;
 
 import rj7.bean.Chat;
-import rj7.util.Connect;
-
+/**
+ * 在线聊天代理类
+ * 
+ * @author 娄梦慧
+ * 
+ */
 public class ChatDAOProxy implements IChatDAO{
-	Connect conn = Connect.getInstance();
 	ChatDAOImpl dao = new ChatDAOImpl();
-	//�ͺ�������
-	public boolean ChatUser(Chat chat) throws Exception{
+	/**
+	 * 与好友聊天
+	 * 
+	 * @author 娄梦慧
+	 * @param Chat
+	 * @return 与好友聊天结果（成功：true，失败:false）
+	 */
+	public boolean ChatUser(Chat chat) throws Exception {
 		boolean flag=false;
 		 try
 		 { 
@@ -20,8 +29,14 @@ public class ChatDAOProxy implements IChatDAO{
 		 return flag; 
 	}
 	
-	//��ʱɾ����Ϣ
-	public boolean DsdeChatUser(Chat chat) throws Exception{
+	/**
+	 * 定时删除消息
+	 * 
+	 * @author 娄梦慧
+	 * @param Chat
+	 * @return 定时删除消息结果（成功：true，失败:false）
+	 */
+	public boolean DsdeChatUser(Chat chat) {
 		boolean flag=false;
 		 try
 		 { 
@@ -32,8 +47,14 @@ public class ChatDAOProxy implements IChatDAO{
 		 return flag; 
 	}
 	
-	//ɾ���ض�����Ϣ
-	public boolean SddeChatUser(Chat chat) throws Exception{
+	/**
+ 	 * 手动删除消息
+ 	 * 
+ 	 * @author 娄梦慧
+ 	 * @param Chat
+ 	 * @return 手动删除消息结果（成功：true，失败:false）
+ 	 */
+	public boolean SddeChatUser(Chat chat) {
 		boolean flag=false;
 		 try
 		 { 
@@ -44,8 +65,14 @@ public class ChatDAOProxy implements IChatDAO{
 		 return flag; 
 	}
 	
-	//���е������¼
-    public ArrayList<Chat> find(Chat chat) throws Exception{
+	/**
+ 	 * 所有聊天记录
+ 	 * 
+ 	 * @author 娄梦慧
+ 	 * @param Chat
+ 	 * @return 聊天记录列表
+ 	 */
+    public ArrayList<Chat> find(Chat chat){
     	ArrayList<Chat> chat1 = new ArrayList<Chat>();
 		 Chat chat2 = new Chat();
 		 try{
@@ -58,8 +85,14 @@ public class ChatDAOProxy implements IChatDAO{
 		 return chat1;
     }
 	
-	//�����ѯ�����¼
-	 public ArrayList<Chat> findByDay(Chat chat) throws Exception{
+	 /**
+  	 * 按天查消息记录
+  	 * 
+  	 * @author 娄梦慧
+  	 * @param Chat
+  	 * @return 聊天记录列表
+  	 */
+	 public ArrayList<Chat> findByDay(Chat chat) {
 		 ArrayList<Chat> chat1 = new ArrayList<Chat>();
 		 Chat chat2 = new Chat();
 		 try{
@@ -72,8 +105,14 @@ public class ChatDAOProxy implements IChatDAO{
 		 return chat1;
 	 }
 	 
-	//���ؼ��ֲ�ѯ�����¼
-		 public ArrayList<Chat> findByWord(Chat chat) throws Exception{
+	 /**
+	   	 * 按关键字查消息记录
+	   	 * 
+	   	 * @author 娄梦慧
+	   	 * @param Chat
+	   	 * @return 聊天记录列表
+	   	 */
+		 public ArrayList<Chat> findByWord(Chat chat){
 			 ArrayList<Chat> chat1 = new ArrayList<Chat>();
 			 Chat chat2 = new Chat();
 			 try{
