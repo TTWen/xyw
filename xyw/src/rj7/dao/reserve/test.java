@@ -19,8 +19,8 @@ import java.util.List;
 //			Reserve yy = new Reserve();
 //			yy.setReserid("3");
 //			yy.setReserbegtime("1998-1-1");
-//			yy.setYyuserid("1");
-//			yy.setByyuserid("2");
+//			yy.setReuserid("1");
+//			yy.setRedyuserid("2");
 //			yy.setResercity("zhengzhou");			
 //		
 //		    ReserDAOProxy r = new ReserDAOProxy();
@@ -45,7 +45,7 @@ import java.util.List;
 			Object list3 = rs.findByid("1","tblreserve",idname);
            
 			System.out.println("查找所有:");
-			for(Object r1:list1){
+			for (Object r1:list1){
 				Reserve r2 = (Reserve)r1;
 				System.out.println(r2.getReserid()+" "+r2.getResercity());
 				
@@ -53,7 +53,7 @@ import java.util.List;
 				
 			
 			System.out.println("按用户id查找:");
-			for(Object r1:list2){
+			for (Object r1:list2){
 				Reserve r2 = (Reserve)r1;
 				System.out.println(r2.getReserid()+" "+r2.getResercity());
 			}

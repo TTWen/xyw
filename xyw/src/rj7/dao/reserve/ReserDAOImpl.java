@@ -1,119 +1,113 @@
 package rj7.dao.reserve;
-
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.*;
 import rj7.bean.Reserve;
 import rj7.util.Connect;
 import rj7.util.DAOFactory;
-
-
-
+/**
+ * 
+ * @author zf
+ * 2017-05-08
+ * 预约接口实现
+ *
+ */
 public  class ReserDAOImpl implements IReserDAO {
 
-		@Override
-		//锟斤拷锟皆ぴ�
+		//添加预约
 		public boolean doCreate(Reserve r) throws Exception {
-		
 			boolean flag = false;
-			Connect conn=Connect.getInstance(); //锟斤拷取锟斤拷锟斤拷实锟斤拷
-			Date date=new Date();				//锟斤拷取系统时锟戒并锟斤拷锟叫革拷式锟斤拷
+			Connect conn=Connect.getInstance(); //获取连接实例
+			Date date=new Date();				//获取系统时间，并格式化
 			DateFormat format=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 			String time=format.format(date);
 		    r.setReserfintime(time);
 			String sql = "insert into tblreserve"
-					+ "(reserid,reserbegtime,reserfintime,reserdealtime,yyuserid,byyuserid,resercity)"
-					+"values(?,?,?,?,?,?,?)";			//sql锟斤拷锟�
-				ArrayList<Object> param=new ArrayList();		//param为锟斤拷锟斤拷锟叫憋拷
-				param.add(r.getReserid());	
-				param.add(r.getReserbegtime());//锟斤拷param锟斤拷锟斤拷硬锟斤拷锟�
-				param.add(r.getReserfintime());
-				param.add(r.getReserdealtime());
-				param.add(r.getYyuserid());
-				param.add(r.getByyuserid());
+					+ "(reserid,reserbegtime,reserfintime,reserdealtime,reuserid,reduserid,resercity)"
+					+"values(?,?,?,?,?,?,?)";			//sql语句
+				ArrayList<Object> param=new ArrayList();		//param为参数列表
+				param.add(r.getReserid());						//向param中添加预约id
+				param.add(r.getReserbegtime());					//添加预约开始时间
+				param.add(r.getReserfintime());					//添加预约生成时间
+				param.add(r.getReserdealtime());				//添加预约处理时间
+				param.add(r.getReuserid());
+				param.add(r.getReduserid());
 				param.add(r.getResercity());
 			    
-				if(conn.update(sql, param)!=0){					//执锟斤拷sql锟斤拷浞碉拷锟街达拷薪锟斤拷锟斤拷
+				if(conn.update(sql, param)!=0){					//执行sql语句，返回执行结果数
 				flag = true;
 			    }
-			    return flag;									//锟斤拷映晒锟絝lag=true,锟斤拷锟斤拷flag=false
+			    return flag;									//成功flag=true,否则flag=false
 		}
 	
-		@Override
-		//删锟斤拷预约
+		//删除预约
 		public boolean doDelete(String reserid) throws Exception {
-			// TODO Auto-generated method stub
 			boolean flag = false;
-			Connect conn=Connect.getInstance();					//锟斤拷取锟斤拷锟斤拷实锟斤拷
-				String sql = "delete from tblreserve where reserid= ?";	//sql锟斤拷锟�
-				ArrayList<Object> param=new ArrayList();		//param为锟斤拷锟斤拷锟叫憋拷
-				param.add(reserid);							//锟斤拷param锟斤拷锟斤拷硬锟斤拷锟絠d
-				if(conn.update(sql, param)!=0){					//执锟斤拷sql锟斤拷浞碉拷锟街达拷薪锟斤拷锟斤拷
+			Connect conn=Connect.getInstance();					//获取连接实例
+				String sql = "delete from tblreserve where reserid= ?";	//sql语句
+				ArrayList<Object> param=new ArrayList();		//param为参数列表
+				param.add(reserid);								//向param中添加预约id		
+				if(conn.update(sql, param)!=0){					//执行sql语句，返回执行结果数
 				flag = true;
 			    }
-			    return flag;									//删锟斤拷锟缴癸拷flag=true,锟斤拷锟斤拷flag=false
+			    return flag;									//删除成功flag=true,否则flag=false
 		}
 	
-		@Override
-		//锟睫革拷预约
+		//修改预约
 		public boolean doUpdate(Reserve r) throws Exception {
-			// TODO Auto-generated method stub
 			boolean flag = false;
-			Connect conn=Connect.getInstance();					//锟斤拷取锟斤拷锟斤拷实锟斤拷
+			Connect conn=Connect.getInstance();					//获取连接实例
 			String sql = "update tblreserve set reserbegtime=?,reserfintime=?,"
-			+"reserdealtime=?,yyuserid=?,byyuserid=?,resercity=? where reserid= ?";					//sql锟斤拷锟�
-				ArrayList<Object> param=new ArrayList();		//param为锟斤拷锟斤拷锟叫憋拷
+			+"reserdealtime=?,reuserid=?,reduserid=?,resercity=? where reserid= ?";		//sql语句
+				ArrayList<Object> param=new ArrayList();		//param为参数列表
 				param.add(r.getReserbegtime());//锟斤拷param锟斤拷锟斤拷硬锟斤拷锟�
 				param.add(r.getReserfintime());
 				param.add(r.getReserdealtime());
-				param.add(r.getYyuserid());
-				param.add(r.getByyuserid());
+				param.add(r.getReuserid());
+				param.add(r.getReduserid());
 				param.add(r.getResercity());
 				param.add(r.getReserid());	
-			    if(conn.update(sql, param)!=0){					//执锟斤拷sql锟斤拷浞碉拷锟街达拷薪锟斤拷锟斤拷
+			    if(conn.update(sql, param)!=0){					//执行sql语句，返回执行结果数
 				flag = true;
 			    }
-			    return flag;									//锟斤拷映晒锟絝lag=true,锟斤拷锟斤拷flag=false
+			    return flag;									//修改成功flag=true,否则flag=false
 		}
 		
-		@Override
-		//锟斤拷询锟斤拷锟斤拷预约,锟斤拷锟斤拷时注锟斤拷锟叫空ｏ拷
+		//查找所有预约，调用时注意判空
 		public List<Object> findAll() throws Exception {
-			Connect conn=Connect.getInstance();					//锟斤拷取锟斤拷锟斤拷实锟斤拷
-			String sql = "select reserid ,reserbegtime,reserfintime,reserdealtime,yyuserid,byyuserid,resercity"
+			Connect conn=Connect.getInstance();					//获取连接实例
+			String sql = "select reserid ,reserbegtime,reserfintime,reserdealtime,reuserid,reduserid,resercity"
 					+ " from tblreserve order by reserid";
-			return conn.queryForArrObject(sql, null,Reserve.class);//锟睫诧拷锟斤拷时锟斤拷param为null
+			return conn.queryForArrObject(sql, null,Reserve.class);//无参数时，param为null
 		}
 
-		@Override
-		//锟斤拷锟斤拷锟斤拷锟酵诧拷锟斤拷,锟斤拷锟斤拷时注锟斤拷锟叫空ｏ拷
+		//按照预约用户id查找预约，调用时注意判空
 		public List<Object> findByuserid(String userid) throws Exception {
-			// TODO Auto-generated method stub
-			Connect conn=Connect.getInstance();					//锟斤拷取锟斤拷锟斤拷实锟斤拷
+			
+			Connect conn=Connect.getInstance();					//获取连接实例
 			String sql = "select reserid,reserbegtime,reserfintime,"
-					+"reserdealtime,yyuserid,byyuserid,resercity "
+					+"reserdealtime,reuserid,reduserid,resercity "
 					+ "from tblreserve where yyuserid = ?";
-			ArrayList<Object> param=new ArrayList();		//param为锟斤拷锟斤拷锟叫憋拷
+			ArrayList<Object> param=new ArrayList();		//param为参数列表
 			param.add(userid);
-			return  conn.queryForArrObject(sql, param,Reserve.class);//锟斤拷List<Object>锟斤拷式锟斤拷锟斤拷
+			return  conn.queryForArrObject(sql, param,Reserve.class);//以List<Object>形式返回
 		}
 
-		@Override
-		//锟斤拷锟斤拷预约锟斤拷锟叫诧拷锟揭ｏ拷锟斤拷锟斤拷时锟斤拷注锟斤拷锟叫匡拷 
+		//按照预约城市查找预约，调用时注意判空 
 		public List<Object> findBycity(String resercity) throws Exception {
-			// TODO Auto-generated method stub
-			Connect conn=Connect.getInstance();					//锟斤拷取锟斤拷锟斤拷实锟斤拷
+			
+			Connect conn=Connect.getInstance();					//获取连接实例
 			String sql = "select reserid,reserbegtime,reserfintime,"
-					+"reserdealtime,yyuserid,byyuserid,resercity "
+					+"reserdealtime,reuserid,reduserid,resercity "
 					+ "from tblreserve where resercity = ?";
-			ArrayList<Object> param=new ArrayList();		//param为锟斤拷锟斤拷锟叫憋拷
+			ArrayList<Object> param=new ArrayList();		//param为参数列表
 			param.add(resercity);
-			return  conn.queryForArrObject(sql, param,Reserve.class);//锟斤拷List<Object>锟斤拷式锟斤拷锟斤拷
+			return  conn.queryForArrObject(sql, param,Reserve.class);//以List<Object>形式返回
 		}
 
 	
 	
-	//锟斤拷锟斤拷预约id锟斤拷锟揭ｏ拷锟斤拷锟斤拷时锟斤拷注锟斤拷锟叫匡拷
+	//按照预约id查找预约，调用时注意判空
 	public Object findByid(String id, String tblname, String idname) {
 		
 		return (Reserve)DAOFactory.getDaoInstance().findById(tblname, id, Reserve.class,idname);

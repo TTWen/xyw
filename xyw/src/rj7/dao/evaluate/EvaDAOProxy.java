@@ -1,19 +1,20 @@
 package rj7.dao.evaluate;
-
-
 import rj7.bean.Evaluate;
 import java.util.*;
-import rj7.util.Connect;
+/**
+ * 
+ * @author zf
+ * 2017-05-08
+ * è¯„ä»·ä»£ç†ç±»
+ *
+ */
 
-//Ô¤Ô¼µÄ´úÀíÀà
+//è¯„ä»·çš„ä»£ç†ç±»
 public class EvaDAOProxy implements IEvaDAO {
 	EvaDAOImpl dao =  new EvaDAOImpl();
-	Connect conn = Connect.getInstance();
 	
-	@Override
-	//Ôö¼ÓÔ¤Ô¼
+	//å¢åŠ è¯„ä»·
 	public boolean doCreate(Evaluate e) throws Exception {
-		// TODO Auto-generated method stub
 		boolean flag = false;
 		if(dao.doCreate(e)){
 			flag = true;
@@ -21,61 +22,46 @@ public class EvaDAOProxy implements IEvaDAO {
 		return flag;
 	}
 
-	@Override
-	//É¾³ıÔ¤Ô¼
+	//åˆ é™¤è¯„ä»·
 	public boolean doDelete(String evaid) throws Exception {
-		// TODO Auto-generated method stub
 		boolean flag = false;
 		if(this.dao.doDelete(evaid)){
 			flag = true;
 		}
 		return flag;
 	}
-	//ĞŞ¸ÄÆÀ¼Û
+	//ä¿®æ”¹è¯„ä»·
 	public boolean doUpdate(Evaluate r) throws Exception {
-		// TODO Auto-generated method stub
 		boolean flag = false;
 		if(this.dao.doUpdate(r)){
 			flag = true;
 		}
 		return flag;
 	}
-
 	
-	@Override
-	//²éÕÒËùÓĞ
+	//æŸ¥æ‰¾æ‰€æœ‰è¯„ä»·
 	public List<Object> findAll() throws Exception {
-		// TODO Auto-generated method stub
 		List<Object> list = null;
 		list = this.dao.findAll();
 		return list; 
 	}
 	
-	
-	
-	//°´ÕÕÆÀ¼Ûid²éÕÒ
+	//æŒ‰ç…§è¯„ä»·idæŸ¥æ‰¾è¯„ä»·
 	public Object findByid(String id,String tblname,String idname) throws Exception {
-		// TODO Auto-generated method stub
 		Object obj = null;
 		obj = this.dao.findByid(id,tblname,idname);
 		return obj; 
 	}
 	
-	
-	@Override
-	//°´ÓÃ»§id²éÕÒ
+	//æŒ‰ç”¨æˆ·idæŸ¥æ‰¾è¯„ä»·
 	public List<Object> findByuserid(String userid) throws Exception {
-		// TODO Auto-generated method stub
 		List<Object> list = null;
 		list = this.dao.findByuserid(userid);
 		return list; 
 	}
-
-
-	@Override
-	//°´ÕÕÆÀ¼ÛĞÇ¼¶Êı²éÕÒ
+	
+	//æŒ‰ç…§è¯„ä»·æ˜Ÿçº§æ•°æŸ¥æ‰¾è¯„ä»·
 	public List<Object> findBystar(String evastar) throws Exception {
-		// TODO Auto-generated method stub
 		List<Object> list = null;
 		list = this.dao.findBystar(evastar);
 		return list; 

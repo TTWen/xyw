@@ -1,121 +1,109 @@
 package rj7.dao.evaluate;
-
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.*;
-
 import rj7.bean.Evaluate;
 import rj7.util.Connect;
 import rj7.util.DAOFactory;
 /**
- * ä¼šå‘˜daoå±‚æ¥å£å®ç?
- * @author æ¢çˆ½çˆ?  
+ * 
+ * @author zf
+ * 2017-05-08
+ * è¯„ä»·æ¥å£å®ç°
  *
  */
-//Ô¤Ô¼½Ó¿ÚÊµÏÖ
-public  class EvaDAOImpl implements IEvaDAO {
 
-		@Override
-		//Ìí¼ÓÆÀ¼Û
+//è¯„ä»·æ¥å£å®ç°
+public  class EvaDAOImpl implements IEvaDAO {
+	
+		//æ·»åŠ è¯„ä»·
 		public boolean doCreate(Evaluate e) throws Exception {
-			// TODO Auto-generated method stub
 			boolean flag = false;
-			Connect conn=Connect.getInstance(); //»ñÈ¡Á¬½ÓÊµÀı
-			Date date=new Date();				//»ñÈ¡ÏµÍ³Ê±¼ä²¢½øĞĞ¸ñÊ½»¯
-			DateFormat format=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+			Connect conn=Connect.getInstance(); //è·å–è¿æ¥å®ä¾‹
+			Date date=new Date();				//è·å–ç³»ç»Ÿæ—¶é—´å¹¶æ ¼å¼åŒ–
+			DateFormat format=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");	
 			String time=format.format(date);
 		    e.setEvatime(time);
 			String sql = "insert into tblevaluate"
-					+ "(evaid,evatime,pjuserid,bpjuserid,evastar,evacont)"
-					+"values(?,?,?,?,?,?)";			//sqlÓï¾ä
-				ArrayList<Object> param=new ArrayList();		//paramÎª²ÎÊıÁĞ±í
-				param.add(e.getEvaid());							//ÏòparamÖĞÌí¼Ó²ÎÊı
-				param.add(e.getEvatime());
-				param.add(e.getPjuserid());
-				param.add(e.getBpjuserid());
-				param.add(e.getEvastar());
-				param.add(e.getEvacont());
-				if(conn.update(sql, param)!=0){					//Ö´ĞĞsqlÓï¾ä·µ»ØÖ´ĞĞ½á¹ûÊı
-				flag = true;
+					+ "(evaid,evatime,evauserid,evaduserid,evastar,evacont)"
+					+"values(?,?,?,?,?,?)";			//sqlè¯­å¥
+				ArrayList<Object> param=new ArrayList();		//paramÎªä¸ºå‚æ•°åˆ—è¡¨
+				param.add(e.getEvaid());							//å‘paramä¸­æ·»åŠ å‚æ•°,æ·»åŠ è¯„ä»·id
+				param.add(e.getEvatime());							//æ·»åŠ è¯„ä»·æ—¶é—´
+				param.add(e.getEvauserid());						//æ·»åŠ è¯„ä»·ç”¨æˆ·id
+				param.add(e.getEvaduserid());						//æ·»åŠ è¢«è¯„ä»·ç”¨æˆ·id
+				param.add(e.getEvastar());							//æ·»åŠ è¯„ä»·æ˜Ÿçº§æ•°
+				param.add(e.getEvacont());							//æ·»åŠ è¯„ä»·å†…å®¹
+				if(conn.update(sql, param)!=0){					//Ö´æ‰§è¡Œsqlè¯­å¥ï¼Œè¿”å›æ‰§è¡Œç»“æœæ•°
+				flag = true;									
 			    }
-			    return flag;									//Ìí¼Ó³É¹¦flag=true,·ñÔòflag=false
+			    return flag;									//æ·»åŠ æˆåŠŸflag=true,å¦åˆ™ä¸ºfalse
 		}
 	
-		@Override
-		//É¾³ıÆÀ¼Û
+		//åˆ é™¤è¯„ä»·
 		public boolean doDelete(String evaid) throws Exception {
-			// TODO Auto-generated method stub
 			boolean flag = false;
-			Connect conn=Connect.getInstance();					//»ñÈ¡Á¬½ÓÊµÀı
-				String sql = "delete from tblevaluate where evaid = ?";	//sqlÓï¾ä
-				ArrayList<Object> param=new ArrayList();		//paramÎª²ÎÊıÁĞ±í
-				param.add(evaid);							//ÏòparamÖĞÌí¼Ó²ÎÊıid
-				if(conn.update(sql, param)!=0){					//Ö´ĞĞsqlÓï¾ä·µ»ØÖ´ĞĞ½á¹ûÊı
+			Connect conn=Connect.getInstance();					//è·å–è¿æ¥å®ä¾‹
+				String sql = "delete from tblevaluate where evaid = ?";	//sqlè¯­å¥
+				ArrayList<Object> param=new ArrayList();		//paramä¸ºå‚æ•°åˆ—è¡¨
+				param.add(evaid);							//å‘paramä¸­æ·»åŠ è¯„ä»·id
+				if(conn.update(sql, param)!=0){					//æ‰§è¡Œsqlè¯­å¥ï¼Œè¿”å›æ‰§è¡Œç»“æœæ•°Ö´
 				flag = true;
 			    }
-			    return flag;									//É¾³ı³É¹¦flag=true,·ñÔòflag=false
+			    return flag;									//åˆ é™¤æˆåŠŸflag=true,å¦åˆ™ä¸ºfalse
 		}
 	
-		@Override
-		//ĞŞ¸ÄÆÀ¼Û
+		//ä¿®æ”¹è¯„ä»·
 		public boolean doUpdate(Evaluate e) throws Exception {
-			// TODO Auto-generated method stub
 			boolean flag = false;
-			Connect conn=Connect.getInstance();					//»ñÈ¡Á¬½ÓÊµÀı
-			String sql = "update tblevaluate set evatime=?,pjuserid=?,"
-					+"bpjuserid=?,evastar=?,evacont=? where evaid = ?";					//sqlÓï¾ä
-				ArrayList<Object> param=new ArrayList();                          //paramÎª²ÎÊıÁĞ±í
-				param.add(e.getEvatime());               //ÏòparamÖĞÌí¼Ó²ÎÊı
-				param.add(e.getPjuserid());
-				param.add(e.getBpjuserid());
+			Connect conn=Connect.getInstance();					//è·å–è¿æ¥å®ä¾‹
+			String sql = "update tblevaluate set evatime=?,evauserid=?,"
+					+"evaduserid=?,evastar=?,evacont=? where evaid = ?";					//sqlè¯­å¥
+				ArrayList<Object> param=new ArrayList();                          //paramä¸ºå‚æ•°åˆ—è¡¨
+				param.add(e.getEvatime());               //å‘paramä¸­æ·»åŠ è¯„ä»·æ—¶é—´
+				param.add(e.getEvauserid());
+				param.add(e.getEvaduserid());
 				param.add(e.getEvastar());
 				param.add(e.getEvacont());
 				param.add(e.getEvaid());
-			    if(conn.update(sql, param)!=0){					//Ö´ĞĞsqlÓï¾ä·µ»ØÖ´ĞĞ½á¹ûÊı
+			    if(conn.update(sql, param)!=0){					//æ‰§è¡Œsqlè¯­å¥ï¼Œè¿”å›æ‰§è¡Œç»“æœæ•°
 				flag = true;
 			    }
-			    return flag;									//Ìí¼Ó³É¹¦flag=true,·ñÔòflag=false
+			    return flag;									//ä¿®æ”¹æˆåŠŸflag=true,å¦åˆ™ä¸ºfalse
 		}
 		
-		@Override
-		//²éÑ¯ËùÓĞÆÀ¼Û,µ÷ÓÃÊ±×¢ÒâÅĞ¿Õ£¡
+		//æŸ¥æ‰¾æ‰€æœ‰è¯„ä»·ï¼Œè°ƒç”¨æ—¶æ³¨æ„åˆ¤ç©º
 		public List<Object> findAll() throws Exception {
-			Connect conn=Connect.getInstance();					//»ñÈ¡Á¬½ÓÊµÀı
-			String sql = "select evaid,evatime,pjuserid,bpjuserid,evastar,evacont"
+			Connect conn=Connect.getInstance();					//è·å–è¿æ¥å®ä¾‹
+			String sql = "select evaid,evatime,evauserid,evaduserid,evastar,evacont"
 					+ " from tblevaluate order by evaid";
-			return conn.queryForArrObject(sql, null,Evaluate.class);//ÎŞ²ÎÊıÊ±£¬paramÎªnull
+			return conn.queryForArrObject(sql, null,Evaluate.class);//æ— å‚æ•°æ—¶ï¼Œparamä¸ºnull
 		}
 
-		@Override
-		//°´ÕÕÓÃ»§id²éÕÒ,µ÷ÓÃÊ±×¢ÒâÅĞ¿Õ£¡
+		//æŒ‰ç…§è¯„ä»·ç”¨æˆ·idæŸ¥æ‰¾ï¼Œè°ƒç”¨æ—¶æ³¨æ„åˆ¤ç©º
 		public List<Object> findByuserid(String userid) throws Exception {
-			// TODO Auto-generated method stub
-			Connect conn=Connect.getInstance();					//»ñÈ¡Á¬½ÓÊµÀı
-			String sql = "select evaid,evatime,pjuserid,bpjuserid,evastar,evacont"
-					+ " from tblreserve where yyuserid = ? or byyuserid =?";
-			ArrayList<Object> param=new ArrayList();		//paramÎª²ÎÊıÁĞ±í
+			Connect conn=Connect.getInstance();					//è·å–è¿æ¥å®ä¾‹
+			String sql = "select evaid,evatime,evauserid,evaduserid,evastar,evacont"
+					+ " from tblevaluate where yyuserid = ? ";
+			ArrayList<Object> param=new ArrayList();		//paramÎªä¸ºå‚æ•°åˆ—è¡¨
 			param.add(userid);
-			return  conn.queryForArrObject(sql, param,Evaluate.class);//ÒÔList<Object>ĞÎÊ½·µ»Ø
+			return  conn.queryForArrObject(sql, param,Evaluate.class);//ä»¥List<Object>å½¢å¼è¿”å›
 		}
 
-		@Override
-		//°´ÕÕÆÀ¼ÛĞÇ¼¶Êı²éÕÒ£¬µ÷ÓÃÊ±Çë×¢ÒâÅĞ¿Õ
+		//æŒ‰ç…§è¯„ä»·æ˜Ÿçº§æ•°æŸ¥æ‰¾ï¼Œè°ƒç”¨æ—¶æ³¨æ„åˆ¤ç©º
 		public List<Object> findBystar(String evastar) throws Exception {
-			// TODO Auto-generated method stub
-			Connect conn=Connect.getInstance();					//»ñÈ¡Á¬½ÓÊµÀı
-			String sql = "select evaid,evatime,pjuserid,bpjuserid,evastar,evacont"
+			Connect conn=Connect.getInstance();					//è·å–è¿æ¥å®ä¾‹
+			String sql = "select evaid,evatime,evauserid,evaduserid,evastar,evacont"
 					+ " from tblevaluate where evastar = ?";
-			ArrayList<Object> param=new ArrayList();		//paramÎª²ÎÊıÁĞ±í
-			param.add(evastar);
-			return  conn.queryForArrObject(sql, param,Evaluate.class);//ÒÔList<Object>ĞÎÊ½·µ»Ø
+			ArrayList<Object> param=new ArrayList();		
+			param.add(evastar);								//å‘paramä¸­æ·»åŠ è¯„ä»·æ˜Ÿçº§æ•°
+			return  conn.queryForArrObject(sql, param,Evaluate.class);//ä»¥List<Object>å½¢å¼è¿”å›
 		}
 
-	
-	
-	//°´ÕÕÆÀ¼Ûid²éÕÒ£¬µ÷ÓÃÊ±Çë×¢ÒâÅĞ¿Õ
-	public Object findByid(String id, String tblname, String idname) {
+		//æŒ‰ç…§idæŸ¥æ‰¾
+		public Object findByid(String id, String tblname, String idname) {
 		
-		return (Evaluate)DAOFactory.getDaoInstance().findById(tblname, id, Evaluate.class, idname);
+			return (Evaluate)DAOFactory.getDaoInstance().findById(tblname, id, Evaluate.class, idname);
 	}
 
 }

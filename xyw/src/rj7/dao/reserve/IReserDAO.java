@@ -2,14 +2,19 @@ package rj7.dao.reserve;
 import rj7.bean.Reserve;
 import java.util.List;
 public interface IReserDAO {
-		//Ô¤Ô¼½Ó¿Ú
-		
-		public boolean doCreate(Reserve r)throws Exception;//´´½¨Ô¤Ô¼
-		public boolean doDelete(String r)throws Exception;//É¾³ıÔ¤Ô¼
-		public boolean doUpdate(Reserve r)throws Exception;//¸üĞÂÔ¤Ô¼
-		public List<Object> findAll()throws Exception;//²éÕÒËùÓĞÔ¤Ô¼
-	    public Object findByid(String id, String tblname,String idname)throws Exception;	//°´ÕÕÔ¤Ô¼id²éÕÒ
-		public List<Object> findByuserid(String userid) throws Exception;//°´ÕÕÓÃ»§id²éÕÒ
-		public List<Object> findBycity(String resercity) throws Exception;//°´ÕÕÔ¤Ô¼³ÇÊĞ²éÕÒ
+	/**
+	 * 
+	 * @author zf
+	 * 2017-05-08
+	 * é¢„çº¦æ¥å£
+	 *
+	 */
+		public boolean doCreate(Reserve r)throws Exception;//æ·»åŠ é¢„çº¦
+		public boolean doDelete(String r)throws Exception;//åˆ é™¤é¢„çº¦
+		public boolean doUpdate(Reserve r)throws Exception;//ä¿®æ”¹é¢„çº¦
+		public List<Object> findAll()throws Exception;//æŸ¥æ‰¾æ‰€æœ‰é¢„çº¦
+	    public Object findByid(String id, String tblname,String idname)throws Exception;//æŒ‰ç…§é¢„çº¦idæŸ¥æ‰¾é¢„çº¦
+		public List<Object> findByuserid(String userid) throws Exception;//æŒ‰ç…§é¢„çº¦ç”¨æˆ·idæŸ¥æ‰¾é¢„çº¦
+		public List<Object> findBycity(String resercity) throws Exception;//æŒ‰ç…§é¢„çº¦åŸå¸‚æŸ¥æ‰¾é¢„çº¦
 	 
 	}

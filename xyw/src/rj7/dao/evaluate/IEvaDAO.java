@@ -3,15 +3,20 @@ import rj7.bean.Evaluate;
 import rj7.bean.Reserve;
 import java.util.List;
 public interface IEvaDAO {
-		//Ô¤Ô¼½Ó¿Ú
-		
-		public boolean doCreate(Evaluate e)throws Exception;//´´½¨ÆÀ¼Û
-		public boolean doDelete(String id)throws Exception;//É¾³ıÆÀ¼Û
-		public boolean doUpdate(Evaluate e)throws Exception;//¸üĞÂÆÀ¼Û
-		public List<Object> findAll()throws Exception;//²éÕÒËùÓĞÆÀ¼Û
-	    public Object findByid(String id, String tblname,String idname)throws Exception;	//°´ÕÕÆÀ¼Ûid²éÕÒ
-		public List<Object> findByuserid(String userid) throws Exception;//°´ÕÕÓÃ»§id²éÕÒ
-		public List<Object> findBystar(String evastar) throws Exception;//°´ÕÕĞÇ¼¶Êı²éÕÒ
+	/**
+	 * 
+	 * @author zf
+	 * 2017-05-08
+	 * è¯„ä»·æ¥å£
+	 *
+	 */
+		public boolean doCreate(Evaluate e)throws Exception;//æ·»åŠ è¯„ä»·
+		public boolean doDelete(String id)throws Exception;//åˆ é™¤è¯„ä»·
+		public boolean doUpdate(Evaluate e)throws Exception;//ä¿®æ”¹è¯„ä»·
+		public List<Object> findAll()throws Exception;//æŸ¥æ‰¾æ‰€æœ‰è¯„ä»·
+	    public Object findByid(String id, String tblname,String idname)throws Exception;	//æŒ‰è¯„ä»·idæŸ¥æ‰¾è¯„ä»·
+		public List<Object> findByuserid(String userid) throws Exception;//æŒ‰è¯„ä»·ç”¨æˆ·idæŸ¥æ‰¾è¯„ä»·
+		public List<Object> findBystar(String evastar) throws Exception;//æŒ‰è¯„ä»·æ˜Ÿçº§æ•°æŸ¥æ‰¾è¯„ä»·
 
 	 
 	}

@@ -1,19 +1,22 @@
 package rj7.dao.reserve;
 
-
 import rj7.bean.Reserve;
 import java.util.*;
 import rj7.util.Connect;
-
-//ԤԼ�Ĵ�����
+/**
+ * 
+ * @author zf
+ * 2017-05-08
+ * 预约代理类
+ *
+ */
+//预约代理类
 public class ReserDAOProxy implements IReserDAO {
 	ReserDAOImpl dao =  new ReserDAOImpl();
 	Connect conn = Connect.getInstance();
 	
-	@Override
-	//����ԤԼ
+	//添加预约	
 	public boolean doCreate(Reserve r) throws Exception {
-		// TODO Auto-generated method stub
 		boolean flag = false;
 		if(dao.doCreate(r)){
 			flag = true;
@@ -21,17 +24,15 @@ public class ReserDAOProxy implements IReserDAO {
 		return flag;
 	}
 
-	@Override
-	//ɾ��ԤԼ
+	//删除预约
 	public boolean doDelete(String reserid) throws Exception {
-		// TODO Auto-generated method stub
 		boolean flag = false;
 		if(this.dao.doDelete(reserid)){
 			flag = true;
 		}
 		return flag;
 	}
-	//�޸�ԤԼ
+	//修改预约
 	public boolean doUpdate(Reserve r) throws Exception {
 		// TODO Auto-generated method stub
 		boolean flag = false;
@@ -41,41 +42,29 @@ public class ReserDAOProxy implements IReserDAO {
 		return flag;
 	}
 
-	
-	@Override
-	//��������
+	//查找所有预约
 	public List<Object> findAll() throws Exception {
-		// TODO Auto-generated method stub
 		List<Object> list = null;
 		list = this.dao.findAll();
 		return list; 
 	}
 	
-	
-	
-	//����ԤԼid����
+	//按预约id查找预约
 	public Object findByid(String id,String tblname,String idname) throws Exception {
-		// TODO Auto-generated method stub
 		Object obj = null;
 		obj = this.dao.findByid(id,tblname,idname);
 		return obj; 
 	}
-	
-	
-	@Override
-	//���û�id����
+
+	//按预约用户id查找预约
 	public List<Object> findByuserid(String userid) throws Exception {
-		// TODO Auto-generated method stub
 		List<Object> list = null;
 		list = this.dao.findByuserid(userid);
 		return list; 
 	}
-
-
-	@Override
-	//����ԤԼ���в���
+	
+	//按预约城市查找预约
 	public List<Object> findBycity(String resercity) throws Exception {
-		// TODO Auto-generated method stub
 		List<Object> list = null;
 		list = this.dao.findBycity(resercity);
 		return list; 

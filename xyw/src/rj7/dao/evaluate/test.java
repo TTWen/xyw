@@ -18,8 +18,8 @@ import java.util.List;
 			System.out.println(eva.getEvaid());
 			Evaluate e = new Evaluate();
 			e.setEvaid("6");
-			e.setPjuserid("1");
-			e.setBpjuserid("2");
+			e.setEvauserid("1");
+			e.setEvaduserid("2");
 			e.setEvastar("4");
 			e.setEvacont("hahaha");
 			
@@ -27,16 +27,16 @@ import java.util.List;
 		    
 		    if(r.doCreate(e)){
 		    	System.out.println(e.getEvatime());
-	    	System.out.println("ADD SUCESSFULLY!");
+	    	System.out.println("添加成功!");
 		    }
 //		    
 //		    e.setEvaid("3");
 //		    if(r.doUpdate(e)){
-//		    	System.out.println("UPDATE SUCCESSFULLY!");
+//		    	System.out.println("修改成功");
 //		    }
 		    
 //		    if(r.doDelete(e.getReserid())) {
-//		    	System.out.println("DELETE SUCCESSFULLY!");
+//		    	System.out.println("删除成功!");
 //		    }
 			
 		
