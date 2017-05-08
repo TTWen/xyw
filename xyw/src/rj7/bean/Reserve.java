@@ -1,12 +1,13 @@
 package rj7.bean;
 
 public class Reserve {
+
 	private String reserid;  //预约id
-	private String reserbegtime;//预约开始旅游时间
+	private String reserbegtime;//预约开始时间
 	private String reserfintime;//预约生成时间
 	private String reserdealtime;//预约处理时间
-	private String reuserid;  //预约用户id
-	private String reduserid;  //被预约用户id
+	private String yyuserid;  //预约用户id
+	private String byyuserid;  //被预约用户id
 	private String resercity;
 	public String getReserid() {
 		return reserid;
@@ -32,24 +33,25 @@ public class Reserve {
 	public void setReserdealtime(String reserdealtime) {
 		this.reserdealtime = reserdealtime;
 	}
-	public String getReuserid() {
-		return reuserid;
+
+	public String getYyuserid() {
+		return yyuserid;
 	}
-	public void setReuserid(String reuserid) {
-		this.reuserid = reuserid;
+	public void setYyuserid(String yyuserid) {
+		this.yyuserid = yyuserid;
 	}
-	public String getReduserid() {
-		return reduserid;
+	public String getByyuserid() {
+		return byyuserid;
 	}
-	public void setReduserid(String reduserid) {
-		this.reduserid = reduserid;
+	public void setByyuserid(String byyuserid) {
+		this.byyuserid = byyuserid;
 	}
 	public String getResercity() {
 		return resercity;
 	}
 	public void setResercity(String resercity) {
 		this.resercity = resercity;
-	}
-	
+
+	}  //预约城市
 	
 }
