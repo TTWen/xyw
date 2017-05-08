@@ -1,21 +1,21 @@
 package rj7.bean;
 
 public class Traveltip {
-	private String id;
-	private String time;
-	private String userid;
-	private String tit;
-	private String con;
-	private String pic;
-	private String viewcnt;
-	private String likecnt;
-	private String forwadcnt;
-	private String commcnt;
-	public String getId() {
-		return id;
+	private String traveltipid;//帖子id
+	private String time;//发帖时间
+	private String userid;//发帖人id
+	private String title;//标题
+	private String content;//正文内容
+	private String pic;//插入的图片
+	private String viewcnt;//浏览量
+	private String likecnt;//点赞量
+	private String tsmtcnt;//转发量
+	private String cmtcnt;//评论量
+	public String getTraveltipid() {
+		return traveltipid;
 	}
-	public void setId(String id) {
-		this.id = id;
+	public void setTraveltipid(String traveltipid) {
+		this.traveltipid = traveltipid;
 	}
 	public String getTime() {
 		return time;
@@ -29,17 +29,17 @@ public class Traveltip {
 	public void setUserid(String userid) {
 		this.userid = userid;
 	}
-	public String getTit() {
-		return tit;
+	public String getTitle() {
+		return title;
 	}
-	public void setTit(String tit) {
-		this.tit = tit;
+	public void setTitle(String title) {
+		this.title = title;
 	}
-	public String getCon() {
-		return con;
+	public String getContent() {
+		return content;
 	}
-	public void setCon(String con) {
-		this.con = con;
+	public void setContent(String content) {
+		this.content = content;
 	}
 	public String getPic() {
 		return pic;
@@ -59,17 +59,17 @@ public class Traveltip {
 	public void setLikecnt(String likecnt) {
 		this.likecnt = likecnt;
 	}
-	public String getForwadcnt() {
-		return forwadcnt;
+	public String getTsmtcnt() {
+		return tsmtcnt;
 	}
-	public void setForwadcnt(String forwadcnt) {
-		this.forwadcnt = forwadcnt;
+	public void setTsmtcnt(String tsmtcnt) {
+		this.tsmtcnt = tsmtcnt;
 	}
-	public String getCommcnt() {
-		return commcnt;
+	public String getCmtcnt() {
+		return cmtcnt;
 	}
-	public void setCommcnt(String commcnt) {
-		this.commcnt = commcnt;
+	public void setCmtcnt(String cmtcnt) {
+		this.cmtcnt = cmtcnt;
 	}
 
 }

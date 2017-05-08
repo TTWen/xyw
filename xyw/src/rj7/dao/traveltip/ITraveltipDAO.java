@@ -10,7 +10,7 @@ import rj7.bean.Traveltip;
  * 
  */
 public interface ITraveltipDAO {
-	public Traveltip findById(String id, String tblname,String idtype);//按照id查找攻略
+	public Object findByid(String traveltipid)throws Exception;//按照id查找攻略
 	public boolean doCreate(Traveltip t)throws Exception;//创建攻略
 	public boolean doDelete(String t)throws Exception;//删除攻略
 	public boolean doUpdate(Traveltip t)throws Exception;//更新攻略

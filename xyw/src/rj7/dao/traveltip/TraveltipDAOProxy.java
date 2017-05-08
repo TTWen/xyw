@@ -18,11 +18,13 @@ public  class TraveltipDAOProxy implements ITraveltipDAO {
 			this.dao = new TraveltipDAOImpl();
 		}
 		//°´id²éÕÒ
-		
-		public Traveltip findById(String id, String tblname ,String idtype) {
-			
-			return this.dao.findById(id, tblname, idtype);
+		public Object findByid(String traveltipid) throws Exception {
+			// TODO Auto-generated method stub
+			Object obj = null;
+			obj = this.dao.findByid(traveltipid);
+			return obj; 
 		}
+
 		
 		public boolean doCreate(Traveltip t) throws Exception {
 			// TODO Auto-generated method stub
@@ -35,10 +37,10 @@ public  class TraveltipDAOProxy implements ITraveltipDAO {
 
 		@Override
 		//É¾³ý¹¥ÂÔÌù
-		public boolean doDelete(String id) throws Exception {
+		public boolean doDelete(String traveltipid) throws Exception {
 			// TODO Auto-generated method stub
 			boolean flag = false;
-			if(this.dao.doDelete(id)){
+			if(this.dao.doDelete(traveltipid)){
 				flag = true;
 			}
 			return flag;

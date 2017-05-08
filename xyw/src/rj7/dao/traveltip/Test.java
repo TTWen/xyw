@@ -1,5 +1,6 @@
 package rj7.dao.traveltip;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import rj7.bean.Traveltip;
@@ -19,21 +20,18 @@ public class Test
 		ts.setUserid("8");
 		ts.setLikecnt("0");
 		ts.setViewcnt("0");;
-		ts.setCommcnt("0");
-		ts.setForwadcnt("0");
-		ts.setCon("hahaha");
-		ts.setTit("yoyoyo");
-		ts.setId(null);			//设置为null后，从上一个id开始+1
-		ts.setPic("1");
+		ts.setCmtcnt("0");
+		ts.setTsmtcnt("0");
+		ts.setContent("hahaha");
+		ts.setTitle("yoyoyo");
 		
 	
 	    TraveltipDAOProxy t = new TraveltipDAOProxy();
 	    if(t.doCreate(ts)){
 	    	System.out.println("====================addok");
 	    }
-	    
 	   
-	  if(t.doDelete(ts.getId())){
+	  if(t.doDelete("4")){
 	    	System.out.println("====================deleteok");
 	    }
 		
@@ -42,12 +40,12 @@ public class Test
 	
 		List list1 = tt.findAll();
 	 
-		Object list3 = tt.findById("9","tbltraveltip", "id");
+		Object list3 = tt.findByid("2");
 
 		System.out.println("全部查找:");
 		for(Object tt1:list1){
 			Traveltip t2 = (Traveltip)tt1;
-			System.out.println(t2.getId()+t2.getTit()+t2.getUserid());
+			System.out.println(t2.getTraveltipid()+t2.getTitle()+t2.getUserid());
 			
 		}
 			
@@ -55,7 +53,7 @@ public class Test
 		System.out.println("按id查找:");
 		if(list3!=null){
 			Traveltip t2 = (Traveltip)list3;
-			System.out.println(t2.getId()+t2.getTit()+t2.getUserid());
+			System.out.println(t2.getTraveltipid()+t2.getTitle()+t2.getUserid());
 		}
 		else{
 			System.out.println("不存在！");
