@@ -10,11 +10,14 @@ import rj7.bean.Idle;
  */
 public interface IIdleDAO {
  
- 	//按照id查找
- 	public Idle findById(String id, String tblname,String idtype);
+ 	//按照闲置物品id查找
+ 	public Object findById(String idleid)throws Exception;
+ 	
+ 	//按照用户id查找其所有闲置物品
+ 	public List<Object> findByUser(String memid)throws Exception;
 	
 	//查找全部闲置物品
-	public List<Idle> findAll()throws Exception;
+	public List<Object> findAll()throws Exception;
  	
  	//添加一个闲置物品
  	public boolean addIdle(Idle idle) throws Exception;
