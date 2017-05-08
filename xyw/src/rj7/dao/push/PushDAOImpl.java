@@ -1,16 +1,20 @@
-package rj7.dao.tuisong;
+package rj7.dao.push;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.*;
-import rj7.bean.Tuisong;
+import rj7.bean.Push;
 import rj7.util.Connect;
-//推送接口实现
+/**
+ * @author lawonder
+ * 2017/5/8
+ * 推送接口实现
+ */
 
-public class TuisongDAOImpl implements ITuisongDAO {
+public class PushDAOImpl implements IPushDAO {
 	//获取连接实例
 	static Connect conn=Connect.getInstance(); 
 	//添加推送
-	public boolean doCreate(Tuisong t) throws Exception {
+	public boolean doCreate(Push t) throws Exception {
 		// TODO Auto-generated method stub
 		boolean flag = false;
 		//获取系统时间并进行格式化
@@ -20,12 +24,12 @@ public class TuisongDAOImpl implements ITuisongDAO {
 	    t.setTime(time);
 	    //sql语句
 	    //param为参数列表
-		String sql = "insert into tbltuisong"
-				+ "(tid,admid,type,head,content,time,status,browsecnt,dianzancnt,zhuanfacnt,pingluncnt)"
+		String sql = "insert into tblPush"
+				+ "(pid,admid,type,head,content,time,status,browsecnt,dianzancnt,zhuanfacnt,pingluncnt)"
 				+"values(?,?,?,?,?,?,?,?,?,?,?)";			
 			ArrayList<Object> param=new ArrayList();
 			//向param中添加参数
-			param.add(t.getTid());							
+			param.add(t.getpid());							
 			param.add(t.getAdmid());
 			param.add(t.getType());
 			param.add(t.getHead());
@@ -46,15 +50,15 @@ public class TuisongDAOImpl implements ITuisongDAO {
 
 	@Override
 	//删除推送
-	public boolean doDelete(String tid) throws Exception {
+	public boolean doDelete(String pid) throws Exception {
 		// TODO Auto-generated method stub
 		boolean flag = false;
 		//sql语句
 		//param为参数列表
-		String sql = "delete from tbltuisong where tid = ?";	
+		String sql = "delete from tblPush where pid = ?";	
 			ArrayList<Object> param=new ArrayList();
 			//向param中添加参数id
-			param.add(tid);			
+			param.add(pid);			
 			//执行sql语句返回执行结果数
 			//删除成功flag=true,否则flag=false
 		    if(conn.update(sql, param)!=0){					
@@ -65,14 +69,14 @@ public class TuisongDAOImpl implements ITuisongDAO {
 
 	@Override
 	//修改推送
-	public boolean doUpdate(Tuisong t) throws Exception {
+	public boolean doUpdate(Push t) throws Exception {
 		// TODO Auto-generated method stub
 		boolean flag = false;
 		//sql语句
 		//param为参数列表
-		String sql = "update tbltuisong set admid=?,type=?,head=?,content=?,time=?,"
+		String sql = "update tblPush set admid=?,type=?,head=?,content=?,time=?,"
 				+ "status=?,browsecnt=?,dianzancnt=?,zhuanfacnt=?,pingluncnt=?"+
-				"where tid = ?";							
+				"where pid = ?";							
 			ArrayList<Object> param=new ArrayList();
 			//向param中添加参数
 			param.add(t.getAdmid());						
@@ -85,7 +89,7 @@ public class TuisongDAOImpl implements ITuisongDAO {
 			param.add(t.getDianzancnt());
 			param.add(t.getZhuanfacnt());
 			param.add(t.getPingluncnt());
-			param.add(t.getTid());	
+			param.add(t.getpid());	
 			//执行sql语句返回执行结果数
 			//添加成功flag=true,否则flag=false
 		    if(conn.update(sql, param)!=0){					
@@ -98,24 +102,24 @@ public class TuisongDAOImpl implements ITuisongDAO {
 	//查询所有推送,调用时注意判空！
 	public List<Object> findAll() throws Exception {
 		// TODO Auto-generated method stub
-		String sql = "select tid,admid,type,head,content,time,status,"
+		String sql = "select pid,admid,type,head,content,time,status,"
 				+ "browsecnt,dianzancnt,zhuanfacnt,pingluncnt "
-				+ "from tbltuisong order by tid";
+				+ "from tblPush order by pid";
 		//无参数时，param为null
-		return conn.queryForArrObject(sql, null,Tuisong.class);
+		return conn.queryForArrObject(sql, null,Push.class);
 	}
 
 	@Override
 	//按照id查找,调用时注意判空！
-	public Object findByid(String tid) throws Exception {
+	public Object findByid(String pid) throws Exception {
 		// TODO Auto-generated method stub
-		String sql = "select tid,admid,type,head,content,time,status,"
+		String sql = "select pid,admid,type,head,content,time,status,"
 				+ "browsecnt,dianzancnt,zhuanfacnt,pingluncnt"
-				+ " from tbltuisong where tid = ?";
+				+ " from tblPush where pid = ?";
 		//param为参数列表
 		ArrayList<Object> param=new ArrayList();		
-		param.add(tid);
-		List<Object> rs = conn.queryForArrObject(sql, param,Tuisong.class);
+		param.add(pid);
+		List<Object> rs = conn.queryForArrObject(sql, param,Push.class);
 		if(rs.size()!=0){
 			return rs.get(0);
 		}
@@ -128,14 +132,14 @@ public class TuisongDAOImpl implements ITuisongDAO {
 	//按照类型查找,调用时注意判空！
 	public List<Object> findBytype(String type) throws Exception {
 		// TODO Auto-generated method stub
-		String sql = "select tid,admid,type,head,content,time,status,"
+		String sql = "select pid,admid,type,head,content,time,status,"
 				+ "browsecnt,dianzancnt,zhuanfacnt,pingluncnt "
-				+ "from tbltuisong where type = ?";
+				+ "from tblPush where type = ?";
 		//param为参数列表
 		ArrayList<Object> param=new ArrayList();		
 		param.add(type);
 		//以List<Object>形式返回
-		return  conn.queryForArrObject(sql, param,Tuisong.class);
+		return  conn.queryForArrObject(sql, param,Push.class);
 	}
 
 	@Override
@@ -143,11 +147,11 @@ public class TuisongDAOImpl implements ITuisongDAO {
 	public List<Object> findByhot() throws Exception {
 		// TODO Auto-generated method stub
 		//根据点赞、转发、评论量判断热度
-		String sql = "select tid,admid,type,head,content,time,status,"
+		String sql = "select pid,admid,type,head,content,time,status,"
 				+ "browsecnt,dianzancnt,zhuanfacnt,pingluncnt "
-				+ "from tbltuisong where (dianzancnt+zhuanfacnt+pingluncnt)>1000";
+				+ "from tblPush where (dianzancnt+zhuanfacnt+pingluncnt)>1000";
 		//以List<Object>形式返回
-		return conn.queryForArrObject(sql, null, Tuisong.class);
+		return conn.queryForArrObject(sql, null, Push.class);
 	}
 
 	

@@ -7,7 +7,7 @@
 <title>添加推送</title>
 </head>
 <body>
-<form action="TuisongServ" method="post" style="text-align:center">
+<form action="PushServ" method="post" style="text-align:center">
 <input type="hidden" name="flag"  value="ts_add">
 <tr>标题<input type="text" name="head" style="width:100px;height:20px;"></tr><br><br>           <!-- 推送标题 -->
 <tr>正文<textarea rows="3" cols="30" name="content"></textarea></tr><br><br>		<!-- 推送内容 -->

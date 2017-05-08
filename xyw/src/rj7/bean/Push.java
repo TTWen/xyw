@@ -1,7 +1,12 @@
 package rj7.bean;
-//推送javabean
-public class Tuisong {			//推送
-	private String tid;			//推送id
+/**
+ * @author lawonder
+ * 2017/5/8
+ * 推送javabean
+ */
+
+public class Push {			//推送
+	private String pid;			//推送id
 	private String admid;       //发布推送的管理员id
 	private String type;      	//推送类型
 	private String head;      	//推送标题     
@@ -12,11 +17,11 @@ public class Tuisong {			//推送
 	private String dianzancnt;	//推送点赞量
 	private String zhuanfacnt;	//推送转发量
 	private String pingluncnt;	//推送评论量
-	public String getTid() {
-		return tid;
+	public String getpid() {
+		return pid;
 	}
-	public void setTid(String tid) {
-		this.tid = tid;
+	public void setpid(String pid) {
+		this.pid = pid;
 	}
 	public String getAdmid() {
 		return admid;

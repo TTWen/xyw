@@ -14,13 +14,13 @@
 <a href="">尾页</a>
 </br></br>
 
-<a href="ts_add.jsp">
+<a href="push_add.jsp">
 <img alt="添加" src="images/ts_add.jpg" style="border:0; cursor:hand;
 width:20px;height:20px;"/></a>
 </br></br>
 ${reback}
 <input type="text" name="search" style="width:150px;height:20px;">
-<a href="TuisongServ?flag=ts_search">
+<a href="PushServ?flag=ts_search">
 <img alt="搜索" src="images/ts_search.jpg" style="border:0; cursor:hand;
 width:20px;height:20px;"/></a>
   						
@@ -49,7 +49,7 @@ width:20px;height:20px;"/></a>
 	 width:25px;height:25px;"/></a>
      </td>
      <td>
-     <a href="TuisongServ?flag=ts_delete">
+     <a href="PushServ?flag=ts_delete">
 	 <img alt="删除" src="images/ts_delete.png" style="border:0; cursor:hand;
 	 width:25px;height:25px;"/></a>
      </td>
