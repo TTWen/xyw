@@ -46,13 +46,24 @@ public class Test {
 //				System.out.println(real1.getFilesurl());
 //				System.out.println(real1.getIdcard());
 //				System.out.println(real1.getRid());
+		
+//      按照ris
 		List list0 = proxy.findByris("1");
 		for(Object t1:list0){
 			Real t2 = (Real)t1;
-			System.out.println(t2.getName()+" "+t2.getAdress()+" "+t2.getSchool());
+			System.out.println(t2.getRid()+" "+t2.getAdress()+" "+t2.getSchool());
 		}
 		
-		
+//      修改学生认证信息
+//		Real r1=new Real();
+//		r1.setRid("3");
+//		r1.setSchool("3");
+//		r1.setMajor("3");
+//		proxy.insertRealstu(r1);
+
+//      审核学生信息通过没有
+		String rid="8";
+		proxy.editRis(rid);
 		
 		
 	}

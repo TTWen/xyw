@@ -27,7 +27,7 @@ public class RealDAOImpl implements IRealDAO {
 //  按照ris查找,查询所有没有通过审核的用户
 	public List<Object> findByris(String ris){
 		Connect conn=Connect.getInstance();					//获取连接实例
-			String sql = "select idcard,name,filesurl,iconurl,adress,post,school,major,qq"
+			String sql = "select rid idcard,name,filesurl,iconurl,adress,post,school,major,qq"
 					+ " from tblreal where ris = ?";
 			ArrayList<Object> param=new ArrayList();		//param为参数列表
 			param.add(ris);
@@ -55,13 +55,14 @@ public class RealDAOImpl implements IRealDAO {
 
 //  学生身份认证插入的数据
 	public int insertRealstu(Real real){
-		String sql = "INSERT INTO tblreal(school,major,qq,rid) VALUES(?,?,?,?)";
+		String sql = "update tblreal set school=?,major=?,qq=?,ris=? where rid= ?";
 		Connect conn = Connect.getInstance();
 		List<Object> param = new ArrayList<Object>();
 		param.add(real.getSchool());
 		param.add(real.getMajor());
 		param.add(real.getQq());
 		param.add(real.getRis());
+		param.add(real.getRid());
 		return conn.update(sql, param);
 	}
 	
@@ -76,9 +77,10 @@ public class RealDAOImpl implements IRealDAO {
 	
 //  审核通过更新ris
 	public int  editRis(String rid){
-		String sql = "update tblreal set ris=1 where rid = ?";
+		String sql = "update tblreal set ris=? where rid = ?";
 		Connect conn = Connect.getInstance();
 		List<Object> param = new ArrayList<Object>();
+		param.add("1");
 		param.add(rid);
 		return conn.update(sql, param);
 	}
