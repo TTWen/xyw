@@ -12,27 +12,23 @@ import rj7.util.Connect;
  */
 public class IdleDAOProxy implements IIdleDAO {
 
-	private Connect dbc = null;
 	private IIdleDAO dao = null;
 	
 	public IdleDAOProxy() throws Exception
 	{
-		this.dbc  = Connect.getInstance();
-		this.dao = new IdleDAOImpl(this.dbc.getConnection());
+		this.dao = new IdleDAOImpl();
 	}
 	
 	//按照id查找闲置物品
-	@Override
-	public Idle findById(String id, String tblname,String idname) 
+	public Object findById(String idleid) throws Exception
 	{
-		return this.dao.findById(id, tblname, idname);		
+		return (Object) this.dao.findById(idleid);		
 	}
 	
 	//查找全部闲置物品
-	@Override
-	public List<Idle> findAll() throws Exception
+	public List<Object> findAll() throws Exception
 	{
-		List<Idle> allIdle = null;
+		List<Object> allIdle = null;
 		try
 		{
 			allIdle = this.dao.findAll();
@@ -45,7 +41,6 @@ public class IdleDAOProxy implements IIdleDAO {
 	}
 	
 	//添加一个闲置物品
-	@Override
 	public boolean addIdle(Idle idle)throws Exception
 	{
 		boolean b = false;
@@ -61,7 +56,6 @@ public class IdleDAOProxy implements IIdleDAO {
 	}
 
 	//删除一个闲置物品
-	@Override
 	public boolean deleteIdle(String idleid) throws Exception
 	{
 		boolean b = false;
@@ -77,7 +71,6 @@ public class IdleDAOProxy implements IIdleDAO {
 	}	
 	
 	//修改一个闲置物品的信息
-	@Override
 	public boolean updateIdle(Idle idle) throws Exception
 	{
 		boolean b = false;
@@ -91,21 +84,19 @@ public class IdleDAOProxy implements IIdleDAO {
 		}
 		return b;
 	}
+
+	//按照用户id查找其闲置物品
+	public List<Object> findByUser(String memid) throws Exception {
+		List<Object> useridle = null;
+		try
+		{
+			useridle = this.dao.findByUser(memid);
+		}
+		catch(Exception e)
+		{
+			throw e;
+		}
+		return useridle;
+	}
 	
 }
-
-/*class CanNotFindException extends Exception
-{
-	private String msg;
-	CanNotFindException(String msg)
-	{
-		this.msg = msg;
-	}
-}*/
-
-
-
-
-
-
-
