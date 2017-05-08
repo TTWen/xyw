@@ -1,22 +1,25 @@
-package rj7.dao.ttcmt;
+package rj7.dao.pushcmt;
 
-import rj7.bean.ttcmt;
+import rj7.bean.pushcmt;
 
 
-public class Test {
+
+public class test {
+	/*
+	 * 向前 推送评论 coment
+	 * */
 
 
 	public static void main(String[] args) throws Exception {
-		// TODO Auto-generated method stub
-		ttcmt gp = new ttcmt();
-		gp.setTtid("1");
+		
+		pushcmt gp = new pushcmt();
+		gp.setPtid("1");
 		gp.setCmtid("1");
 		gp.setCmtdid("1");
-		gp.setCmtctt("hahaha");
+		gp.setCmtctt("balababa");
 	
-	
-	
-	    ttvmtDAOProxy t = new ttvmtDAOProxy();
+
+	    pushcmtDAOProxy t = new pushcmtDAOProxy();
 	    if(t.doCreate(gp)){
 	    	System.out.println("添加评论成功！");
 	    }
@@ -25,21 +28,21 @@ public class Test {
 	    if(t.doUpdate(gp)){
 	    	System.out.println("更新评论成功！");
 	    }
+	    
 	   if(t.doDelete(gp.getCmtid())){
 	    	System.out.println("删除评论成功！");
 	    }
 		
-		
-		
-		Object list = t.findByid("9");
+
+		Object list1 = t.findByid("9");
 
 		System.out.println("按id查找:");
-		if(list!=null){
-			ttcmt t2 = (ttcmt)list;
-			System.out.println(t2.getTtid()+t2.getCmtid()+t2.getCmtdid());
+		if(list1!=null){
+			pushcmt t2 = (pushcmt)list1;
+			System.out.println(t2.getPtid()+t2.getCmtid()+t2.getCmtdid());
 		}
 		else{
-			System.out.println("找不到");
+			System.out.println("不存在！");
 		}
 		
 		return;
