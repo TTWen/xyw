@@ -12,24 +12,23 @@ import rj7.util.Connect;
 
 public class PushDAOImpl implements IPushDAO {
 	//获取连接实例
-	static Connect conn=Connect.getInstance(); 
+	static Connect conn = Connect.getInstance(); 
 	//添加推送
 	public boolean doCreate(Push t) throws Exception {
-		// TODO Auto-generated method stub
 		boolean flag = false;
 		//获取系统时间并进行格式化
-		Date date=new Date();				
-		DateFormat format=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-		String time=format.format(date);
+		Date date = new Date();				
+		DateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		String time = format.format(date);
 	    t.setTime(time);
 	    //sql语句
 	    //param为参数列表
 		String sql = "insert into tblPush"
-				+ "(pid,admid,type,head,content,time,status,browsecnt,dianzancnt,zhuanfacnt,pingluncnt)"
-				+"values(?,?,?,?,?,?,?,?,?,?,?)";			
-			ArrayList<Object> param=new ArrayList();
+				+ "(pid,admid,type,head,content,time,status,browsecnt,likecnt,tsmtcnt,cmtcnt,shrecnt,cltcnt)"
+				+"values(?,?,?,?,?,?,?,?,?,?,?,?,?)";			
+			ArrayList<Object> param = new ArrayList();
 			//向param中添加参数
-			param.add(t.getpid());							
+			param.add(t.getPid());							
 			param.add(t.getAdmid());
 			param.add(t.getType());
 			param.add(t.getHead());
@@ -37,9 +36,11 @@ public class PushDAOImpl implements IPushDAO {
 			param.add(t.getTime());
 			param.add(t.getStatus());
 			param.add(t.getBrowsecnt());
-			param.add(t.getDianzancnt());
-			param.add(t.getZhuanfacnt());
-			param.add(t.getPingluncnt());
+			param.add(t.getLikecnt());
+			param.add(t.getTsmtcnt());
+			param.add(t.getCmtcnt());
+			param.add(t.getCmtcnt());
+			param.add(t.getCltcnt());
 			//执行sql语句返回执行结果数
 			//添加成功flag=true,否则flag=false
 		    if(conn.update(sql, param)!=0){					
@@ -48,10 +49,8 @@ public class PushDAOImpl implements IPushDAO {
 		    return flag;									
 	}
 
-	@Override
 	//删除推送
 	public boolean doDelete(String pid) throws Exception {
-		// TODO Auto-generated method stub
 		boolean flag = false;
 		//sql语句
 		//param为参数列表
@@ -67,17 +66,15 @@ public class PushDAOImpl implements IPushDAO {
 		    return flag;									
 	}
 
-	@Override
 	//修改推送
 	public boolean doUpdate(Push t) throws Exception {
-		// TODO Auto-generated method stub
 		boolean flag = false;
 		//sql语句
 		//param为参数列表
 		String sql = "update tblPush set admid=?,type=?,head=?,content=?,time=?,"
-				+ "status=?,browsecnt=?,dianzancnt=?,zhuanfacnt=?,pingluncnt=?"+
+				+ "status=?,browsecnt=?,likecnt=?,tsmtcnt=?,cmtcnt=?,shrecnt=?,cltcnt=?"+
 				"where pid = ?";							
-			ArrayList<Object> param=new ArrayList();
+			ArrayList<Object> param = new ArrayList();
 			//向param中添加参数
 			param.add(t.getAdmid());						
 			param.add(t.getType());
@@ -86,10 +83,12 @@ public class PushDAOImpl implements IPushDAO {
 			param.add(t.getTime());
 			param.add(t.getStatus());
 			param.add(t.getBrowsecnt());
-			param.add(t.getDianzancnt());
-			param.add(t.getZhuanfacnt());
-			param.add(t.getPingluncnt());
-			param.add(t.getpid());	
+			param.add(t.getLikecnt());
+			param.add(t.getTsmtcnt());
+			param.add(t.getCmtcnt());
+			param.add(t.getShrecnt());
+			param.add(t.getCltcnt());
+			param.add(t.getPid());	
 			//执行sql语句返回执行结果数
 			//添加成功flag=true,否则flag=false
 		    if(conn.update(sql, param)!=0){					
@@ -98,26 +97,23 @@ public class PushDAOImpl implements IPushDAO {
 		    return flag;									
 	}
 	
-	@Override
 	//查询所有推送,调用时注意判空！
 	public List<Object> findAll() throws Exception {
-		// TODO Auto-generated method stub
 		String sql = "select pid,admid,type,head,content,time,status,"
-				+ "browsecnt,dianzancnt,zhuanfacnt,pingluncnt "
+				+ "browsecnt,likecnt,tsmtcnt,cmtcnt,shrecnt,cltcnt "
 				+ "from tblPush order by pid";
 		//无参数时，param为null
 		return conn.queryForArrObject(sql, null,Push.class);
 	}
 
-	@Override
 	//按照id查找,调用时注意判空！
 	public Object findByid(String pid) throws Exception {
-		// TODO Auto-generated method stub
+		//ps:在clt与from之间注意空格，否则出现语法错误
 		String sql = "select pid,admid,type,head,content,time,status,"
-				+ "browsecnt,dianzancnt,zhuanfacnt,pingluncnt"
+				+ "browsecnt,likecnt,tsmtcnt,cmtcnt,shrecnt,cltcnt"
 				+ " from tblPush where pid = ?";
 		//param为参数列表
-		ArrayList<Object> param=new ArrayList();		
+		ArrayList<Object> param = new ArrayList();		
 		param.add(pid);
 		List<Object> rs = conn.queryForArrObject(sql, param,Push.class);
 		if(rs.size()!=0){
@@ -128,31 +124,25 @@ public class PushDAOImpl implements IPushDAO {
 		}
 	}
 
-	@Override
 	//按照类型查找,调用时注意判空！
 	public List<Object> findBytype(String type) throws Exception {
-		// TODO Auto-generated method stub
 		String sql = "select pid,admid,type,head,content,time,status,"
-				+ "browsecnt,dianzancnt,zhuanfacnt,pingluncnt "
+				+ "browsecnt,tsmtcnt,likecnt,cmtcnt,shrecnt,cltcnt "
 				+ "from tblPush where type = ?";
 		//param为参数列表
-		ArrayList<Object> param=new ArrayList();		
+		ArrayList<Object> param = new ArrayList();		
 		param.add(type);
 		//以List<Object>形式返回
 		return  conn.queryForArrObject(sql, param,Push.class);
 	}
 
-	@Override
 	//按照热度查找,调用时注意判空！
 	public List<Object> findByhot() throws Exception {
-		// TODO Auto-generated method stub
-		//根据点赞、转发、评论量判断热度
+		//根据点赞、转发、评论量等判断热度
 		String sql = "select pid,admid,type,head,content,time,status,"
-				+ "browsecnt,dianzancnt,zhuanfacnt,pingluncnt "
-				+ "from tblPush where (dianzancnt+zhuanfacnt+pingluncnt)>1000";
+				+ "browsecnt,likecnt,tsmtcnt,cmtcnt,shrecnt,cltcnt "
+				+ "from tblPush where (browsecnt+likecnt+tsmtcnt+cmtcnt+shrecnt+cltcnt)>500";
 		//以List<Object>形式返回
 		return conn.queryForArrObject(sql, null, Push.class);
 	}
-
-	
 }

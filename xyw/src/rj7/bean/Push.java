@@ -13,14 +13,17 @@ public class Push {			//推送
 	private String content;    	//推送内容    
 	private String time;       	//推送发布时间     
 	private String status;     	//推送状态 ,是否可以查看   
-	private String browsecnt; 	//推送浏览量    
-	private String dianzancnt;	//推送点赞量
-	private String zhuanfacnt;	//推送转发量
-	private String pingluncnt;	//推送评论量
-	public String getpid() {
+	private String browsecnt; 	//推送浏览量 
+	private String tsmtcnt;		//推送转发量
+	private String likecnt;		//推送点赞量
+	private String cmtcnt;		//推送评论量
+	private String shrecnt;		//推送分享量
+	private String cltcnt;		//推送收藏量
+	
+	public String getPid() {
 		return pid;
 	}
-	public void setpid(String pid) {
+	public void setPid(String pid) {
 		this.pid = pid;
 	}
 	public String getAdmid() {
@@ -65,23 +68,34 @@ public class Push {			//推送
 	public void setBrowsecnt(String browsecnt) {
 		this.browsecnt = browsecnt;
 	}
-	public String getDianzancnt() {
-		return dianzancnt;
+	public String getTsmtcnt() {
+		return tsmtcnt;
 	}
-	public void setDianzancnt(String dianzancnt) {
-		this.dianzancnt = dianzancnt;
+	public void setTsmtcnt(String tsmtcnt) {
+		this.tsmtcnt = tsmtcnt;
 	}
-	public String getZhuanfacnt() {
-		return zhuanfacnt;
+	public String getLikecnt() {
+		return likecnt;
 	}
-	public void setZhuanfacnt(String zhuanfacnt) {
-		this.zhuanfacnt = zhuanfacnt;
+	public void setLikecnt(String likecnt) {
+		this.likecnt = likecnt;
 	}
-	public String getPingluncnt() {
-		return pingluncnt;
+	public String getCmtcnt() {
+		return cmtcnt;
 	}
-	public void setPingluncnt(String pingluncnt) {
-		this.pingluncnt = pingluncnt;
+	public void setCmtcnt(String cmtcnt) {
+		this.cmtcnt = cmtcnt;
 	}
-	
+	public String getShrecnt() {
+		return shrecnt;
+	}
+	public void setShrecnt(String shrecnt) {
+		this.shrecnt = shrecnt;
+	}
+	public String getCltcnt() {
+		return cltcnt;
+	}
+	public void setCltcnt(String cltcnt) {
+		this.cltcnt = cltcnt;
+	}
 }

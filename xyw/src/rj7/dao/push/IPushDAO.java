@@ -14,5 +14,4 @@ public interface IPushDAO {
 	public Object findByid(String pid)throws Exception;//按照id查找
 	public List<Object> findBytype(String type)throws Exception;//按照推送类型查找
 	public List<Object> findByhot()throws Exception;//按照热度查找
-	
 }
