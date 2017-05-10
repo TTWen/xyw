@@ -5,10 +5,16 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>注册</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <script type="text/javascript" src="js/jquery-1.9.0.min.js"></script>
-<script type="text/javascript" src="js/formcheck.js"></script>
+<script type="text/javascript" src="js/jquery.easyui.min.js"></script>
 <script type="text/javascript" src="js/md5.js"></script>
+<link href="css/easyui.css" rel="stylesheet" type="text/css"/>
+<link href="css/icon.css" rel="stylesheet" type="text/css"/>
+<link href="css/color.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="js/easyui-lang-zh_CN.js"></script>
+<script type="text/javascript" src="js/validator.js"></script>
+<script type="text/javascript" src="js/formcheck.js"></script>
+<script type="text/javascript" src="js/regist.js"></script>
 <script type="text/javascript" src="images/login.js"></script>
 <link href="css/login2.css" rel="stylesheet" type="text/css" />
 </head>
@@ -27,21 +33,21 @@
                 <li>
                     <label for="user"  class="input-tips2">用户名：</label>
                     <div class="inputOuter2">
-                        <input type="text" id="username" name="username" maxlength="16" class="inputstyle2"/>
+                        <input type="text" id="username" name="username" maxlength="16" class="easyui-validatebox inputstyle2"/>
                     </div>
                 </li>
                 
                 <li>
                 <label for="passwd" class="input-tips2">密码：</label>
                     <div class="inputOuter2">
-                        <input type="password" id="pswd"  name="pswd" maxlength="16" class="inputstyle2"/>
+                        <input type="password" id="pswd"  name="pswd" maxlength="16" class="easyui-validatebox inputstyle2"/>
                     </div>
                 </li>
                 
                 <li>
                 	<label for="passwd2" class="input-tips2">确认密码：</label>
                     <div class="inputOuter2">
-                        <input type="password" id="pswd2" name="pswd2" maxlength="16" class="inputstyle2" />
+                        <input type="password" id="pswd2" name="pswd2" maxlength="16" class="easyui-validatebox inputstyle2" />
                     </div>
                     
                 </li>
@@ -49,7 +55,7 @@
                 <li>
                 	<label for="email" class="input-tips2">邮箱：</label>
                     <div class="inputOuter2">
-                        <input type="text" id="email" name="email" maxlength="10" class="inputstyle2"/>
+                        <input type="text" id="email" name="email" class="easyui-validatebox inputstyle2" />
                     </div>
                 </li>
                 

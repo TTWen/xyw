@@ -23,7 +23,6 @@ public class LogRegServ extends HttpServlet {
 
 	public LogRegServ() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -43,7 +42,7 @@ public class LogRegServ extends HttpServlet {
 		// 获取账号密码
 		String username = request.getParameter("username");
 		String pswd = request.getParameter("pswd");
-		
+		System.out.println(pswd);
 		// 登录
 		if("log".equals(dowhat)){
 			
