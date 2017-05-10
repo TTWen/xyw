@@ -11,7 +11,6 @@ import rj7.util.Connect;
 public class PushDAOProxy implements IPushDAO {
 	PushDAOImpl dao =  new PushDAOImpl();
 	Connect conn = Connect.getInstance();
-	@Override
 	//增加推送
 	public boolean doCreate(Push t) throws Exception {
 		// TODO Auto-generated method stub
@@ -22,7 +21,6 @@ public class PushDAOProxy implements IPushDAO {
 		return flag;
 	}
 
-	@Override
 	//删除推送
 	public boolean doDelete(String pid) throws Exception {
 		// TODO Auto-generated method stub
@@ -42,8 +40,6 @@ public class PushDAOProxy implements IPushDAO {
 		return flag;
 	}
 
-	
-	@Override
 	//查找所有
 	public List<Object> findAll() throws Exception {
 		// TODO Auto-generated method stub
@@ -52,8 +48,6 @@ public class PushDAOProxy implements IPushDAO {
 		return list; 
 	}
 	
-	
-	@Override
 	//按照id查找
 	public Object findByid(String pid) throws Exception {
 		// TODO Auto-generated method stub
@@ -62,7 +56,6 @@ public class PushDAOProxy implements IPushDAO {
 		return obj; 
 	}
 
-	@Override
 	//按照类型查找
 	public List<Object> findBytype(String type) throws Exception {
 		// TODO Auto-generated method stub
@@ -71,9 +64,6 @@ public class PushDAOProxy implements IPushDAO {
 		return list; 
 	}
 
-	
-
-	@Override
 	//按照热度查找
 	public List<Object> findByhot() throws Exception {
 		// TODO Auto-generated method stub
