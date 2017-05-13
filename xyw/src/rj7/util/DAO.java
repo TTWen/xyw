@@ -13,13 +13,15 @@ public class DAO {
 	 * @param id 表的主键
 	 * @param cls 如 Member.class 
 	 * @return 返回对应的javabean对象
-	 * @author 梁爽爽  2017.4.22
+	 * @author 梁爽爽  2017.4.23 
+	 * @update 2017.5.6  list下标越界处理
 	 */
 	public Object findById(String tblname, String id, Class<?> cls, String idname) {
 		String sql = "select * from "+ tblname +" where "+ idname +" = ?";
 		List<Object> param = new ArrayList<Object>();
 		param.add(id);
 		List<Object> rs = conn.queryForArrObject(sql, param, cls);
+		if(rs.isEmpty()) return null;
 		return rs.get(0);
 	}
 	
@@ -47,12 +49,13 @@ public class DAO {
 	 * @return 注册成功返回1，失败返回0
 	 * @author 梁爽爽 2017.4.30
 	 */
-	public int regist(String username, String pswd, String tblname) {
+	public int regist(String username, String pswd, String tblname, String email) {
 		
-		String sql = "insert into "+ tblname +" (id, username, pswd) values (null,?,?)";
+		String sql = "insert into "+ tblname +" (id, username, pswd, email) values (null,?,?,?)";
 		List<Object> param = new ArrayList<Object>();
 		param.add(username);
 		param.add(pswd);
+		param.add(email);
 		return conn.update(sql, param);
 	}
 }

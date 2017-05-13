@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import rj7.bean.Member;
 import rj7.util.DAO;
 import rj7.util.DAOFactory;
 
@@ -49,15 +50,28 @@ public class LogRegServ extends HttpServlet {
 			// 登录成功后跳转
 			if(dao.login(username, pswd, "tblUser")!= 0) {
 				request.getRequestDispatcher("index.jsp").forward(request, response);
-			} 
+			// 登录失败
+			} else {
+				response.sendRedirect("login.jsp?error=logfail");
+			}
 			
 		// 注册
-		} else if("reg".endsWith(dowhat)){
+		} else if("reg".equals(dowhat)){
 			
-			// 登录成功后跳转
-			if(dao.regist(username, pswd, "tblUser") != 0) {
+			String email = request.getParameter("email");
+			
+			// 查找用户名是否重复
+			if(dao.findById("tblUser", username, Member.class, "username") != null){
+				response.sendRedirect("regist.jsp?error=reusername");
+				
+			// 注册成功后跳转到登录页面
+			} else if(dao.regist(username, pswd, "tblUser", email) != 0) {
 				request.getRequestDispatcher("login.jsp").forward(request, response);
-			} 
+				
+			// 注册失败
+			} else {
+				response.sendRedirect("regist.jsp?error=regfail");
+			}
 		}
 	}
 
