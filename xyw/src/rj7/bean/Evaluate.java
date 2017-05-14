@@ -1,12 +1,12 @@
 package rj7.bean;
 
 public class Evaluate {
-	private String evaid;//ÆÀ¼Ûid
-	private String evatime;//ÆÀ¼ÛÊ±¼ä
-	private String pjuserid;//ÆÀ¼ÛÓÃ»§id
-	private String bpjuserid;//±»ÆÀ¼ÛÓÃ»§id
-	private String evastar;//ÆÀ¼ÛÐÇ¼¶Êý
-	private String evacont;//ÆÀ¼ÛÄÚÈÝ
+	private String evaid;//è¯„ä»·id
+	private String evatime;//è¯„ä»·æ—¶é—´
+	private String pjuserid;//è¯„ä»·ç”¨æˆ·id
+	private String bpjuserid;//è¢«è¯„ä»·ç”¨æˆ·id
+	private String evastar;//è¯„ä»·æ˜Ÿçº§æ•°
+	private String evacont;//è¯„ä»·å†…å®¹
 	public String getEvaid() {
 		return evaid;
 	}
@@ -43,7 +43,4 @@ public class Evaluate {
 	public void setEvacont(String evacont) {
 		this.evacont = evacont;
 	}
-
-	
-
 }

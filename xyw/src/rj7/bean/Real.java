@@ -12,10 +12,17 @@ public class Real {
 	private String major;//专业
 	private String qq;//绑定的qq
 	private String ris;//是否认证为学生
+	private String creatime;//实名认证时间
 	
  
 	
 	
+	public String getCreatime() {
+		return creatime;
+	}
+	public void setCreatime(String creatime) {
+		this.creatime = creatime;
+	}
 	public String getRid() {
 		return rid;
 	}
