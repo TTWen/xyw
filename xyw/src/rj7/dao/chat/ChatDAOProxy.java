@@ -36,11 +36,11 @@ public class ChatDAOProxy implements IChatDAO{
 	 * @param Chat
 	 * @return 定时删除消息结果（成功：true，失败:false）
 	 */
-	public boolean DsdeChatUser(Chat chat) {
+	public boolean DsdeChatUser( ) {
 		boolean flag=false;
 		 try
 		 { 
-			flag=dao.DsdeChatUser(chat);
+			flag=dao.DsdeChatUser();
 		 }
 		 catch(Exception e)
 		 { throw e; }
@@ -54,49 +54,28 @@ public class ChatDAOProxy implements IChatDAO{
  	 * @param Chat
  	 * @return 手动删除消息结果（成功：true，失败:false）
  	 */
-	public boolean SddeChatUser(Chat chat) {
+	public boolean SddeChatUser(String messageid) {
 		boolean flag=false;
 		 try
 		 { 
-			flag=dao.SddeChatUser(chat);
+			flag=dao.SddeChatUser(messageid);
 		 }
 		 catch(Exception e)
 		 { throw e; }
 		 return flag; 
 	}
 	
-	/**
- 	 * 所有聊天记录
- 	 * 
- 	 * @author 娄梦慧
- 	 * @param Chat
- 	 * @return 聊天记录列表
- 	 */
-    public ArrayList<Chat> find(Chat chat){
-    	ArrayList<Chat> chat1 = new ArrayList<Chat>();
-		 Chat chat2 = new Chat();
-		 try{
-			 chat1 = dao.find(chat2);
-		 }
-		 catch(Exception e)
-		 {
-			 throw e;
-		 }
-		 return chat1;
-    }
-	
 	 /**
-  	 * 按天查消息记录
+  	 * 查消息记录
   	 * 
   	 * @author 娄梦慧
   	 * @param Chat
   	 * @return 聊天记录列表
   	 */
-	 public ArrayList<Chat> findByDay(Chat chat) {
+    public ArrayList<Chat> queryRecord(Chat chat) {
 		 ArrayList<Chat> chat1 = new ArrayList<Chat>();
-		 Chat chat2 = new Chat();
 		 try{
-			 chat1 = dao.findByDay(chat2);
+			 chat1 = dao.queryRecord(chat);
 		 }
 		 catch(Exception e)
 		 {
@@ -104,24 +83,4 @@ public class ChatDAOProxy implements IChatDAO{
 		 }
 		 return chat1;
 	 }
-	 
-	 /**
-	   	 * 按关键字查消息记录
-	   	 * 
-	   	 * @author 娄梦慧
-	   	 * @param Chat
-	   	 * @return 聊天记录列表
-	   	 */
-		 public ArrayList<Chat> findByWord(Chat chat){
-			 ArrayList<Chat> chat1 = new ArrayList<Chat>();
-			 Chat chat2 = new Chat();
-			 try{
-				 chat1 = dao.findByWord(chat2);
-			 }
-			 catch(Exception e)
-			 {
-				 throw e;
-			 }
-			 return chat1;
-		 }
 }

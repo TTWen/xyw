@@ -10,5 +10,5 @@ import rj7.bean.Member;
  * 
  */
 public interface IQueryDAO {
-	public ArrayList <Member> QueryUser(Member member);//查询好友
+	public ArrayList<Member> queryUser(Member member, int age1, int age2);//查询好友
 }

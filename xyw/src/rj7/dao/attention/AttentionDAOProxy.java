@@ -3,6 +3,7 @@ package rj7.dao.attention;
 import java.util.ArrayList;
 
 import rj7.bean.Attention;
+import rj7.bean.Member;
 /**
  * 关注好友代理类
  * 
@@ -55,11 +56,11 @@ public class AttentionDAOProxy implements IAttentionDAO{
 	  	 * @param userid
 	  	 * @return 已关注好友列表
 	  	 */
-	 public ArrayList <Attention> findByUserid(String userid) {
-		 ArrayList<Attention> atten = new ArrayList<Attention>();
+	 public ArrayList<Object> hasAtten(String userid) {
+		 ArrayList<Object> atten = new ArrayList<Object>();
 		 try
 		 { 
-			 atten = dao.findByUserid(userid); 
+			 atten = dao.hasAtten(userid); 
 		 }
 		 catch(Exception e)
 		 { throw e; }
@@ -73,11 +74,11 @@ public class AttentionDAOProxy implements IAttentionDAO{
 	   	 * @param userid
 	   	 * @return 粉丝列表
 	   	 */
-     public ArrayList <Attention> findByAttenid(String attenid){
-    	 ArrayList<Attention> atten = new ArrayList<Attention>();
+	 public ArrayList<Object> hasBeenAtten(String attenid){
+		 ArrayList<Object> atten = new ArrayList<Object>();
 		 try
 		 { 
-			 atten = dao.findByAttenid(attenid); 
+			 atten = dao.hasBeenAtten(attenid); 
 		 }
 		 catch(Exception e)
 		 { throw e; }

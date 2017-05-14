@@ -1,6 +1,8 @@
 package rj7.servlet;
 
 import java.io.IOException;
+import java.util.ArrayList;
+
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServlet;
@@ -17,40 +19,10 @@ import sun.swing.SwingUtilities2.Section;
  *
  */
 public class AttenFriendsServlet extends HttpServlet {	
-	/**
-	 * The doGet method of the servlet. <br>
-	 * 
-	 * This method is called when a form has its tag value method equals to get.
-	 * 
-	 * @param request
-	 *            the request send by the client to the server
-	 * @param response
-	 *            the response send by the server to the client
-	 * @throws ServletException
-	 *             if an error occurred
-	 * @throws IOException
-	 *             if an error occurred
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
 		this.doPost(request, response);
 	}
-
-	/**
-	 * The doPost method of the servlet. <br>
-	 * 
-	 * This method is called when a form has its tag value method equals to
-	 * post.
-	 * 
-	 * @param request
-	 *            the request send by the client to the server
-	 * @param response
-	 *            the response send by the server to the client
-	 * @throws ServletException
-	 *             if an error occurred
-	 * @throws IOException
-	 *             if an error occurred
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
@@ -61,8 +33,46 @@ public class AttenFriendsServlet extends HttpServlet {
 		if("Attention".equals(dowhat)){
 			atten(request,response);  //关注好友
 		}
+		else if("UnAttention".equals(dowhat)){
+			unAtten(request,response);
+		}
+		else if("MyAtten".equals(dowhat)){
+			MyAtten(request,response);
+		}
+		else if("MyFans".equals(dowhat)){
+			MyFans(request,response);
+		}
 	}
-	
+	//我的粉丝
+	private void MyFans(HttpServletRequest request, HttpServletResponse response) {
+		// TODO Auto-generated method stub
+		String userid = request.getParameter("userid");   //用户id
+		 ArrayList<Object> mem= new ArrayList<Object>();
+		 try{
+			 IAttentionDAO dao = DAOFactory.getIAttentionDAOInstance();
+			 mem = dao.hasBeenAtten(userid);
+			 request.setAttribute("mem", mem);
+			 request.getRequestDispatcher("ShowFansList.jsp").forward(request, response);
+		 }  catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+		 }
+	}
+	//我的关注
+	private void MyAtten(HttpServletRequest request, HttpServletResponse response) {
+		// TODO Auto-generated method stub
+		String userid = request.getParameter("userid");   //用户id
+		 ArrayList<Object> mem= new ArrayList<Object>();
+		 try{
+			 IAttentionDAO dao = DAOFactory.getIAttentionDAOInstance();
+			 mem = dao.hasAtten(userid);
+			 request.setAttribute("mem", mem);
+			 request.getRequestDispatcher("ShowAttenList.jsp").forward(request, response);
+		 }  catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+		 }
+	}
 	//关注好友
 	private void atten(HttpServletRequest request, HttpServletResponse response) {
 		String userid = request.getParameter("userid");   //关注人id
@@ -71,9 +81,10 @@ public class AttenFriendsServlet extends HttpServlet {
 		atten.setUserid(userid);
 		atten.setAttenid(attenid);
 		try {
-			IAttentionDAO dao = DAOFactory.getIAttentionDAO();
+			IAttentionDAO dao = DAOFactory.getIAttentionDAOInstance();
 			if(dao.AttentionUser(atten) )
 			{
+		        
 				request.getRequestDispatcher("AttenFriends.jsp").forward(request, response);  //关注成功，返回当前页面
 			}
 		} catch (Exception e) {
@@ -81,4 +92,23 @@ public class AttenFriendsServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 	}
+	
+	//取消关注好友
+		private void unAtten(HttpServletRequest request, HttpServletResponse response) {
+			String userid = request.getParameter("userid");   //关注人id
+			String attenid = request.getParameter("attenid");  //被关注人id
+			Attention atten = new Attention();
+			atten.setUserid(userid);
+			atten.setAttenid(attenid);
+			try {
+				IAttentionDAO dao = DAOFactory.getIAttentionDAOInstance();
+				if(dao.UnAttentionUser(atten))
+				{
+					request.getRequestDispatcher("UnAttenFriends.jsp").forward(request, response);  //关注成功，返回当前页面
+				}
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
 }

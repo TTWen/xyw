@@ -7,8 +7,10 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import rj7.bean.Attention;
+import rj7.bean.Member;
 import rj7.bean.MemberDetail;
 import rj7.util.Connect;
+import rj7.util.DAO;
 /**
  * 关注好友实现类
  * 
@@ -71,16 +73,25 @@ public class AttentionDAOImpl implements IAttentionDAO{
   	 * @param userid
   	 * @return 已关注好友列表
   	 */
-     public ArrayList <Attention> findByUserid(String userid){
- 		String sql = "select username,iconurl from tblMember,tblMemberDetail"
- 				+ "where tblMemberDetail.id IN (select attenid from tblatten where userid = ?) AND tblMember.id = tblMemberDetail.id";
- 		Connect conn = Connect.getInstance();
- 		List<Object> param = new ArrayList<Object>();
- 		param.add(userid);
- 		ArrayList<Attention> atten = (ArrayList)conn.queryForArrObject(sql, param, Attention.class);
- 		return atten;
- 	}
-    
+     public ArrayList<Object> hasAtten(String userid){
+      	Connect conn = Connect.getInstance();
+   		String sql1 = "select attenid from tblatten where userid = ?";
+   		List<Object> param1 = new ArrayList<Object>();
+  		param1.add(userid);
+  		List<Object> rs = conn.queryForArrObject(sql1, param1, Attention.class);
+  		ArrayList<Object> list = new ArrayList<Object>();
+  		for(int i=0;i<rs.size();i++){
+  		  Attention atten = (Attention)rs.get(i);
+   		  String sql2 = "select username,id from tblMember where id = ?";
+   		  List<Object> param2 = new ArrayList<Object>();
+   		  String id1 = atten.getAttenid();
+   		  param2.add(id1);
+   		  List<Object> mem1 = conn.queryForArrObject(sql2, param2, Member.class);
+   		  Member member =(Member)mem1.get(0);
+   		  list.add(member);
+  		}
+  		return list;
+   	}
      /**
    	 *  查询粉丝
    	 * 
@@ -88,14 +99,24 @@ public class AttentionDAOImpl implements IAttentionDAO{
    	 * @param userid
    	 * @return 粉丝列表
    	 */
-     public ArrayList <Attention> findByAttenid(String attenid){
-  		String sql = "select username,iconurl from tblMember,tblMemberDetail"
-  				+ "where tblMemberDetail.id IN (select userid from tblatten where attenid = ?) AND tblMember.id = tblMemberDetail.id";
-  		Connect conn = Connect.getInstance();
-  		List<Object> param = new ArrayList<Object>();
-  		param.add(attenid);
-  		ArrayList<Attention> atten = (ArrayList)conn.queryForArrObject(sql, param, Attention.class);
-  		return atten;
+     public ArrayList<Object> hasBeenAtten(String attenid){
+     	Connect conn = Connect.getInstance();
+  		String sql1 = "select userid from tblatten where attenid = ?";
+  		List<Object> param1 = new ArrayList<Object>();
+ 		param1.add(attenid);
+ 		List<Object> rs = conn.queryForArrObject(sql1, param1, Attention.class);
+ 		ArrayList<Object> list = new ArrayList<Object>();
+ 		for(int i=0;i<rs.size();i++){
+ 		  Attention atten = (Attention)rs.get(i);
+  		  String sql2 = "select username,id from tblMember where id = ?";
+  		  List<Object> param2 = new ArrayList<Object>();
+  		  String id1 = atten.getUserid();
+  		  param2.add(id1);
+  		  List<Object> mem1 = conn.queryForArrObject(sql2, param2, Member.class);
+  		  Member member =(Member)mem1.get(0);
+  		  list.add(member);
+ 		}
+ 		return list;
   	}
      
      /**
@@ -109,9 +130,14 @@ public class AttentionDAOImpl implements IAttentionDAO{
     	 Connect conn=Connect.getInstance();
  		int count;
  		String sql="select count(*) from tblatten where userid = ?";
- 		List<Object> param = new ArrayList<Object>();
-  		param.add(userid);
- 		count=conn.count(sql, param);
+ 		List<Object> param1 = new ArrayList<Object>();
+ 		List<Object> param2 = new ArrayList<Object>();
+  		param1.add(userid);
+ 		count=conn.count(sql, param1);
+ 		String sql2="update tblmemberdetail set coincount = ? where id = ?";
+ 		param2.add(String.valueOf(count));
+ 		param2.add(userid);
+ 		conn.update(sql2,param2);
  		return count;
      }
      
@@ -126,9 +152,14 @@ public class AttentionDAOImpl implements IAttentionDAO{
     	 Connect conn=Connect.getInstance();
  		int count;
  		String sql="select count(*) from tblatten where attenid = ?";
- 		List<Object> param = new ArrayList<Object>();
-  		param.add(attenid);
- 		count=conn.count(sql, null);
+ 		List<Object> param1 = new ArrayList<Object>();
+ 		List<Object> param2 = new ArrayList<Object>();
+  		param1.add(attenid);
+ 		count=conn.count(sql, param1);
+ 		String sql2="update tblmemberdetail set fanscount = ? where id = ?";
+ 		param2.add(String.valueOf(count));
+ 		param2.add(attenid);
+ 		conn.update(sql2,param2);
  		return count;
      }
 }

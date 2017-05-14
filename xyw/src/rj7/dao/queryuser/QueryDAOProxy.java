@@ -16,11 +16,11 @@ public class QueryDAOProxy implements IQueryDAO{
 	 * @param Member
 	 * @return 符合要求好友列表
 	 */
-	public ArrayList <Member> QueryUser(Member member){
+	public ArrayList <Member> queryUser(Member member,int age1,int age2){
 		ArrayList<Member> user=new ArrayList<Member>();
 		user = null;
 		try{
-			user = dao.QueryUser(member);
+			user = dao.queryUser(member,age1,age2);
 		}
 		catch(Exception e)
 		{
