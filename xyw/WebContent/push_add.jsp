@@ -8,13 +8,15 @@
 </head>
 <body>
 <form action="PushServ" method="post" style="text-align:center">
-<tr><input type="hidden" name="flag"  value="push_add"></tr>
-<tr>标题<input type="text" name="head" style="width:100px;height:20px;"></tr><br><br>           <!-- 推送标题 -->
-<tr>正文<textarea rows="3" cols="30" name="content"></textarea></tr><br><br>		<!-- 推送内容 -->
-<tr>文章<input type="radio" name="type" value="文章">
-公告<input type="radio" name="type" value="公告">
-</tr><br><br>
-<tr><input type="submit" name="添加" value="添加"></tr>
+	<input type="hidden" name="flag"  value="push_add">
+	标题<input type="text" name="head" style="width:100px;height:20px;"></br></br>         
+	正文<textarea rows="3" cols="30" name="content"></textarea></br>	</br>
+	类型<select>
+	<option name="type">文章</option>
+	<option name="type">公告</option>
+	<option name="type">新闻</option>
+	</select></br></br>
+	<input type="submit" name="添加" value="添加" >
 </form>
 </body>
 </html>
