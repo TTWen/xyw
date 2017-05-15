@@ -1,5 +1,9 @@
 package rj7.bean;
-
+/**
+ * 关注好友javabean类，属性类型都为String
+ * @author 娄梦慧
+ *
+ */
 public class Attention {
    String countid;
    String userid;
@@ -17,17 +21,18 @@ public String getUserid() {
 public void setUserid(String userid) {
 	this.userid = userid;
 }
-public String getCoinid() {
+public String getAttenid() {
 	return attenid;
 }
-public void setCoinid(String coinid) {
-	this.attenid = coinid;
+public void setAttenid(String attenid) {
+	this.attenid = attenid;
 }
-public String getCointime() {
+public String getAttentime() {
 	return attentime;
 }
-public void setCointime(String cointime) {
-	this.attentime = cointime;
+public void setAttentime(String attentime) {
+	this.attentime = attentime;
 }
+
    
 }

@@ -5,21 +5,17 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>登录</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <script type="text/javascript" src="js/jquery-1.9.0.min.js"></script>
+<script type="text/javascript" src="js/jquery.easyui.min.js"></script>
 <script type="text/javascript" src="js/md5.js"></script>
-<script type="text/javascript" src="js/formcheck.js"></script>
+<link href="css/easyui.css" rel="stylesheet" type="text/css"/>
+<link href="css/icon.css" rel="stylesheet" type="text/css"/>
+<link href="css/color.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="js/easyui-lang-zh_CN.js"></script>
+<script type="text/javascript" src="js/login.js"></script>
 <script type="text/javascript" src="images/login.js"></script>
 <link href="css/login2.css" rel="stylesheet" type="text/css" />
 </head>
-<script type="text/javascript">
-$(function () {
-	var pswd = $('#pswd').val();
-	var md5pswd = $.md5(pswd);
-	console.log(md5pswd.length);
-	$('#pswd').val(md5pswd);
-});
-</script>
 
 <body>
 	<div class="login" style="margin-top:50px;">
@@ -38,13 +34,13 @@ $(function () {
 	                	<div class="uinArea" id="uinArea">
 	                		<label class="input-tips" for="u">帐号：</label>
 	                		<div class="inputOuter" id="uArea">
-	                    		<input type="text" id="username" name="username" class="inputstyle"/>
+	                    		<input type="text" id="username" name="username" class="easyui-validatebox inputstyle" />
 	               			</div>
 	                	</div>
 	               		<div class="pwdArea" id="pwdArea">
 	               			<label class="input-tips" for="p">密码：</label> 
 	               			<div class="inputOuter" id="pArea">
-	                    		<input type="password" id="pswd" name="pswd" class="inputstyle"/>
+	                    		<input type="password" id="pswd" name="pswd" class="easyui-validatebox inputstyle" />
 	                		</div>
 	                	</div>
 	                	<div style="padding-left:50px;margin-top:20px;">
