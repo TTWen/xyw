@@ -1,12 +1,16 @@
 package rj7.bean;
-
+/**
+ * 在线聊天javabean类，属性类型都为String
+ * @author 娄梦慧
+ *
+ */
 public class Chat {
     String messageid;
     String messages ;
     String sendtime ;
     String fromuserid ;
     String touserid ;
-    String mastype ;
+    String msgtype ;
 	public String getMessageid() {
 		return messageid;
 	}
@@ -37,11 +41,10 @@ public class Chat {
 	public void setTouserid(String touserid) {
 		this.touserid = touserid;
 	}
-	public String getMastype() {
-		return mastype;
+	public String getMsgtype() {
+		return msgtype;
 	}
-	public void setMastype(String mastype) {
-		this.mastype = mastype;
+	public void setMsgtype(String msgtype) {
+		this.msgtype = msgtype;
 	}
-    
 }
