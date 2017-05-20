@@ -8,6 +8,11 @@ import rj7.bean.Member;
  * 
  */
 public interface IMemberDAO {
-
+	/**
+	 * 修改用户信息：出生日期、年龄、现居城市、性别
+	 * @param mem对象
+	 * @return 修改成功返回true
+	 */
+	public boolean modifyInfo(Member mem);
 
 }

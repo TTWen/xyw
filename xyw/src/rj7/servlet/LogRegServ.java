@@ -64,7 +64,7 @@ public class LogRegServ extends HttpServlet {
 				response.sendRedirect("regist.jsp?error=reusername");
 				
 			// 注册成功后跳转到登录页面
-			} else if(dao.regist(username, pswd, "tblUser", email) != 0) {
+			} else if( dao.regist(username, pswd, "tblUser", email) ) {
 				request.getRequestDispatcher("login.jsp").forward(request, response);
 				
 			// 注册失败
