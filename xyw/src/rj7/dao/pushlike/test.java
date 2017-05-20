@@ -12,7 +12,7 @@ public class test {
 
 	public static void main(String[] args) throws Exception {
 		pushlike gp = new pushlike();
-		gp.setPtid("1");
+	
 		gp.setLikeid("1");
 		gp.setLikedid("1");
 

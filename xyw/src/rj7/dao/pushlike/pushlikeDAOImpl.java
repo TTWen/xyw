@@ -18,17 +18,17 @@ public class pushlikeDAOImpl implements IpushlikeDAO {
 	 		    String time=format.format(date); 
 		        t.setLiket(time); 
 		 		String sql = "insert into tblpushlike" 
-		 				+ "(ptid,likeid,likedid,liket )" 
-		 				+"values(?,?,?,?)";			//sql��� 
-				ArrayList <Object> param=new ArrayList();		//paramΪ�����б� 
-				    param.add(t.getPtid());							//��param���� 
+		 				+ "(likeid,likedid,liket )" 
+		 				+"values(?,?,?)";			
+				ArrayList <Object> param=new ArrayList();		
+//				    param.add(t.getPtid());							
 		 			param.add(t.getLikeid()); 
 					param.add(t.getLikedid());
 					param.add(t.getLiket());
-				    if(conn.update(sql, param)!=0){					//ִ��sql��䷵��ִ�н���� 
+				    if(conn.update(sql, param)!=0){				
 					flag = true; 
 			    } 
-			    return flag;									//��ӳɹ�flag=true,����flag=false 
+			    return flag;									
 		} 
 
 	
