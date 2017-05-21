@@ -8,13 +8,20 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>推送一览</title>
 </head>
-<body onload="tip">
-
+<body> 
+<script>  
+    function deselectedAll() {  
+        var allsel = document.getElementsByName("cbox");/cbox为复选框的name属性值 */  
+        for ( var i = 0; i < allsel.length; i++) {  
+            allsel[i].checked = !allsel[i].checked;  
+        }  
+    }  
+</script>
 <script>  
     function selectedAll() {  
         var allsel = document.getElementsByName("cbox");/cbox为复选框的name属性值 */  
         for ( var i = 0; i < allsel.length; i++) {  
-            allsel[i].checked = !allsel[i].checked;  
+            allsel[i].checked = true;  
         }  
     }  
 </script>
@@ -36,12 +43,15 @@ width:20px;height:20px;"/></a>
 <img alt="搜索" src="images/push_search.jpg" style="border:0; cursor:hand;
 width:20px;height:20px;"/></a></br></br>
 
-<form action="PushServ" method="post">
+<form action="PushDeleteServ" method="post">
   <table width="100%" border="0" cellspacing="0" cellpadding="0">
-    <tr>全选/取消
-    <input type="hidden" name="flag"  value="push_batch_delete">
+    <tr>全选
     <input type="checkbox" name="sel" onclick="selectedAll()">
-    <input type="submit" name="批量删除" value="删除">
+    <tr>反选
+    <input type="checkbox" name="sel" onclick="deselectedAll()">
+    <input type="submit" name="批量删除" value="删除" 
+    onclick="{if(confirm('确定删除?'))
+    {this.document.formname.submit();return true;}return false;}">
     </tr>
     <tr>
       <td scope="col" width="10%">选择</td>
@@ -58,13 +68,13 @@ width:20px;height:20px;"/></a></br></br>
     	Push p = (Push)list.get(i);%>
     <tr>
     <td><input type="checkbox" name="cbox" value="<%=p.getPid()%>"></td>  
-    <td><a href="PushServ?flag=push_details&pid=<%=p.getPid()%>"><%=p.getPid()%></a></td>
+    <td><a href="PushDetailServ?pid=<%=p.getPid()%>"><%=p.getPid()%></a></td>
     <td><%= p.getHead()%></td>
     <td><%= p.getType()%></td>
     <td><%= p.getStatus()%></td>
     <td><%= p.getAdmid()%></td>
     <td><%= p.getTime()%></td>
-    <td><a href="PushServ?flag=push_find&pid=<%=p.getPid()%>">
+    <td><a href="PushUpdateServ?pid=<%=p.getPid()%>">
     <img alt="修改" src="images/push_modify.jpg" style="border:0; cursor:hand;
     width:25px;height:25px;"/></a></td>
     </tr>
@@ -88,10 +98,10 @@ width:20px;height:20px;"/></a></br></br>
 	  next = tail;
   }
 %>
-<a href="PushServ?flag=push_showlist&pageindex=0">首页</a>
-<a href="PushServ?flag=push_showlist&pageindex=<%=pre%>">上一页</a>
-<a href="PushServ?flag=push_showlist&pageindex=<%=next%>">下一页</a>															
-<a href="PushServ?flag=push_showlist&pageindex=<%=tail%>">尾页</a>
+<a href="PushShowServ?pageindex=0">首页</a>
+<a href="PushShowServ?pageindex=<%=pre%>">上一页</a>
+<a href="PushShowServ?pageindex=<%=next%>">下一页</a>															
+<a href="PushShowServ?pageindex=<%=tail%>">尾页</a>
 
 </body>
 </html>

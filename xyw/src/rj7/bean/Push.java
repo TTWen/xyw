@@ -19,6 +19,7 @@ public class Push {			//推送
 	private String cmtcnt;		//推送评论量
 	private String shrecnt;		//推送分享量
 	private String cltcnt;		//推送收藏量
+	private String urlpush;		//图片地址
 	
 	public String getPid() {
 		return pid;
@@ -97,5 +98,11 @@ public class Push {			//推送
 	}
 	public void setCltcnt(String cltcnt) {
 		this.cltcnt = cltcnt;
+	}
+	public String getUrlpush() {
+		return urlpush;
+	}
+	public void setUrlpush(String urlpush) {
+		this.urlpush = urlpush;
 	}
 }

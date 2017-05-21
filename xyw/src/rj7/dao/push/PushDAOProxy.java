@@ -1,5 +1,6 @@
 package rj7.dao.push;
 import java.util.*;
+
 import rj7.bean.Push;
 import rj7.util.Connect;
 /**
@@ -59,9 +60,9 @@ public class PushDAOProxy implements IPushDAO {
 	}
 
 	//按照热度查找
-	public ArrayList<Push> findByhot() throws Exception {
+	public ArrayList<Push> findByhot(Date datebefore,Date dateafter) throws Exception {
 		ArrayList<Push> list = null;
-		list = this.dao.findByhot();
+		list = this.dao.findByhot(datebefore,dateafter);
 		return list; 
 	}
 	
@@ -73,10 +74,11 @@ public class PushDAOProxy implements IPushDAO {
 	}
 
 	//查找最近
-	public ArrayList<Push> findRecent(Date date) throws Exception {
+	public ArrayList<Push> findRecent() throws Exception {
 		ArrayList<Push> list = null;
-		list = this.dao.findRecent(date);
+		list = this.dao.findRecent();
 		return list; 
 	}
+
 
 }
