@@ -15,7 +15,7 @@ public interface IPushDAO {
 	public ArrayList<Push> findAll()throws Exception;//查找所有推送
 	public Push findByid(String pid)throws Exception;//按照id查找
 	public ArrayList<Push> findBytype(String type)throws Exception;//按照推送类型查找
-	public ArrayList<Push> findByhot()throws Exception;//按照热度查找
+	public ArrayList<Push> findByhot(Date datebefore,Date dateafter)throws Exception;//按照热度查找
 	public ArrayList<Push> findBytime(Date datebefore,Date dateafter)throws Exception;//按照时间查找
-	public ArrayList<Push> findRecent(Date date)throws Exception;//查找最近
+	public ArrayList<Push> findRecent()throws Exception;//查找最近
 }
