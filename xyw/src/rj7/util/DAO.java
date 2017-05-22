@@ -35,13 +35,14 @@ public class DAO {
 	 * @return 登录成功返回1，失败返回0
 	 * @author 梁爽爽   2017.4.22
 	 */
-	public int login(String username, String pswd, String tblname) {
+	public boolean login(String username, String pswd, String tblname) {
 		String sql = "select count(1) from "+ tblname
 				+" where username=? and pswd=?";
 		List<Object> param = new ArrayList<Object>();
 		param.add(username);
 		param.add(pswd);
-		return conn.count(sql, param);
+		if( conn.update(sql, param) == 0 ) return false;
+		return true;
 	}
 	
 	/**

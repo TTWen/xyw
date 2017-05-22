@@ -47,7 +47,7 @@ public class LogRegServ extends HttpServlet {
 		if("log".equals(dowhat)){
 			
 			// 登录成功后跳转
-			if(dao.login(username, pswd, "tblUser")!= 0) {
+			if( dao.login(username, pswd, "tblUser") ) {
 				request.getRequestDispatcher("index.jsp").forward(request, response);
 			// 登录失败
 			} else {
