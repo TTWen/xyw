@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<jsp:forward page="PushRefreshServ"></jsp:forward>
+<jsp:forward page="PushShowServ"></jsp:forward>
 </body>
 </html>

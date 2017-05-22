@@ -9,8 +9,8 @@
 </head>
 <body>
 <% Push p = (Push)request.getAttribute("push");%>
+<p>图片</p><image src="<%=p.getUrlpush()%>">
 <table style="text-align:center">
-
 <tr><td><p>推送id</p></td><td> <%out.println(p.getPid());%></td></tr>
 <tr><td><p>发布管理员id</p></td><td><%out.println(p.getAdmid());%></td></tr>
 <tr><td><p>标题</p> </td><td><%out.println(p.getHead());%>v</tr>

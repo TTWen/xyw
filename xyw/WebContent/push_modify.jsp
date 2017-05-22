@@ -13,12 +13,13 @@
 	response.setCharacterEncoding("utf-8");
 	Push p =(Push)request.getAttribute("push");
 %>
-
-<form action="PushServ" method="post" style="text-align:center">
-<tr><input type="hidden" name="flag"  value="push_modify"></tr>
-<tr><input type="hidden" name="pid"  value="<%=p.getPid()%>"></tr>
-<tr>标题<input type="text"  id="head" name="head" value=<%=p.getHead()%>  style="width:100px;height:20px;"></tr><br><br>           <!-- 推送标题 -->
-<tr>正文<textarea rows="3" cols="30" id="content"  name="content"><%out.println(p.getContent());%></textarea></tr><br><br>		<!-- 推送内容 -->
+${reback}
+<form action="PushModifyServ" method="post" style="text-align:center" enctype ="multipart/form-data">
+<tr>标题<input type="text"  id="head" name="head" value="<%=p.getHead()%>"  style="width:100px;height:20px;"></tr><br><br>          
+<tr>正文<textarea rows="3" cols="30" id="content"  name="content"><%out.println(p.getContent());%></textarea></tr><br><br>		
+<tr>图片<image src="<%=p.getUrlpush()%>"></tr></br></br>
+<tr><input type="hidden" name="urlpush"  value="<%=p.getUrlpush()%>"></tr>
+<tr><input type="file" name="picture" ></tr></br></br>
 <select name="select">类型
 <option  value="文章">文章</option>
 <option  value="公告">公告</option>
