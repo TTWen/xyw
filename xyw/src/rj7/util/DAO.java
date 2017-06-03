@@ -23,7 +23,7 @@ public class DAO {
 		List<Object> param = new ArrayList<Object>();
 		param.add(id);
 		List<Object> rs = conn.queryForArrObject(sql, param, cls);
-		if(rs.isEmpty()) return null;
+		if( rs.isEmpty() ) return null;
 		return rs.get(0);
 	}
 	
@@ -41,7 +41,7 @@ public class DAO {
 		List<Object> param = new ArrayList<Object>();
 		param.add(username);
 		param.add(pswd);
-		if( conn.update(sql, param) == 0 ) return false;
+		if( conn.count(sql, param) == 0 ) return false;
 		return true;
 	}
 	
@@ -54,7 +54,6 @@ public class DAO {
 	 * @author 梁爽爽 2017.4.30
 	 */
 	public boolean regist(String username, String pswd, String tblname, String email) {
-		
 		String sql = "insert into "+ tblname +" (id, username, pswd, email) "
 				+ " values (null,?,?,?)";
 		List<Object> param = new ArrayList<Object>();
@@ -74,7 +73,6 @@ public class DAO {
 	 * @author 梁爽爽 2017.5.20
 	 */
 	public boolean modigypswd(String tblname, String pswd, String id) {
-		pswd = md5(pswd);
 		String sql = "update "+ tblname 
 				+" set pswd = " + pswd +" where id = " +id;
 		if( conn.update(sql, null) == 0 ) return false;
@@ -90,7 +88,7 @@ public class DAO {
 	public String md5(String inStr) {
 		MessageDigest md5 = null;
 		// 加盐
-//		inStr = inStr + "{*nbsjt*asar#cdxd#}";
+		inStr = inStr + "{*nbsjt*asar#cdxd#}";
 		try {
 			md5 = MessageDigest.getInstance("MD5");
 		} catch (NoSuchAlgorithmException e) {

@@ -7,13 +7,15 @@ public class Member {
 	private String pswd;
 	private String phone;
 	private String email;
-	private String age;
+	private String age; // birth的派生属性
 	private String sex;
 	private String birth;
 	private String school;
-	private String city; 
-	private String registtime; 
+	private String city; // 现居地
+	private String regtime; 
 	private String isrealname; 
+	private String signature; // 个性签名
+	private String iconurl; // 头像url
 	
 	public String getId() {
 		return id;
@@ -75,17 +77,28 @@ public class Member {
 	public void setCity(String city) {
 		this.city = city;
 	}
-	public String getRegisttime() {
-		return registtime;
-	}
-	public void setRegisttime(String registtime) {
-		this.registtime = registtime;
-	}
 	public String getIsrealname() {
 		return isrealname;
 	}
 	public void setIsrealname(String isrealname) {
 		this.isrealname = isrealname;
 	}
-	
+	public String getSignature() {
+		return signature;
+	}
+	public void setSignature(String signature) {
+		this.signature = signature;
+	}
+	public String getIconurl() {
+		return iconurl;
+	}
+	public void setIconurl(String iconurl) {
+		this.iconurl = iconurl;
+	}
+	public String getRegtime() {
+		return regtime;
+	}
+	public void setRegtime(String regtime) {
+		this.regtime = regtime;
+	}
 }

@@ -7,6 +7,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import rj7.bean.Member;
 import rj7.util.DAO;
@@ -33,8 +34,10 @@ public class LogRegServ extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		String dowhat = request.getParameter("dowhat");
+		System.out.println(dowhat);
 		request.setCharacterEncoding("utf-8");
 		response.setCharacterEncoding("utf-8");
+		HttpSession session = request.getSession();
 		
 		// 获取DAO实例
 		DAO dao = DAOFactory.getDaoInstance();
@@ -42,13 +45,16 @@ public class LogRegServ extends HttpServlet {
 		// 获取账号密码
 		String username = request.getParameter("username");
 		String pswd = request.getParameter("pswd");
-		System.out.println(pswd);
+		
 		// 登录
 		if("log".equals(dowhat)){
 			
 			// 登录成功后跳转
 			if( dao.login(username, pswd, "tblUser") ) {
-				request.getRequestDispatcher("index.jsp").forward(request, response);
+				Member mem = (Member)dao.findById("tblUser", username,
+							Member.class, "username");
+				session.setAttribute("crtuid", mem.getId());
+				response.sendRedirect("index.jsp");
 			// 登录失败
 			} else {
 				response.sendRedirect("login.jsp?error=logfail");
@@ -73,5 +79,4 @@ public class LogRegServ extends HttpServlet {
 			}
 		}
 	}
-
 }

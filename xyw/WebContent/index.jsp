@@ -17,6 +17,10 @@
 <script src="js/modernizr-2.8.3.min.js"></script>
 </head>
 <body>
+<%
+String crtuid = (String)session.getAttribute("crtuid");
+//crtuid = null;
+%>
 <header>
 	<div class="top-news">
 		   <div class="container-fluid">
@@ -40,31 +44,52 @@
 								  </div>
 								  <div id="navbar" class="navbar-collapse collapse no-margin no-padding">
 									<ul class="nav navbar-nav">
-									  <li class="dropdown active">
-										<a href="index.jsp" class="red-nav dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">首页 <i class="fa fa-bars"></i></a>
-									  </li>
-									  <li>
-									  	<a class="pink-nav" href="#">攻略<i class="fa fa-bars"></i></a>
+									  <li class="active"><a class="red-nav" href="index.jsp">首页</a></li>
+									  
+									  <li class="dropdown">
+										<a href="#" class="pink-nav dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">攻略<span class="caret"></span></a>
 										<ul class="dropdown-menu">
-										  <li><a href="index.html">Homepage 1</a></li>
-										  <li><a href="homepage2.html">Homepage 2</a></li>
-										</ul>
+										  <li><a href="#">攻略首页</a></li>
+										  <li><a href="#">攻略库</a></li>
+										  <li><a href="#">发表攻略</a></li>
+									   	</ul>
 									  </li>
-									  <li><a class="sky-blue-nav" href="#">景点 <i class="fa fa-bars"></i></a></li>
-									  <li><a class="orange-nav" href="#">约游 <i class="fa fa-bars"></i></a></li>
-									  <li><a class="violet-nav" href="#">个人中心<i class="fa fa-bars"></i></a></li>
-									  <li class="">
-										<a href="login.jsp" class="red-nav" >登录</a>
+									  
+									  <li class="dropdown">
+										<a href="#" class="sky-blue-nav dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">景点<span class="caret"></span></a>
+										<ul class="dropdown-menu">
+										  <li><a href="#">景点首页</a></li>
+										  <li><a href="#">周边游</a></li>
+										  <li><a href="#">当季最好玩</a></li>
+										  <li><a href="#">个性化定制</a></li>
+									   	</ul>
 									  </li>
+									  <li><a class="red-nav" href="#">约游 </a></li>
+									  <li><a class="green-nav" href="#">住宿</a></li>
+									  <li><a class="sky-blue-nav" href="#">火车票 </a></li>
+									  <li><a class="red-nav" href="#">机票</a></li>
+									  
+									  <%
+									  if( crtuid == null ) {
+										  %>
+										<li><a class="pink-nav" href="login.jsp">登录</a></li>
+									  	<li><a class="sky-blue-nav" href="regist.jsp">注册</a></li>
+										  <%
+									  } else {
+										  %>
+										<li><a class="green-nav" href="#">个人中心</a></li>
+										  <%
+									  }
+									  %>
+									  
 									</ul>
-								  </div>
+								  </div><!--/.nav-collapse -->
 						  </nav>
 			      </div>
 			 </div>
 		   </div>
 	   </div>
 </header>
-
 
 <div class="main-slider">
 	<div class="item">
@@ -224,26 +249,7 @@
 		</div>
 	</div>
 </section>
-<section class="subscribe">
-	<span class="start"></span>
-	<div class="row">
-		<div class="col-md-12">
-			<h1 class="text-uppercase white text-bold text-center">Enjoy Your Travel</h1>
-			<form action="#">
-				<div class="row mt-50">
-					<div class="col-md-4 col-md-offset-1">
-					  <input type="text" class="form-control" placeholder="城市">  
-					</div>
-					<div class="col-md-4">
-					  <input type="email" class="form-control" placeholder="关键字">  
-					</div>
-					<div class="col-md-2 text-left">搜索</div>
-				</div>
-			</form>
-		</div>
-	</div>
 
-</section>
 <section class="section mb-100">
 	<div class="container">
 		<div class="row">
@@ -330,6 +336,7 @@
 		</div>
 	</div>
 </section>
+
 <section class="products-main">
 	<div class="container">
 		<div class="row">
@@ -550,6 +557,8 @@
 		</div>
 	</div>
 </section>
+
+
 <section class="funfacts">
 	<div class="container">
 		<div class="row">
@@ -569,44 +578,51 @@
 					</div>
 				</div>
 			</div>
-			<div class="col-md-9">
-				<h2 class="title text-uppercase d-black text-bold">怎样互助游</h2>
-				<p class="mt-20">互助游是一个省钱，结交朋友的随心旅行。以下的方法将帮助你更好的使用我们的网站 </p>
+			
+			<div class="col-md-8">
+				<div class="row">
+					<h2 class="title text-uppercase d-black text-bold">怎样互助游</h2>
+					<p class="mt-20">互助游是一个省钱，结交朋友的随心旅行。以下的方法将帮助你更好的使用我们的网站 </p>
+				</div>
 				
-				<div class="more-facts mt-60">
-					<div class="col-md-4 col-sm-4">
-						<div class="twitter-fact twitter-bg">
-							<h6 class="title white text-uppercase text-bold pull-left">Just Now</h6>
-							<i class="pull-right fa fa-twitter fa-lg white"></i>
-							<div class="clearfix"></div>
-							<p class="white mt-20"> “确定好目的地”</p>
+				<div class="row">
+					<div class="more-facts mt-60">
+						<div class="col-md-4 col-sm-4">
+							<div class="twitter-fact twitter-bg">
+								<h6 class="title white text-uppercase text-bold pull-left">Just Now</h6>
+								<i class="pull-right fa fa-twitter fa-lg white"></i>
+								<div class="clearfix"></div>
+								<p class="white mt-20"> “确定好目的地”</p>
+							</div>
+							<div class="fb-fact fb-bg mt-20">
+								<h6 class="title white text-uppercase text-bold pull-left">30 mins ago</h6>
+								<i class="pull-right fa fa-facebook fa-lg white"></i>
+								<div class="clearfix"></div>
+								<p class="white mt-20">和提供互助游帮助的“地主”交流</p>
+							</div>
 						</div>
-						<div class="fb-fact fb-bg mt-20">
-							<h6 class="title white text-uppercase text-bold pull-left">30 mins ago</h6>
-							<i class="pull-right fa fa-facebook fa-lg white"></i>
-							<div class="clearfix"></div>
-							<p class="white mt-20">和提供互助游帮助的“地主”交流</p>
+						<div class="col-md-4 col-sm-4">
+							<div class="fact-img">
+								<img src="img/cars.jpg" class="img-responsive" alt="">
+								<div class="fact-overlay">
+									<h3 class="white text-uppercase text-bold">满意的住宿条件</h3>
+								</div>   
+							</div>
 						</div>
-					</div>
-					<div class="col-md-4 col-sm-4">
-						<div class="fact-img">
-							<img src="img/cars.jpg" class="img-responsive" alt="">
-							<div class="fact-overlay">
-								<h3 class="white text-uppercase text-bold">满意的住宿条件</h3>
-							</div>   
-						</div>
-					</div>
-					<div class="col-md-4 col-sm-4">
-						<div class="fact-img">
-							<img src="img/bike.jpg" class="img-responsive" alt="">
-							<div class="fact-overlay">
-								<h3 class="white text-uppercase text-bold">适合的出行工具</h3>
-							</div>   
+						<div class="col-md-4 col-sm-4">
+							<div class="fact-img">
+								<img src="img/bike.jpg" class="img-responsive" alt="">
+								<div class="fact-overlay">
+									<h3 class="white text-uppercase text-bold">适合的出行工具</h3>
+								</div>   
+							</div>
 						</div>
 					</div>
 				</div>
+				
 			</div>
 		</div>
+		
 	</div>
 </section>
 <section class="section">
@@ -644,7 +660,7 @@
 				<div class="product-p-img">
 					<img class="img-responsive" src="img/business1.jpg" alt="">
 					<div class="product-p-content product-p-content-small text-center white-bg">
-						<a href="#" class="btn btn-sky-blue-t text-uppercase">当地的特色活动</a>
+						<a href="#" class="btn btn-sky-blue-t text-uppercase">当地特色活动</a>
 						<h5 class="title text-uppercase d-black text-bold">来哈尔滨钓鱼吧</h5>
 						<p class="mt-20 mb-20">各种特色的活动</p>
 						<span class="add v-light-gray text-uppercase">
@@ -683,271 +699,53 @@
 	</div>
 </section>
 
-<section class="section videos-l">
-	<div class="overlay"></div>
-	<span class="start"></span>
-	<div class="container-fluid">
-		<div class="row">
-			<div class="col-md-12 text-center">
-				<h2 class="white text-uppercase text-bold">视频</h2>
-			</div>
-		</div>
-	</div>
-	<div class="container">
-		<div class="row">
-			<div class="col-md-12">
-				<div class="latest-videos mt-70">
-					<div class="item" data-hash="v1">
-						<div class="video-img">
-							<img class="img-responsive" src="img/v-s1.jpg" alt="">
-							<div class="overlay"></div>
-							<div class="video-overlay text-center">
-								<h3 class="title text-uppercase white text-bold">记录旅行中的快乐</h3>
-								<div class="mt-40"><a href="javascript:" class="fa fa-play"></a></div>
-							</div>
-						  <div class="video-play">
-							<iframe id="biker" src="" width="500" height="281" allowfullscreen></iframe>
-						  </div>
-						</div>
-						
-					</div>
-					<div class="item" data-hash="v2">
-						<div class="video-img">
-							<img class="img-responsive" src="img/v-s1.jpg" alt="">
-							<div class="overlay"></div>
-							<div class="video-overlay text-center">
-								<h3 class="title text-uppercase white text-bold">记录旅行中的快乐</h3>
-								<div class="mt-40"><a href="javascript:" class="fa fa-play"></a></div>
-							</div>
-							<div class="video-play">
-							  <iframe id="biker1" src="" width="500" height="281" allowfullscreen></iframe>
-							</div>
-						</div>
-					</div>
-					<div class="item" data-hash="v3">
-						<div class="video-img">
-							<img class="img-responsive" src="img/v-s1.jpg" alt="">
-							<div class="overlay"></div>
-							<div class="video-overlay text-center">
-								<h3 class="title text-uppercase white text-bold">记录旅行中的快乐</h3>
-								<div class="mt-40"><a href="javascript:" class="fa fa-play"></a></div>
-							</div>
-							<div class="video-play">
-							  <iframe id="biker2" src="" width="500" height="281" allowfullscreen></iframe>
-							</div>
-						</div>
-					</div>
-					<div class="item" data-hash="v4">
-						<div class="video-img">
-							<img class="img-responsive" src="img/v-s1.jpg" alt="">
-							<div class="overlay"></div>
-							<div class="video-overlay text-center">
-								<h3 class="title text-uppercase white text-bold">记录旅行中的快乐</h3>
-								<div class="mt-40"><a href="javascript:" class="fa fa-play"></a></div>
-							</div>
-							<div class="video-play">
-							  <iframe id="biker3" src="" width="500" height="281" allowfullscreen></iframe>
-							</div>
-						</div>
-					</div>
-				</div>
-				
-				<!-- <iframe class="featherlight" id="video2" src="https://player.vimeo.com/video/99804135" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe> -->
-
-				<div class="v-nav white-bg">
-					<a href="#v1"><img src="img/vt1.jpg" alt=""></a>
-					<a href="#v2"><img src="img/vt2.jpg" alt=""></a>
-					<a href="#v3"><img src="img/vt3.jpg" alt=""></a>
-					<a href="#v4"><img src="img/vt4.jpg" alt=""></a>
-				</div>
-			</div>
-		</div>
-	</div>
-</section>
-<section class="latest-articles">
-	<div class="container">
-		<div class="row">
-			<div class="col-md-12 text-center">
-				<h2 class="d-black text-uppercase text-bold rlb-style">旅游达人</h2>
-			</div>
-		</div>
-		<div class="row mt-20">
-			<div class="col-sm-3">
-				<div class="article text-center mt-40">
-					<div class="high-slider-img">
-						<img src="img/la1.jpg" alt="" class="img-responsive">
-					</div>
-					<h6 class="title text-uppercase orange mt-20">北京</h6>
-					<h4 class="text-uppercase dark-gray text-bold mt-20">小梦</h4>
-					<span class="sep"></span>
-					<span class="add v-light-gray text-uppercase">Oct 12, 2016  /  5 Comments</span>
-				</div>
-				<div class="article text-center mt-40">
-					<div class="high-slider-img">
-						<img src="img/la2.jpg" alt="" class="img-responsive">
-					</div>
-					<h6 class="title text-uppercase green-t mt-20">山西</h6>
-					<h4 class="text-uppercase dark-gray text-bold mt-20">小可</h4>
-					<span class="sep"></span>
-					<span class="add v-light-gray text-uppercase">Oct 12, 2016  /  5 Comments</span>
-				</div>
-			</div>
-			<div class="col-sm-6">
-				<div class="article-focus mt-40">
-					<img class="img-responsive" src="img/la3.jpg" alt="">
-					<div class="overlay"></div>
-					<div class="article-overlay text-center">
-						<h5 class="text-uppercase pink">河南</h5>
-						<h6 class="white text-bold text-uppercase f2x mt-20">旅游达人<br>有趣的互助游等你的加入</h6>
-					</div>
-				</div>
-			</div>
-			<div class="col-sm-3">
-				<div class="article text-center mt-40">
-					<div class="high-slider-img">
-						<img src="img/la4.jpg" alt="" class="img-responsive">
-					</div>
-					<h6 class="title text-uppercase pink mt-20">重庆</h6>
-					<h4 class="text-uppercase dark-gray text-bold mt-20">小高</h4>
-					<span class="sep"></span>
-					<span class="add v-light-gray text-uppercase">Oct 12, 2016  /  5 Comments</span>
-				</div>
-				<div class="article text-center mt-40">
-					<div class="high-slider-img">
-						<img src="img/la5.jpg" alt="" class="img-responsive">
-					</div>
-					<h6 class="title text-uppercase blue mt-20">山西</h6>
-					<h4 class="text-uppercase dark-gray text-bold mt-20">小软</h4>
-					<span class="sep"></span>
-					<span class="add v-light-gray text-uppercase">Oct 12, 2016  /  5 Comments</span>
-				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-md-12">
-				<div class="mt-40 text-center rlb-o-style"><a href="#" class="btn btn-pink text-uppercase">查看所有的旅游达人</a></div>
-			</div>
-		</div>
-	</div>
-</section>
 <footer>
 	<div class="upperfooter">
 		<div class="container">
-			<div class="row">
-				<div class="col-md-4 col-sm-6">  
-					<div class="fbt">   
-						<h3 class="white text-uppercase text-bold hr-b mt-30"> About us</h3>
-						<p class="mt-40 f-gray">A man is born he's a man of means. Then along come two they got nothin' but their jeans. The ship set ground on the shore of this uncharted gilligan</p>
-					</div>
-				</div>
-				<div class="col-md-4 col-sm-6">  
-					<div class="fbt">   
-						<h3 class="white text-uppercase text-bold hr-b mt-30">Recent post</h3>
-						<div class="r-post mt-50">
-							<img class="pull-left" src="img/rp1.png" alt="">
-							<div class="r-post-content pull-right">
-								<span class="foo text-uppercase f-gray">The first mate and Skipper too will do their</span>
-								<span class="add f-gray mt-10">Oct 10, 2016</span>
-							</div>
-						</div>
-						<div class="clearfix"></div>
-						<div class="r-post mt-20">
-							<img class="pull-left" src="img/rp2.png" alt="">
-							<div class="r-post-content pull-right">
-								<span class="foo text-uppercase f-gray">All of them had hair of gold like their mother</span>
-								<span class="add f-gray mt-10">Oct 10, 2016</span>
-							</div>
-						</div>
-						<div class="clearfix"></div>
-						<div class="r-post mt-20">
-							<img class="pull-left" src="img/rp3.png" alt="">
-							<div class="r-post-content pull-right">
-								<span class="foo text-uppercase f-gray">So this is the tale of our long long time</span>
-								<span class="add f-gray mt-10">Oct 10, 2016</span>
-							</div>
-						</div>
-						<div class="clearfix"></div>
-					</div>
-				</div>
-				<div class="col-md-4 col-sm-6">  
-					<div class="fbt">   
-						<h3 class="white text-uppercase text-bold hr-b mt-30"> Twitter feed</h3>
-						<div class="twitter-feed mt-50">
-							<div class="col-md-1 col-xs-2">
-								<i class="fa fa-twitter"></i>
-							</div>
-							<div class="col-md-11 col-xs-10">
-								<h4 class="text-uppercase white">Got a dream and we just know now we gonna <span> @ JAMES ANderson</span></h4>
-								<h6 class="title text-uppercase white mt-10">1 hours ago</h6>
-							</div>
-							<div class="clearfix"></div>
-						</div>
-
-						<div class="twitter-feed mt-20">
-							<div class="col-md-1 col-xs-2">
-								<i class="fa fa-twitter"></i>
-							</div>
-							<div class="col-md-11 col-xs-10">
-								<h4 class="text-uppercase white">Got a dream and we just know now we gonna <span> @ Micheal hosting</span></h4>
-								<h6 class="title text-uppercase white mt-10">1 hours ago</h6>
-							</div>
-							<div class="clearfix"></div>
-						</div>
-						<div class="twitter-feed mt-20">
-							<div class="col-md-1 col-xs-2">
-								<i class="fa fa-twitter"></i>
-							</div>
-							<div class="col-md-11 col-xs-10">
-								<h4 class="text-uppercase white">Got a dream and we just know now we gonna <span> @ chris evans </span></h4>
-								<h6 class="title text-uppercase white mt-10">1 hours ago</h6>
-							</div>
-							<div class="clearfix"></div>
-						</div>
-					</div>
-				</div>
-			</div>
 			<div class="row mt-70">
-				<div class="col-md-6 col-sm-6">  
+				<div class="col-md-5 col-sm-6">  
 					<div class="fbt">   
-						<h3 class="white text-uppercase text-bold hr-b mt-30"> CONNECT WITH US</h3>
-						<p class="mt-40 f-gray">That this group would somehow form a family that's the way we all became the Brady Bunch. The mate was a mighty sailin' man the Skipper brave and sure. Five passengers set sail that day for a three hour tour a three hour tour.</p>
-						<div class="f-social mt-20">
-							<a class="mt-10" href="#"><i class="fa fa-facebook fa-lg"></i></a>
-							<a class="mt-10" href="#"><i class="fa fa-twitter fa-lg"></i></a>
-							<a class="mt-10" href="#"><i class="fa fa-pinterest fa-lg"></i></a>
-							<a class="mt-10" href="#"><i class="fa fa-instagram fa-lg"></i></a>
-							<a class="mt-10" href="#"><i class="fa fa-google-plus fa-lg"></i></a>
-							<a class="mt-10" href="#"><i class="fa fa-tumblr fa-lg"></i></a>
-							<a class="mt-10" href="#"><i class="fa fa-github fa-lg"></i></a>
-						</div>
+						<h3 class="white text-uppercase text-bold hr-b mt-30"> 联系我们 </h3>
+						<p class="mt-40 f-gray">
+							电话：15638232505
+							地址：河南省郑州市高新区科学大道100号
+							e-mail：ieliangshuang@163.com
+						</p>
 					</div>
 				</div>
 				<div class="col-md-5 col-sm-6 col-md-offset-1">
-					<div class="fbt">   
-						<h3 class="white text-uppercase text-bold hr-b mt-30"> popular tags</h3>
-						<div class="popular-tags mt-50">
-							<a href="#" class="btn btn-gray">Android</a>
-							<a href="#" class="btn btn-gray">Apple</a>
-							<a href="#" class="btn btn-gray">Apps and Software</a> 
-							<a href="#" class="btn btn-gray">Dev and Design</a>
-							<a href="#" class="btn btn-gray">Gallery</a>
-							<a href="#" class="btn btn-gray">Games</a><br>
-							<a href="#" class="btn btn-gray">Life and Style</a>
-							<a href="#" class="btn btn-gray">Technology</a><br>
-							<a href="#" class="btn btn-gray">Sports</a>
+					<div class="fbt">
+						<div class="row">
+							<h3 class="white text-uppercase text-bold hr-b mt-30"> 景点 </h3>
+							
+							<div class="popular-tags mt-50">
+								<a href="#" class="btn btn-gray">北京</a>
+								<a href="#" class="btn btn-gray">上海</a>
+								<a href="#" class="btn btn-gray">武汉</a> 
+								<a href="#" class="btn btn-gray">三亚</a>
+								<a href="#" class="btn btn-gray">云南</a>
+							</div>
 						</div>
+						
+						<div class="row">
+							<h3 class="white text-uppercase text-bold hr-b mt-30"> 攻略 </h3>
+							
+							<div class="popular-tags mt-50">
+								<a href="#" class="btn btn-gray">香港旅游攻略</a>
+								<a href="#" class="btn btn-gray">三亚旅游攻略</a>
+								<a href="#" class="btn btn-gray">杭州旅游攻略</a> 
+								<a href="#" class="btn btn-gray">南京旅游攻略</a>
+							</div>
+						</div>
+						
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-	<div class="lowerfooter">
-		
-		<div class="row"></div>
-	</div>
+	
 </footer>
 
-<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>-->
 <script src="js/jquery-1.11.3.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/owl.carousel.js"></script>

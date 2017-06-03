@@ -29,12 +29,12 @@ public class MemberDAOImpl implements IMemberDAO {
 		param.add(mem.getAge());
 		param.add(mem.getCity());
 		param.add(mem.getSex());
+		param.add(mem.getSignature());
 		param.add(mem.getId());
-		sql = "update tbluser set birth = ?, age = ?, city = ?, sex = ?"
-				+ " where id = ?";
+		sql = "update tbluser set birth = ?, age = ?, city = ?, sex = ?, "
+				+ "signature = ? where id = ?";
 		if(conn.update(sql, param) == 1) return true;
 		return false;
 	}
-	
 
 }

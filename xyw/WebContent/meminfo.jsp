@@ -27,6 +27,7 @@ response.setCharacterEncoding("utf-8");
 <div class="easyui-panel" title="修改基本信息" style="width:100%;max-width:400px;padding:30px 60px;">
         <form id="meminfo_form" method="post" action="MemInfoServ" accept-charset="utf-8">
         	<input type="hidden" name="dowhat" value="modifybaseinfo"/>
+        	用户id<input name="crtuid" type="text">
             <div style="margin-bottom:20px">
                 <input class="easyui-datebox" name="birth" style="width:100%" data-options="formatter:format,parser:parse,label:'出生日期'">
             </div>
@@ -37,14 +38,14 @@ response.setCharacterEncoding("utf-8");
             </div>
             <div style="margin-bottom:20px">
             	现居城市：<br>
-				省<select name="user.province" id="province" ></select><br>
-				市<select name="user.city" id="city" ></select><br>
-				县<select name="user.area" id="area" ></select><br>
+				省 <select name="user.province" id="province" ></select><br>
+				市 <select name="user.city" id="city" ></select><br>
+				县 <select name="user.area" id="area" ></select><br>
             </div>
             <div style="margin-bottom:20px">
                 <input class="easyui-textbox" name="signature" style="width:100%;height:60px" data-options="label:'个性签名',multiline:true">
             </div>
-            
+            <input type="submit"/>
         </form>
         <div style="text-align:center;padding:5px 0">
             <a href="javascript:void(0)" class="easyui-linkbutton" onclick="submitForm()" style="width:80px">提交</a>

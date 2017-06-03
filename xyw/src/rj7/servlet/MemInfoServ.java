@@ -15,7 +15,6 @@ import javax.servlet.http.HttpSession;
 
 import rj7.bean.Member;
 import rj7.dao.member.IMemberDAO;
-import rj7.util.DAO;
 import rj7.util.DAOFactory;
 
 /**
@@ -36,11 +35,10 @@ public class MemInfoServ extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
 		String dowhat = request.getParameter("dowhat");
 		request.setCharacterEncoding("utf-8");
 		response.setCharacterEncoding("utf-8");
-		HttpSession session = request.getSession();
+//		HttpSession session = request.getSession();
 		
 		// 获取DAO实例
 		IMemberDAO memdao = DAOFactory.getIMemberDAOInstance();
@@ -52,21 +50,26 @@ public class MemInfoServ extends HttpServlet {
 			String pvc = request.getParameter("user.province");
 			String city = request.getParameter("user.city");
 			String area = request.getParameter("user.area");
+			String crtuid = request.getParameter("crtuid");
+			String signature = request.getParameter("signature");
+//			session.getAttribute("crtid");
 			
 			// 转码
 			pvc = new String(pvc.getBytes("iso8859-1"),"utf-8");
 			city = new String(city.getBytes("iso8859-1"),"utf-8");
 			area = new String(area.getBytes("iso8859-1"),"utf-8");
+			signature = new String(signature.getBytes("iso8859-1"),"utf-8");
+			
+			// 性别
+			sex = "0".equals(sex)?"女":"男";
 			
 			// 构造member对象
 			Member mem = new Member();
-			// 获取当前用户id
-//			session.getAttribute("crtid");
-			String crtid = "1";
-			mem.setId(crtid);
+			mem.setId(crtuid);
 			mem.setBirth(birth);
 			mem.setSex(sex);
 			mem.setCity(pvc + city + area);
+			mem.setSignature(signature);
 			String year = null;
 			SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
 			Date date = null;
@@ -84,7 +87,11 @@ public class MemInfoServ extends HttpServlet {
 			mem.setAge(cnow.get(Calendar.YEAR) - c.get(Calendar.YEAR) + "");
 			
 			// 修改信息
-			memdao.modifyInfo(mem);
+			try {
+				memdao.modifyInfo(mem);
+			} catch (Exception e) {
+				// TODO: handle exception
+			}
 		}
 	}
 }

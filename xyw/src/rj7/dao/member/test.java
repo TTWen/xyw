@@ -15,6 +15,8 @@ public class test {
 	
 	public static void main(String[] args) {
 		Member mem = new Member();
+//		System.out.println(dao.login("lsslss", "l123456", "tbluser"));
+		
 //		System.out.println(dao.modigypswd("tbluser", "123456", "1"));
 //		List<Object> li = dao.pageQuery("tbluser", Member.class, 0, 5, "where id > 40 order by id desc");
 //		int lisize = li.size();
@@ -38,10 +40,10 @@ public class test {
 //			e.printStackTrace();
 //		}
 
-		String s = new String("123");  
-        System.out.println("原始：" + s); 
-        System.out.println("MD5后：" + dao.md5(s));  
-        System.out.println("加密的：" + dao.convertMD5(s));  
-        System.out.println("解密的：" + dao.convertMD5(dao.convertMD5(s)));
+//		String s = new String("123");  
+//        System.out.println("原始：" + s); 
+//        System.out.println("MD5后：" + dao.md5(s));  
+//        System.out.println("加密的：" + dao.convertMD5(s));  
+//        System.out.println("解密的：" + dao.convertMD5(dao.convertMD5(s)));
 	}
 }
