@@ -10,7 +10,6 @@
     <servlet-name>PictureCheckCode</servlet-name>
     <url-pattern>/PictureCheckCode</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <description>发送邮件</description>
     <display-name>This is the display name of my J2EE component</display-name>
@@ -21,7 +20,16 @@
     <servlet-name>MailServ</servlet-name>
     <url-pattern>/MailServ</url-pattern>
   </servlet-mapping>
-  
+  <servlet>
+    <description>找回密码</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>FindPswdServ</servlet-name>
+    <servlet-class>rj7.servlet.FindPswdServ</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>FindPswdServ</servlet-name>
+    <url-pattern>/FindPswdServ</url-pattern>
+  </servlet-mapping>
   <welcome-file-list>
     <welcome-file>index.jsp</welcome-file>
   </welcome-file-list>
