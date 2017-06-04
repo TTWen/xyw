@@ -72,9 +72,10 @@ public class DAO {
 	 * @return 修改成功返回true
 	 * @author 梁爽爽 2017.5.20
 	 */
-	public boolean modigypswd(String tblname, String pswd, String id) {
+	public boolean modifypswd(String tblname, String pswd, String id) {
+		pswd = md5(pswd);
 		String sql = "update "+ tblname 
-				+" set pswd = " + pswd +" where id = " +id;
+				+" set pswd = '" + pswd +"' where id = " +id;
 		if( conn.update(sql, null) == 0 ) return false;
 		return true;
 	}
