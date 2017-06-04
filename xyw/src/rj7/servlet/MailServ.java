@@ -38,7 +38,7 @@ public class MailServ extends HttpServlet {
 						mmh.setSubject("校游网-重置密码");
 						mmh.setText("<html><head><meta http-equiv='keywords' content='keyword1,keyword2,keyword3'>" +
 						          "<meta http-equiv='description' content='this is my page'><meta http-equiv='content-type' content='text/html; charset=UTF-8'>" +
-						          "</head><body>尊敬的用户：<br>您好！<br>您正在进行找回密码操作，请点击下面的链接修改密码:<br><a href='http://localhost:8080/xyw1/findpswd.jsp'>http://localhost:8080/xyw1/findpswd.jsp</a>" +
+						          "</head><body>尊敬的用户：<br>您好！<br>您正在进行找回密码操作，请点击下面的链接修改密码:<br><a href='http://localhost:8080/xyw/findpswd.jsp'>http://localhost:8080/xyw/findpswd.jsp</a>" +
 						          "<br><br><br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp校游网客户服务中心</body></html>", true);
 					}
 				});

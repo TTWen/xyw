@@ -25,12 +25,14 @@ public class FindPswdServ extends HttpServlet {
 		response.setCharacterEncoding("utf-8");
 
 		String pswd = request.getParameter("pswd1");
-		String email = (String)request.getSession().getAttribute("txt_logemail");
-		
+		System.out.println(pswd);
+		/*String email = (String)request.getSession().getAttribute("txt_logemail");
+		System.out.println(email);*/
 		DAO dao = DAOFactory.getDaoInstance();
-		Member mem = (Member)dao.findById("tblmember", email, Member.class, "email");
+		Member mem = (Member)dao.findById("tbluser", "654819598@qq.com", Member.class, "email");
 		String id = mem.getId();
-		if(dao.modigypswd("tblmember", pswd, id) == true){
+		System.out.println(id);
+		if(dao.modigypswd("tbluser", pswd, id) == true){
 			request.getRequestDispatcher("login.jsp").forward(request, response);		
 		};
 	}

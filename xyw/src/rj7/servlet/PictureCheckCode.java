@@ -82,7 +82,7 @@ public class PictureCheckCode extends HttpServlet {
                      itmp=random.nextInt(26)+65;  
                      ctmp=String.valueOf((char)itmp);  
                      break;  
-                case 2:     //生成汉字  
+                /*case 2:     //生成汉字  
                      String[] rBase={"0","1","2","3","4","5","6","7","8","9","a","b","c","d","e","f"};   
                      //生成第一位区码  
                      int r1=random.nextInt(3)+11;  
@@ -119,7 +119,7 @@ public class PictureCheckCode extends HttpServlet {
                      int tempHigh=Integer.parseInt(str_34, 16);  
                      bytes[1]=(byte)tempHigh;  
                      ctmp=new String(bytes);  
-                     break;  
+                     break;  */
                 default:  
                      itmp=random.nextInt(10)+48;  
                      ctmp=String.valueOf((char)itmp);  

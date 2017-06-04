@@ -18,6 +18,8 @@
     		}
         }
 </script>
+	<%String email = (String)request.getSession().getAttribute("txt_logemail");
+	System.out.println(email);%>
 <form action="FindPswdServ" name="changepswd" id="changepswd" method="post">
 <h1>邮箱重置密码</h1>
 <h2>尊敬的用户，你好！</h2>
