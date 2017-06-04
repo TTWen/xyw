@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@page import="rj7.mail.Mail"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -10,17 +11,27 @@
 <script type="text/javascript" src="images/login.js"></script>
 <link href="css/findpswd.css" rel="stylesheet" type="text/css" />
 </head>
+<script type="text/javascript">   
+ function a()    
+{    
+ alert("邮件发送成功，请注意查收！");   
+ }    
+ </script>    
 <body>
+<%String email = (String)session.getAttribute("txt_logemail");%>
 <div class="box01 box01_c pwd_box ">
         <div class="box_hd hd02"><h1>重置登录密码</h1></div>
         <div class="box_bd">
             <div class="pwd_setp2 clearfix">
 				<div class="mt10 newsafe_ways phoneway">
-		            <button class="btn_l3_disable" type="button" id="btn_mobile" disabled="disabled"><span><em>手机验证重置</em></span></button>
+		            <button class="btn_l3_disable" type="button" id="btn_mobile">
+		            <span><em>手机验证重置</em></span></button>
 		            <span>您可以通过有效的绑定手机重置登录密码。</span><b></b>
 		        </div>
 		        <div class="mt10 newsafe_ways mailway">
-		            <button class="btn_l3_disable" type="button" id="btn_email" disabled="disabled"><span><em>邮箱验证重置</em></span></button>
+		            <button class="btn_l3_disable" type="button" id="btn_email"
+		            onClick="window.location.href='MailServ?method=post'">
+		            <span><em>邮箱验证重置</em></span></button>
 		            <span>您可以通过有效的绑定邮箱重置登录密码。</span><b></b>
 		        </div>
 		        <div class="mt10 newsafe_ways telway">
@@ -29,8 +40,6 @@
 		        </div>
 		    </div>
         </div>
-        <div id="dv_mask" style=" display:none;"></div>
-        <input type="hidden" id="page_id" value="100005" />
     </div>
 </body>
 </html>
