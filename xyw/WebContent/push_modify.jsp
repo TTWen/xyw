@@ -5,6 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="css/pushadd.css" rel="stylesheet" type="text/css" />
 <title>更新推送</title>
 </head>
 <body>
@@ -13,20 +14,26 @@
 	response.setCharacterEncoding("utf-8");
 	Push p =(Push)request.getAttribute("push");
 %>
-${reback}
-<form action="PushModifyServ" method="post" style="text-align:center" enctype ="multipart/form-data">
-<tr>标题<input type="text"  id="head" name="head" value="<%=p.getHead()%>"  style="width:100px;height:20px;"></tr><br><br>          
-<tr>正文<textarea rows="3" cols="30" id="content"  name="content"><%out.println(p.getContent());%></textarea></tr><br><br>		
-<tr>图片<image src="<%=p.getUrlpush()%>"></tr></br></br>
-<tr><input type="hidden" name="urlpush"  value="<%=p.getUrlpush()%>"></tr>
-<tr><input type="file" name="picture" ></tr></br></br>
-<select name="select">类型
+<div class="elegant-aero">
+<form action="PushModifyServ" method="post" style="text-align:center" >
+<input type="hidden" name="pid" value="<%=p.getPid()%>">
+<input type="hidden" name="browsecnt" value="<%=p.getBrowsecnt()%>">
+<input type="hidden" name="cltcnt" value="<%=p.getCltcnt()%>">
+<input type="hidden" name="cmtcnt" value="<%=p.getCmtcnt()%>">
+<input type="hidden" name="likecnt" value="<%=p.getLikecnt()%>">
+<input type="hidden" name="shrecnt" value="<%=p.getShrecnt()%>">
+<input type="hidden" name="tsmtcnt" value="<%=p.getTsmtcnt()%>">
+标题<input type="text"  name="head" value="<%=p.getHead()%>"><br><br>          
+<textarea  name="content"><%out.println(p.getContent());%></textarea><br><br>		
+<select name="type" >类型
+<option selected="selected"><%=p.getType()%></option> 
 <option  value="文章">文章</option>
 <option  value="公告">公告</option>
-<option  value="新闻">新闻</option>
+<option  value="广告">广告</option>
 </select>
 </tr><br><br>
 <tr><input type="submit" name="修改" value="修改"></tr>
 </form>
-</body>>
+</div>
+</body>
 </html>
