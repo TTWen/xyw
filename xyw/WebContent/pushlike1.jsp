@@ -8,6 +8,7 @@
 <link href="css/pushlike1.css" rel="stylesheet" type="text/css">
 </head>
 <body>
+${reback}
 <form action="PushlikeServ" method="post" style="text-align:center">
 <tr><input type="hidden" name="flag" value="pushlike_add" /></tr>
 <tr>点赞人ID 　<input type="text" name="likename" size="20"  style="width:200px;height:30px;margin-top:10px;border:2px solid lightblue;" /></tr>

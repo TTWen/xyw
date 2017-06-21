@@ -5,20 +5,20 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import rj7.bean.pushlike;
-import rj7.dao.pushlike.pushlikeDAOProxy;
+import rj7.bean.pushclt;
+import rj7.dao.pushclt.pushcltDAOProxy;
 
 /**
  * 推送点赞servlet
  *  @author 郑向前
  *  2017-5-15
  */
-@WebServlet("/PushlikeServ")
-public class PushlikeServ extends HttpServlet {
+@WebServlet("/PushcltServ")
+public class PushcltServ extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     
 	//构造方法
-    public PushlikeServ() {
+    public PushcltServ() {
         super();   
     }
 
@@ -34,12 +34,12 @@ public class PushlikeServ extends HttpServlet {
 		String flag = null;
 		flag = (String) request.getParameter("flag");//parameter参数
 		try {
-			  if("pushlike_add".equals(flag)){
+			  if("pushclt_add".equals(flag)){
 				  this.doadd(request,response);
 			  }
-			  else if("pushlike_delete".equals(flag)){
+			  else if("pushclt_delete".equals(flag)){
 				  this.dodelete(request, response);
-			  }else if("pushlike_modify".equals(flag)){
+			  }else if("pushclt_modify".equals(flag)){
 				  this.domodify(request,response);
 			  }else{
 				  this.dosearch(request,response);
@@ -56,13 +56,13 @@ public class PushlikeServ extends HttpServlet {
 	private void doadd(HttpServletRequest request, HttpServletResponse response)
 	                throws Exception{
 		//推送点赞对象
-		pushlike t = new pushlike();
+		pushclt t = new pushclt();
 		//推送代理类
-		pushlikeDAOProxy tp= new pushlikeDAOProxy();
+		pushcltDAOProxy tp= new pushcltDAOProxy();
 		//将获取的页面信息封装到javabean
         //		t.setPtid("3");
-		t.setLikeid(request.getParameter("likename"));
-		t.setLikedid(request.getParameter("likedname"));
+		t.setCltid(request.getParameter("cltname"));
+		t.setCltdid(request.getParameter("cltdname"));
 		
       	//调用代理类方法进行添加
 		if(tp.doCreate(t)){
@@ -70,7 +70,7 @@ public class PushlikeServ extends HttpServlet {
 		}else{
 			request.setAttribute("reback", "添加失败");
 		}
-		request.getRequestDispatcher("VVpushlike1.jsp").forward(request, response);
+		request.getRequestDispatcher("pushclt.jsp").forward(request, response);
 		return;
 		
 	}
