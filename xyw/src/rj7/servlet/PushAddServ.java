@@ -41,16 +41,16 @@ public class PushAddServ
     t.setStatus("0");
     DiskFileItemFactory factory = new DiskFileItemFactory();
     factory.setSizeThreshold(512000);
-    File temp = new File("d:\\temp");
+    File temp = new File("e:\\temp");
     factory.setRepository(temp);
     ServletFileUpload upload = new ServletFileUpload(factory);
     upload.setHeaderEncoding("UTF-8");
-    upload.setSizeMax(5242880L);
+    upload.setSizeMax(115242880L);
     try
     {
       @SuppressWarnings("unchecked")
 	List<FileItem> items = upload.parseRequest(request);
-      String fileName = "d:\\pushimages\\ ";
+      String fileName = "e:\\pushimages\\ ";
       for (FileItem item : items) {
         if (item.isFormField())
         {
@@ -70,7 +70,6 @@ public class PushAddServ
         {
            
           String fName = item.getName();//文件名
-          System.out.println("=========="+fileName);
           if (!"".equals(fName))
           {
             int index = fName.lastIndexOf("\\");
@@ -82,8 +81,7 @@ public class PushAddServ
             byte[] buffer = new byte[1024];
             int len = 0;
             fileName = fileName + fName+' ';
-            fName = "d:\\pushimages\\" + fName;
-            System.out.println("=========="+fileName);
+            fName = "e:\\pushimages\\" + fName;
             OutputStream out = new FileOutputStream(fName);//输出位置
             while ((len = in.read(buffer)) != -1) {
               out.write(buffer, 0, len);

@@ -35,7 +35,7 @@ public class PushShowServ
     {
       pageindex = this.pagenum;
     }
-    int pagenum = 20;
+    int pagenum = 10;
     request.setAttribute("curpagenum", Integer.valueOf(pageindex));
     DAO dao = new DAO();
     List<Object> push = dao.pageQuery("tblpush", Push.class, pageindex, pagenum, null);

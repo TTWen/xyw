@@ -20,7 +20,7 @@ public class QueryDAOImpl implements IQueryDAO{
 	 
 	 public ArrayList<Member> queryUser(Member member, int age1, int age2){
 		 Connect conn=Connect.getInstance();
-		 String sql = "select id,username from tblmember where 1=1";
+		 String sql = "select id,username from tbluser where 1=1";
 		 List<Object> param=new ArrayList<Object>();
 		 if(member.getUsername()!=null)
 		 {

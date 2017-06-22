@@ -5,6 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>校游网首页</title>
+<script src="js/jquery-1.11.3.min.js"></script>
 <link rel="stylesheet" href="css/bootstrap.css">
 <link rel="stylesheet" href="css/font-awesome.min.css">
 <link rel="stylesheet" href="css/owl.carousel.css">
@@ -19,8 +20,14 @@
 <body>
 <%
 String crtuid = (String)session.getAttribute("crtuid");
-//crtuid = null;
 %>
+<script type="text/javascript">
+function search(){
+	var key = $('#searchkey').val();
+	window.location.href = "QueryFriendsServlet?dowhat=indexQuery&key=" + key;
+}
+</script>
+
 <header>
 	<div class="top-news">
 		   <div class="container-fluid">
@@ -81,7 +88,6 @@ String crtuid = (String)session.getAttribute("crtuid");
 										  <%
 									  }
 									  %>
-									  
 									</ul>
 								  </div><!--/.nav-collapse -->
 						  </nav>
@@ -120,7 +126,7 @@ String crtuid = (String)session.getAttribute("crtuid");
 					<div class="m-slider-content">
 						
 						<h1 class="text-bold text-uppercase title white ls-2">互助游，一场随心的旅行。</h1>
-					
+						
 					</div>
 				</div>
 			</div>
@@ -148,6 +154,13 @@ String crtuid = (String)session.getAttribute("crtuid");
 <section class="highlights no-margin">
 	<div class="container">
 		<div class="row">
+			<div class="col-md-12">
+				<div class="input-group col-md-6 input-group-lg" style="float: right;opacity:0.4">
+					<form action=""></form>
+		            <input type="text" id="searchkey" class="form-control " placeholder="搜索你感兴趣的内容">
+		            <span class="input-group-addon" onclick="search()">搜索</span> 
+		        </div>
+			</div>
 			<div class="col-md-12">
 				<h4 class="title text-uppercase white text-bold">旅游摄影</h4>
 			</div>
@@ -184,6 +197,7 @@ String crtuid = (String)session.getAttribute("crtuid");
 					</div>
 				</div>
 			</div>
+
 			<div class="item">
 				<div class="row">
 					<div class="col-sm-4 text-center mt-40">

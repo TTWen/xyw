@@ -86,8 +86,8 @@
   </table> 
 </form>  
 
-<%int curpagenum =(int)request.getAttribute("curpagenum");
-  int tail =(int)request.getAttribute("pagecount");
+<%int curpagenum =(Integer)request.getAttribute("curpagenum");
+  int tail =(Integer)request.getAttribute("pagecount");
   int pre=0;
   int next=0;
   if(curpagenum>0){
