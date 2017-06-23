@@ -50,4 +50,18 @@ private IRealDAO dao = null;
 	public int editRis(String rid) {
 		return this.dao.editRis( rid);
 	}
+
+//分页查找
+	public List<Object> findPage(int pages, int limit, String keyword) {
+		return this.dao.findPage(pages, limit, keyword);
+	}
+
+	public int recordNum(String keyword) {
+		return this.dao.recordNum(keyword);
+	}
+//
+	public List<Object> findByuserid(String userid) {
+		return this.dao.findByuserid(userid);
+	}
+
 }
