@@ -1,0 +1,27 @@
+.myinfo
+{
+	 width:1200px;
+	 margin:0 auto; 
+}
+.img {
+
+      height: 60%;
+      width: 60%;
+      float:left;
+  }
+.cen_text1{
+     width:1200px;
+     margin:40px auto;
+ }
+.img1{
+  	height: 5%;
+    width: 5%;
+    vertical-align: middle;
+    border-radius: 25%;
+}
+.context{
+	float:left;
+	font-family:楷体;
+	color:lightsalmon; 
+	font-size:20px;
+}
