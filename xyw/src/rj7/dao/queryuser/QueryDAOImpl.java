@@ -34,8 +34,8 @@ public class QueryDAOImpl implements IQueryDAO{
 		 }
 		 if(member.getCity()!=null)
 		 {
-			 sql=sql+" and city = ?";
-			 param.add(member.getCity());
+			 sql=sql+" and city LIKE ?";
+			 param.add("%"+member.getCity()+"%");
 		 }
 			 sql=sql+" and age >= ? and age <= ?";
 			 param.add(String.valueOf(age1));

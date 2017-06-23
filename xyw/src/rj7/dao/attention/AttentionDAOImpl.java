@@ -82,7 +82,7 @@ public class AttentionDAOImpl implements IAttentionDAO{
   		ArrayList<Object> list = new ArrayList<Object>();
   		for(int i=0;i<rs.size();i++){
   		  Attention atten = (Attention)rs.get(i);
-   		  String sql2 = "select username,id from tblMember where id = ?";
+   		  String sql2 = "select username,id from tbluser where id = ?";
    		  List<Object> param2 = new ArrayList<Object>();
    		  String id1 = atten.getAttenid();
    		  param2.add(id1);
@@ -108,7 +108,7 @@ public class AttentionDAOImpl implements IAttentionDAO{
  		ArrayList<Object> list = new ArrayList<Object>();
  		for(int i=0;i<rs.size();i++){
  		  Attention atten = (Attention)rs.get(i);
-  		  String sql2 = "select username,id from tblMember where id = ?";
+  		  String sql2 = "select username,id from tbluser where id = ?";
   		  List<Object> param2 = new ArrayList<Object>();
   		  String id1 = atten.getUserid();
   		  param2.add(id1);
