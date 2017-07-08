@@ -29,7 +29,7 @@ public class test {
 				System.out.println(member1.getUsername());
 				String id1 = member1.getId();
 				member2 = (MemberDetail) d.findById(tbl, id1, MemberDetail.class, idname);
-				System.out.println(member2.getIconurl());
+				System.out.println(member2.getIcon());
 			}
 		}
 		catch (Exception e)

@@ -1,0 +1,20 @@
+@CHARSET "UTF-8";
+html{
+	}
+body{
+	font-family:"Microsoft Yahei";
+	font-size:20px;
+	margin:0;	
+}	
+.like{
+	margin:0 auto;
+	width:380px;
+	border:2px solid #eee;
+	border-bottom:none;
+	position:relative;
+}
+
+.button1{
+	align="center";
+	font-size:20px;
+}

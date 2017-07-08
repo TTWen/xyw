@@ -30,16 +30,19 @@ public class RealCekServ extends HttpServlet {
 		response.setCharacterEncoding("utf-8");
 //		参数
 		String check=request.getParameter("check");
+		System.out.print("check "+check);
 		String rid=request.getParameter("rid");
 //		通过和不通过的处理
 		RealDAOProxy proxy= new RealDAOProxy();
-		if(check=="1"){                          //通过
-			proxy.editRis(rid);
-			request.getRequestDispatcher("realcheck.jsp").forward(request, response);
-		}
-		else{                          //不通过
+		if("0".equals(check)){                          //不通过
 			proxy.deleteReal(rid);
 			request.getRequestDispatcher("realcheck.jsp").forward(request, response);
+			
+		}
+		else if("1".equals(check)){
+			proxy.editRis(rid);
+			request.getRequestDispatcher("realcheck.jsp").forward(request, response);//通过
+			
 		}		
 	}
 }

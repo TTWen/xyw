@@ -1,5 +1,6 @@
 package rj7.dao.push;
 import java.util.*;
+
 import rj7.bean.Push;
 import rj7.util.Connect;
 /**
@@ -13,7 +14,6 @@ public class PushDAOProxy implements IPushDAO {
 	Connect conn = Connect.getInstance();
 	//增加推送
 	public boolean doCreate(Push t) throws Exception {
-		// TODO Auto-generated method stub
 		boolean flag = false;
 		if(dao.doCreate(t)){
 			flag = true;
@@ -23,7 +23,6 @@ public class PushDAOProxy implements IPushDAO {
 
 	//删除推送
 	public boolean doDelete(String pid) throws Exception {
-		// TODO Auto-generated method stub
 		boolean flag = false;
 		if(this.dao.doDelete(pid)){
 			flag = true;
@@ -32,7 +31,6 @@ public class PushDAOProxy implements IPushDAO {
 	}
 	//修改推送
 	public boolean doUpdate(Push t) throws Exception {
-		// TODO Auto-generated method stub
 		boolean flag = false;
 		if(this.dao.doUpdate(t)){
 			flag = true;
@@ -41,34 +39,46 @@ public class PushDAOProxy implements IPushDAO {
 	}
 
 	//查找所有
-	public List<Object> findAll() throws Exception {
-		// TODO Auto-generated method stub
-		List<Object> list = null;
+	public ArrayList<Push> findAll() throws Exception {
+		ArrayList<Push> list = null;
 		list = this.dao.findAll();
 		return list; 
 	}
 	
 	//按照id查找
-	public Object findByid(String pid) throws Exception {
-		// TODO Auto-generated method stub
-		Object obj = null;
-		obj = this.dao.findByid(pid);
-		return obj; 
+	public Push findByid(String pid) throws Exception {
+		Push p = null;
+		p = this.dao.findByid(pid);
+		return p; 
 	}
 
 	//按照类型查找
-	public List<Object> findBytype(String type) throws Exception {
-		// TODO Auto-generated method stub
-		List<Object> list = null;
+	public ArrayList<Push> findBytype(String type) throws Exception {
+		ArrayList<Push> list = null;
 		list = this.dao.findBytype(type);
 		return list; 
 	}
 
 	//按照热度查找
-	public List<Object> findByhot() throws Exception {
-		// TODO Auto-generated method stub
-		List<Object> list = null;
-		list = this.dao.findByhot();
+	public ArrayList<Push> findByhot(Date datebefore,Date dateafter) throws Exception {
+		ArrayList<Push> list = null;
+		list = this.dao.findByhot(datebefore,dateafter);
 		return list; 
 	}
+	
+	//按照时间查找
+	public ArrayList<Push> findBytime(Date datebefore, Date dateafter) throws Exception {
+		ArrayList<Push> list = null;
+		list = this.dao.findBytime(datebefore, dateafter);
+		return list; 
+	}
+
+	//查找最近
+	public ArrayList<Push> findRecent() throws Exception {
+		ArrayList<Push> list = null;
+		list = this.dao.findRecent();
+		return list; 
+	}
+
+
 }

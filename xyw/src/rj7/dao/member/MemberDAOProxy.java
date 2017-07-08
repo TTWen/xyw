@@ -4,9 +4,9 @@ import rj7.bean.Member;
 
 /**
  * 会员dao层代理类
- * @author 梁爽爽  2017.4.22
- *
+ * @author 梁爽爽
  */
+
 public class MemberDAOProxy implements IMemberDAO {
 
 	private IMemberDAO dao = null;
@@ -14,6 +14,11 @@ public class MemberDAOProxy implements IMemberDAO {
 	public MemberDAOProxy() {
 		
 		this.dao = new MemberDAOImpl();
+	}
+
+	public boolean modifyInfo(Member mem) {
+		if( dao.modifyInfo(mem) ) return true;
+		return false;
 	}
 	
 	

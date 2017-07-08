@@ -7,7 +7,7 @@ h1,h2,h3,h4,h5,h6{font-size:100%;}
 em{font-style:normal;}
 a{color:#0066cc;}
 
-.btn_l3 span,.btn_l3 em,.btn_l3_disable span,.btn_l3_disable em,.btn_l4 span,.btn_l4 em,.btn3_l1,.btn3_l1 span,.btn3_l1_disable
+.btn_l3 span,.btn_l3 em,.btn_l3_disable span,.btn_l3_disable em
 {display:inline-block;background-image:url(http://pic.c-ctrip.com/myctripv2/btn_myctrip.png?121126.png);background-position:0 -9999em;background-repeat:no-repeat;}
 /* input style */
 .m_input{height:25px;padding-left:3px;margin-right:10px;line-height:25px;border:1px solid #b4b4b4;box-shadow:1px 1px 3px #ddd inset;vertical-align:middle;font-family:Arial;}

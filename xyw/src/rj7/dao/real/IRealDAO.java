@@ -15,6 +15,9 @@ public interface IRealDAO {
 	public int insertRealstu(Real real);//插入学生数据
 	public List<Object> findByris(String ris);//查询没有审核学生
 	public int  editRis(String rid);//审核通过
+	public List<Object> findPage(int pages, int limit, String ris);//分页查找
+	public int recordNum(String keyword);//计算按ris查找的数量
+	public List<Object> findByuserid(String userid);
  
 }
 //

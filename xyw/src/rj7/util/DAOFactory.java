@@ -25,17 +25,17 @@ public class DAOFactory {
 	}
 	
 	// 获取关注dao实例
-	public static IAttentionDAO getIAttentionDAOInstance() throws Exception {
+	public static IAttentionDAO getIAttentionDAOInstance() {
 		return new AttentionDAOProxy();
 	}
 	
 	// 获取会员dao实例
-	public static IMemberDAO getIMemberDAOInstance() throws Exception {
+	public static IMemberDAO getIMemberDAOInstance() {
 		return new MemberDAOProxy();
 	}
 	
 	// 获取聊天dao实例
-	public static IChatDAO getIChatDAOInstance() throws Exception {
+	public static IChatDAO getIChatDAOInstance() {
 		return new ChatDAOProxy();
 	}
 	
@@ -45,7 +45,7 @@ public class DAOFactory {
 //	}
 	
 	// 获取查询dao实例
-	public static IQueryDAO getIQueryDAOInstance() throws Exception {
+	public static IQueryDAO getIQueryDAOInstance() {
 		return new QueryDAOProxy();
 	}
 	

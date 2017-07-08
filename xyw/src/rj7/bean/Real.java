@@ -4,7 +4,7 @@ public class Real {
 	private String rid;//表示主键
 	private String idcard;//身份证号码
 	private String name;//真实姓名
-	private String filesurl;//真实资料地址
+	private String userid;//用户ID
 	private String iconurl;//真实头像
 	private String adress;//地址
 	private String post;//邮编
@@ -43,11 +43,12 @@ public class Real {
 		this.name = name;
 	}
 	
-	public String getFilesurl() {
-		return filesurl;
+	
+	public String getUserid() {
+		return userid;
 	}
-	public void setFilesurl(String filesurl) {
-		this.filesurl = filesurl;
+	public void setUserid(String userid) {
+		this.userid = userid;
 	}
 	public String getIconurl() {
 		return iconurl;

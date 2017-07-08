@@ -2,6 +2,7 @@ package rj7.servlet;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -27,27 +28,48 @@ public class RealIdServ extends HttpServlet {
 	
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		try {
+			idreal(request,response);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+//插入实名认证信息
+	private void idreal(HttpServletRequest request, HttpServletResponse response)throws Exception
+	{
 //      获取表单数据		
 		response.setContentType("text/html");		
 		response.setCharacterEncoding("utf-8");
-//		参数
+		request.setCharacterEncoding("utf-8");
+
+		//		参数
+		String userid=(String)request.getSession().getAttribute("crtuid");
+		System.out.println("yonghu "+userid);
 		String adress=request.getParameter("adress");
 		String idcard=request.getParameter("idcard");
 		String name=request.getParameter("name");
-		String rid=request.getParameter("rid");		
+//		String rid=request.getParameter("rid");		
 		String post=request.getParameter("post");
+		System.out.print("dizhi "+adress);
 //		给表字段赋值
 		Real real=new Real();
-		real.setRid(rid);
+//		real.setRid(rid);
 		real.setAdress(adress);
 		real.setIdcard(idcard);
 		real.setName(name);
 		real.setPost(post);
+		real.setUserid(userid);
 	
 //		插入表
 		RealDAOProxy proxy= new RealDAOProxy();
-		if(proxy.insertReal(real)!=0){
+        int b=proxy.insertReal(real);
+        System.out.print("b "+b);
+		if(b!=0){
 		request.getRequestDispatcher("gotostu.jsp").forward(request, response);}
+	
 	}
+//获得创建表的ID号
 
 }
