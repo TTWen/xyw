@@ -10,7 +10,7 @@ import rj7.bean.Idle;
 import rj7.util.Connect;
 
 /**
- * 闲置物品dao层接口实现
+ * 闲置物品dao层接口实现 
  * @author 闻婷  2017.4.23
  *
  */

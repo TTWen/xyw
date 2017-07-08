@@ -6,7 +6,7 @@ import rj7.bean.Idle;
 import rj7.util.Connect;
 
 /**
- * 闲置物品dao层代理类
+ * 闲置物品dao层代理类 
  * @author 闻婷  2017.4.23
  *
  */

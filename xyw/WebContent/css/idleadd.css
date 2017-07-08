@@ -4,32 +4,32 @@ body {
 	font: 14px/21px "Lucida Sans", "Lucida Grande", "Lucida Sans Unicode", sans-serif;
 }
 
-.idledetail_form {
+.addidle_form {
 	border:1px solid #DDDDDD;
 	padding:10px;
 	width:760px;
-	margin:80px auto 0 auto;
+	margin:40px auto 0 auto;
 }
 
-.idledetail_form ul {
+.addidle_form ul {
 	list-style-type:none;
 	list-style-position:outside;
 	margin:0px;
 	padding:0px;
 }
 		
-.idledetail_form li {
+.addidle_form li {
 	padding:12px;
 	border-bottom:1px solid #eee;
 	position:relative;
 } 
 		
-.idledetail_form li:first-child,
+.addidle_form li:first-child,
 .contact_form li:last-child {
 	border-bottom:1px solid #777;
 }
 
-.idledetail_form h2 {
+.addidle_form h2 {
 	margin:0;
 	display: inline;
 }
@@ -42,24 +42,24 @@ body {
 
 }
 
-.idledetail_form label {
+.addidle_form label {
 	width:150px;
 	margin-top: 3px;
 	display:inline-block;
 	float:left;padding:3px;
 }
 
-.idledetail_form input textarea {
+.addidle_form input textarea {
 	height:20px; 
 	width:220px; 
 	padding:5px 8px;
 }
 
-.idledetail_form button {
+.addidle_form button {
 	margin-left:156px;
 }
 
-.idledetail_form input textarea{
+.addidle_form input textarea{
 	border:1px solid #aaa;
 	box-shadow: 0px 0px 3px #ccc, 0 10px 15px #eee inset;
 	border-radius:2px;
@@ -68,24 +68,24 @@ body {
 	transition: padding .25s;
 }
 
-.idledetail_form input:focus textarea:focus{
+.addidle_form input:focus textarea:focus{
 	background: #fff;
 	border:1px solid #555;
 	box-shadow: 0 0 3px #aaa;
 	padding-right:70px;
 }
 		
-.idledetail_form input:required textarea:required{
+.addidle_form input:required textarea:required{
 	background: #fff url(images/xxx.png) no-repeat 98% center;
 }
 		
-.idledetail_form input:required:valid textarea:required:valid{
+.addidle_form input:required:valid textarea:required:valid{
 	background: #fff url(images/xxx.png) no-repeat 98% center;
 	box-shadow: 0 0 5px #5cd053;
 	border-color: #28921f;
 }
 		
-.idledetail_form input:focus:invalid textarea:focus:invalid{
+.addidle_form input:focus:invalid textarea:focus:invalid{
 	background: #fff url(images/xxx.png) no-repeat 98% center;
 	box-shadow: 0 0 5px #d45252;border-color: #b03535
 }

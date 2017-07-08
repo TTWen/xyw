@@ -5,7 +5,7 @@ import java.util.List;
 import rj7.bean.Idle;
 import rj7.bean.IdleFile;
 
-/**
+/** 
  * 闲置物品图片dao层代理类
  * @author TTWen 2017.6.19
  *

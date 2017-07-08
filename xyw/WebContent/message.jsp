@@ -4,7 +4,7 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<title>全局页面显示消息</title>
-	</head>
+	</head> 
 	<body>
 		${message }
 	</body>

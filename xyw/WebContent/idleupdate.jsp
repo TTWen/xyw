@@ -13,7 +13,7 @@
 		<link rel="stylesheet" media="screen" href="styles.css" >
 		<link rel="stylesheet" type="text/css" href="css/updateidle.css">
 	</head>
-	<body>
+	<body> 
 		<form class="updateidle_form" action="IdleServ?method=updateidle&method1=addfile" method="post" name="updateidle_form">
 			<ul>
 				<%

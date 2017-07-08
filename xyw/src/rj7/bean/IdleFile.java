@@ -3,7 +3,7 @@ package rj7.bean;
 import java.util.Date;
 
 /**
- * 闲置物品图片Javabean
+ * 闲置物品图片Javabean 
  * @author TTWen 2017.6.19
  *
  */

@@ -5,7 +5,7 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<title>添加一个闲置物品</title>
-
+ 
 		<link rel="stylesheet" media="screen" href="styles.css" >
 		<link rel="stylesheet" type="text/css" href="css/idleadd.css">
 		<script type="text/javascript" src="js/jquery-1.9.0.min.js"></script>

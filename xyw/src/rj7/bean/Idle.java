@@ -1,6 +1,6 @@
 package rj7.bean;
 
-//闲置物品的Javabean
+//闲置物品的Javabean 
 public class Idle
 {
 	private String idleid;//闲置物品id

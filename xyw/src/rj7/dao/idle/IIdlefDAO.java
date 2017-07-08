@@ -6,7 +6,7 @@ import rj7.bean.Idle;
 import rj7.bean.IdleFile;
 
 /**
- * 闲置物品图片dao层接口
+ * 闲置物品图片dao层接口 
  * @author TTWen 2017.6.19
  *
  */

@@ -11,7 +11,7 @@ import rj7.bean.IdleFile;
 import rj7.util.Connect;
 
 /**
- * 闲置物品图片dao层接口实现
+ * 闲置物品图片dao层接口实现 
  * @author TTWen 2017.6.19
  *
  */

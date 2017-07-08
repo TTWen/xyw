@@ -4,7 +4,7 @@ import java.util.List;
 import rj7.bean.Idle;
 
 /**
- * 闲置物品dao层接口
+ * 闲置物品dao层接口 
  * @author 闻婷  2017.4.23
  * 
  */

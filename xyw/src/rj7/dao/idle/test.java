@@ -6,7 +6,7 @@ import rj7.bean.Idle;
 import rj7.bean.IdleFile;
 
 //wt的test
-public class test
+public class test 
 {
 	//测试按照id查找闲置物品
 	/*@Test
