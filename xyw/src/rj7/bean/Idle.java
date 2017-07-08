@@ -6,8 +6,7 @@ public class Idle
 	private String idleid;//闲置物品id
 	private String memid;//闲置物品拥有者用户id
 	private String idlename;//闲置物品名称
-	private String idledetail;//存放闲置物品的详情描述
-	private String idlepicurl;//存放闲置物品图片的URLַ
+	private String idledetail;//存放闲置物品的详情描述ַ
 	private String idletype;//存放闲置物品的类型，forfree还是forsale
 	private String idletime;//存放闲置物品的发布时间
 	
@@ -34,12 +33,6 @@ public class Idle
 	}
 	public String getIdledetail() {
 		return idledetail;
-	}
-	public String getIdlepicurl() {
-		return idlepicurl;
-	}
-	public void setIdlepicurl(String idlepicurl) {
-		this.idlepicurl = idlepicurl;
 	}
 	public void setIdledetail(String idledetail) {
 		this.idledetail = idledetail;

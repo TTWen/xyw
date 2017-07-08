@@ -98,5 +98,20 @@ public class IdleDAOProxy implements IIdleDAO {
 		}
 		return useridle;
 	}
-	
+
+	//按照用户id查找最后一个闲置物品的id
+	@Override
+	public Object findLastByIdle(String memid) throws Exception {
+		return (Object) this.dao.findLastByIdle(memid);		
+	}
+
+	//分页查找
+	public List<Object> findPage(int pages, int limit, String keyword) {
+		return this.dao.findPage(pages, limit, keyword);
+	}
+
+	public int recordNum(String keyword) {
+		return this.dao.recordNum(keyword);
+	}
+
 }

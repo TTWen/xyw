@@ -27,4 +27,12 @@ public interface IIdleDAO {
  	
  	//修改一个闲置物品的信息
  	public boolean updateIdle(Idle idle)throws Exception;
+ 	
+ 	//按照用户id查找最后一个闲置物品的id
+ 	public Object findLastByIdle(String memid)throws Exception;
+
+ 	//分页查找渣
+	public List<Object> findPage(int pages, int limit, String keyword);
+
+	public int recordNum(String keyword);
  }

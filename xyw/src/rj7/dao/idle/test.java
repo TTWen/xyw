@@ -1,12 +1,9 @@
 package rj7.dao.idle;
 
-import java.util.Date;
-import java.util.List;
-
 import org.junit.Test;
 
 import rj7.bean.Idle;
-import rj7.util.DAOFactory;
+import rj7.bean.IdleFile;
 
 //wt的test
 public class test
@@ -24,7 +21,7 @@ public class test
 	
 	
 	//测试查找全部闲置物品
-	@Test
+	/*@Test
 	public void test2()throws Exception
 	{
 		List list = new IdleDAOProxy().findAll();
@@ -40,13 +37,12 @@ public class test
 				System.out.println("memid = "+idle.getMemid());
 				System.out.println("idlename = "+idle.getIdlename());
 				System.out.println("idledetail = "+idle.getIdledetail());
-				System.out.println("idlepicurl = "+idle.getIdlepicurl());
 				System.out.println("idletype = "+idle.getIdletype());
 				System.out.println("idletime = "+idle.getIdletime());
 			}
 		}
 	}//测试完成
-
+*/
 	//按照用户id查找
 	/*@Test
 	public void test6() throws Exception
@@ -68,7 +64,7 @@ public class test
 	//测试增加闲置物品
 	/*@Test
 	public  void test3() throws Exception
-	{
+	{//测试完成
 		//String idleid = "14";
 		String memid = "4";
 		String idlename = "coffee";
@@ -82,17 +78,36 @@ public class test
 		idle.setMemid(memid);
 		idle.setIdlename(idlename);
 		idle.setIdledetail(idledetail);
-		idle.setIdlepicurl(idlepicurl);
 		idle.setIdletype(idletype);
 		idle.setIdletime(idletime);
 		
 		boolean b = new IdleDAOProxy().addIdle(idle);
+		System.out.println("b = "+b);
 		if(b)
 		{
 			System.out.println("闲置物品增加成功！");//输出：闲置物品增加成功！查询数据库该条数据增加成功
 		}
-	}//测试完成*/	
+	}*/
 	
+	@Test
+	public void test1() throws Exception
+	
+	{
+		IdleFile file = new IdleFile();
+		file.setIdleffilename("filename");
+		file.setIdlefid("1");
+		file.setIdlefsavepath("save");
+		file.setIdlefupdatetime("time");
+		file.setIdlefuuidname("uuid");
+		file.setIdleid("idleid");
+		System.out.println("idlefile = "+file);
+		boolean b = new IdlefDAOProxy().addIdlef(file);
+		System.out.println("b = "+b);
+		if(b)
+		{
+			System.out.println("号");
+		}
+	}
 	
 	//测试按照id号删除闲置物品
 	/*@Test
